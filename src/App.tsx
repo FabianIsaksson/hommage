@@ -3,6 +3,7 @@ import React, {
   MouseEventHandler,
   MutableRefObject,
   TouchEvent,
+  TouchEventHandler,
   useCallback,
   useEffect,
   useRef,
@@ -53,6 +54,7 @@ const useMouseDelta = (
       var closestSnap = snapSteps.reduce(function (prev, curr) {
         return Math.abs(curr - result) < Math.abs(prev - result) ? curr : prev;
       });
+
       setResult(closestSnap);
 
       return;
@@ -75,16 +77,89 @@ const useMouseDelta = (
   return [result, dragging];
 };
 
+const useTouchDelta = (
+  initialWidth: number,
+  snapSteps: number[],
+): [number, boolean] => {
+  const [result, setResult] = useState(initialWidth);
+  const [dragging, setDragging] = useState(false);
+  const previousClientX = useRef(0);
+
+  const handleTouchMove = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (!dragging) {
+        return;
+      }
+
+      const change = (e.touches[0].clientX - previousClientX.current) * 2; // speed up * 2
+      previousClientX.current = e.touches[0].clientX;
+
+      const newVal = result + change;
+      if (newVal < window.innerWidth && newVal > 0) {
+        setResult(newVal);
+      }
+    },
+    [dragging, result],
+  );
+
+  const handleTouchStart = useCallback((e) => {
+    previousClientX.current = e.touches[0].clientX;
+    setDragging(true);
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (e) => {
+      setDragging(false);
+
+      // handle snap
+      var closestSnap = snapSteps.reduce(function (prev, curr) {
+        return Math.abs(curr - result) < Math.abs(prev - result) ? curr : prev;
+      });
+
+      setResult(closestSnap);
+
+      return;
+    },
+    [result],
+  );
+
+  useEffect(() => {
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchend", handleTouchEnd);
+    window.addEventListener("touchmove", handleTouchMove);
+
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+      window.removeEventListener("touchmove", handleTouchMove);
+    };
+  }, [handleTouchStart, handleTouchEnd, handleTouchMove]);
+
+  return [result, dragging];
+};
+
 const getOverlayBkgStr = (val: number) =>
   `rgba(0, 0, 0, ${val < 0.5 ? val : 0.5})`;
 
 function App() {
+  const useTouch = "ontouchstart" in window;
   const halfWidth = window.innerWidth / 2;
-  const [width, dragging] = useMouseDelta(halfWidth, [
+
+  const [mouseWidth, mouseDragging] = useMouseDelta(halfWidth, [
     60,
     halfWidth,
     window.innerWidth - 60,
   ]);
+
+  const [touchWidth, touchDragging] = useTouchDelta(halfWidth, [
+    60,
+    halfWidth,
+    window.innerWidth - 60,
+  ]);
+
+  const width = useTouch ? touchWidth : mouseWidth;
+  const dragging = useTouch ? touchDragging : mouseDragging;
 
   const remainingWidth = window.innerWidth - width; // width for right pane
 
@@ -99,9 +174,7 @@ function App() {
             width: width,
             transition: dragging ? "" : "all 1s ease",
           }}
-          className={classNames("spsc-frame-left", {
-            // overlay: hovering === "right",
-          })}
+          className="spsc-frame-left"
         >
           {/* <p className="spsc-frame-text">{width}</p> */}
           <img
@@ -122,9 +195,7 @@ function App() {
             width: remainingWidth,
             transition: dragging ? "" : "all 1s ease",
           }}
-          className={classNames("spsc-frame-right", {
-            // overlay: hovering === "left",
-          })}
+          className="spsc-frame-right"
         >
           {/* <p className="spsc-frame-text">{window.innerWidth - width}</p> */}
           <img

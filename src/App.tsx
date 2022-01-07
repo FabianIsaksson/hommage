@@ -177,10 +177,10 @@ function App() {
       }
       let value = halfWidth;
       if (direction === "left") {
-        value = halfWidth - halfWidth * 0.1;
+        value = halfWidth - halfWidth * 0.2;
         direction = "right";
       } else if (direction === "right") {
-        value = halfWidth + halfWidth * 0.1;
+        value = halfWidth + halfWidth * 0.2;
         direction = "left";
       }
       if (useTouch) {

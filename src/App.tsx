@@ -1,12 +1,20 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  SetStateAction,
+  Dispatch,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import "./App.scss";
 import testBlue from "./static/images/test_blue.jpg";
 import testWhite from "./static/images/test_white.jpg";
+import montana from "./static/images/brand-logos/montana.png";
 
 const useMouseDelta = (
   initialWidth: number,
   snapSteps: number[],
-): [number, boolean] => {
+): [number, Dispatch<SetStateAction<number>>, boolean] => {
   const [result, setResult] = useState(initialWidth);
   const [dragging, setDragging] = useState(false);
   const previousClientX = useRef(0);
@@ -62,13 +70,14 @@ const useMouseDelta = (
     };
   }, [handleMouseDown, handleMouseUp, handleMouseMove]);
 
-  return [result, dragging];
+  return [result, setResult, dragging];
 };
 
 const useTouchDelta = (
   initialWidth: number,
+
   snapSteps: number[],
-): [number, boolean] => {
+): [number, Dispatch<SetStateAction<number>>, boolean] => {
   const [result, setResult] = useState(initialWidth);
   const [dragging, setDragging] = useState(false);
   const previousClientX = useRef(0);
@@ -124,23 +133,25 @@ const useTouchDelta = (
     };
   }, [handleTouchStart, handleTouchEnd, handleTouchMove]);
 
-  return [result, dragging];
+  return [result, setResult, dragging];
 };
 
 const getOverlayBkgStr = (val: number) =>
   `rgba(0, 0, 0, ${val < 0.5 ? val : 0.5})`;
 
+const getTextOpacity = (val: number) => (val > 0.4 ? val : 0);
+
 function App() {
   const useTouch = "ontouchstart" in window;
   const halfWidth = window.innerWidth / 2;
 
-  const [mouseWidth, mouseDragging] = useMouseDelta(halfWidth, [
+  const [mouseWidth, mouseSetWidth, mouseDragging] = useMouseDelta(halfWidth, [
     60,
     halfWidth,
     window.innerWidth - 60,
   ]);
 
-  const [touchWidth, touchDragging] = useTouchDelta(halfWidth, [
+  const [touchWidth, touchSetWidth, touchDragging] = useTouchDelta(halfWidth, [
     60,
     halfWidth,
     window.innerWidth - 60,
@@ -151,20 +162,58 @@ function App() {
 
   const remainingWidth = window.innerWidth - width; // width for right pane
 
+  const textOpLeft = getTextOpacity(width / halfWidth);
+  const textOpRight = getTextOpacity(remainingWidth / halfWidth);
+
   const bkgLeft = getOverlayBkgStr(1 - width / halfWidth);
   const bkgRight = getOverlayBkgStr(1 - remainingWidth / halfWidth);
+
+  // Idle animation
+  useEffect(() => {
+    let direction = "left";
+    const idle = setInterval(() => {
+      if (dragging) {
+        return;
+      }
+      let value = halfWidth;
+      if (direction === "left") {
+        value = halfWidth - halfWidth * 0.1;
+        direction = "right";
+      } else if (direction === "right") {
+        value = halfWidth + halfWidth * 0.1;
+        direction = "left";
+      }
+      if (useTouch) {
+        touchSetWidth(value);
+      } else {
+        mouseSetWidth(value);
+      }
+    }, 3000);
+
+    return () => {
+      clearInterval(idle);
+    };
+  }, [useTouch, dragging]);
 
   return (
     <div className="App">
       <div className="spsc">
         <div
+          className="spsc-frame-left"
           style={{
             width: width,
             transition: dragging ? "" : "all 1s ease",
           }}
-          className="spsc-frame-left"
         >
-          {/* <p className="spsc-frame-text">{width}</p> */}
+          <p
+            style={{
+              opacity: textOpLeft,
+              transition: dragging ? "" : "all 1s ease",
+            }}
+            className="spsc-frame-text"
+          >
+            MAYA SUNDHOLM
+          </p>
           <img
             className="spsc-frame-image"
             alt="spsc-frame"
@@ -179,13 +228,21 @@ function App() {
           ></div>
         </div>
         <div
+          className="spsc-frame-right"
           style={{
             width: remainingWidth,
             transition: dragging ? "" : "all 1s ease",
           }}
-          className="spsc-frame-right"
         >
-          {/* <p className="spsc-frame-text">{window.innerWidth - width}</p> */}
+          <p
+            style={{
+              opacity: textOpRight,
+              transition: dragging ? "" : "all 1s ease",
+            }}
+            className="spsc-frame-text"
+          >
+            HILDA FERM
+          </p>
           <img
             className="spsc-frame-image"
             alt="spsc-frame"
@@ -198,6 +255,13 @@ function App() {
             }}
             className="overlay"
           ></div>
+        </div>
+        <div className="spsc-logo">
+          <img
+            className="spsc-logo-image"
+            alt="spsc-logo-image"
+            src={montana}
+          ></img>
         </div>
       </div>
     </div>

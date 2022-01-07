@@ -193,7 +193,7 @@ function App() {
     return () => {
       clearInterval(idle);
     };
-  }, [useTouch, dragging]);
+  }, [useTouch, dragging, halfWidth, mouseSetWidth, touchSetWidth]);
 
   return (
     <div className="App">
@@ -257,11 +257,7 @@ function App() {
           ></div>
         </div>
         <div className="spsc-logo">
-          <img
-            className="spsc-logo-image"
-            alt="spsc-logo-image"
-            src={montana}
-          ></img>
+          <img className="spsc-logo-image" alt="spsc-logo" src={montana}></img>
         </div>
       </div>
     </div>

@@ -1,19 +1,7 @@
-import React, {
-  DOMAttributes,
-  MouseEventHandler,
-  MutableRefObject,
-  TouchEvent,
-  TouchEventHandler,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import logo from "./logo.svg";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "./App.scss";
 import testBlue from "./static/images/test_blue.jpg";
 import testWhite from "./static/images/test_white.jpg";
-import classNames from "classnames";
 
 const useMouseDelta = (
   initialWidth: number,
@@ -59,7 +47,7 @@ const useMouseDelta = (
 
       return;
     },
-    [result],
+    [result, snapSteps],
   );
 
   useEffect(() => {
@@ -121,7 +109,7 @@ const useTouchDelta = (
 
       return;
     },
-    [result],
+    [result, snapSteps],
   );
 
   useEffect(() => {

@@ -1,0 +1,23 @@
+.animated-scroll {
+  width: 100vw;
+  height: 800vh;
+  scroll-snap-type: y mandatory;
+  & img {
+    width: 100%;
+  }
+}
+
+canvas {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.snap-step {
+  height: 100vh;
+  width: 100vw;
+  scroll-snap-align: center;
+}

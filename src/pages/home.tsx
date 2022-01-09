@@ -14,7 +14,7 @@ const Home = () => {
           <Link to="/touch-test">Touch test - splitscreen</Link>
         </li>
         <li>
-          <Link to="/animated-scroll">Animated Scroll</Link>
+          <Link to="/animated-scroll">Animated Scroll Desktop</Link>
         </li>
       </ul>
     </nav>

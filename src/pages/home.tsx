@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import "../App.scss";
 
 const Home = () => {
   return (
     <nav>
+      <h1>Hommage – under construction 🏗 </h1>
       <ul>
         <li>
           <Link to="/">Home</Link>

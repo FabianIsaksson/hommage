@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+h1 {
+  margin: 20px;
+}
+
 body {
   touch-action: none;
   margin: 0;

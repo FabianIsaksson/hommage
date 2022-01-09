@@ -1,5 +1,5 @@
 const AnimatedScroll = () => {
-  return <div></div>;
+  return <div>Hello world</div>;
 };
 
 export default AnimatedScroll;

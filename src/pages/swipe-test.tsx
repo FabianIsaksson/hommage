@@ -195,6 +195,14 @@ function SwipeTest() {
     };
   }, [useTouch, dragging, halfWidth, mouseSetWidth, touchSetWidth]);
 
+  useEffect(() => {
+    document.body.classList.add("disable-touch-scroll");
+
+    return () => {
+      document.body.classList.remove("disable-touch-scroll");
+    };
+  }, []);
+
   return (
     <div className="App">
       <div className="spsc">

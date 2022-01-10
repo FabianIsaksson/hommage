@@ -54,7 +54,7 @@ const AnimatedScroll = () => {
   const currentFrame = (index: number) =>
     `/static/images/animation/plate-scroll/ps-${index
       .toString()
-      .padStart(3, "0")}.png`;
+      .padStart(3, "0")}.jpg`;
 
   useEffect(() => {
     const context = canvas.current?.getContext("2d");

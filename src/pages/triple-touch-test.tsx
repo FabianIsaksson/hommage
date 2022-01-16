@@ -7,6 +7,7 @@ const panes = [
   { name: "MAYA SUNDHOLM", image: testBlue },
   { name: "OTHER NAME", image: testLeopard },
   { name: "HILDA FERM", image: testWhite },
+  { name: "DJSKD", image: testWhite },
 ];
 
 const TripleTouchTest = () => <SplitScreenPanes panes={panes} />;

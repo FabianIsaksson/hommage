@@ -6,7 +6,7 @@ import montana from "../static/images/brand-logos/montana.png";
 import lundin from "../static/images/brand-logos/lundin.png";
 import sightsen from "../static/images/brand-logos/sightsen.png";
 import CharacterView from "../components/character-view";
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useDisableUserScroll } from "../hooks/useDisableUserScroll";
 
 const characters = [
@@ -62,12 +62,14 @@ const characters = [
 
 const Characters = () => {
   useDisableUserScroll();
+  const selectRef = useRef<HTMLDivElement>(null);
   const [selectedCharacter, setSelectedCharacter] =
     useState<Character | null>();
 
   const onCharacterSelect = useCallback((character: Character) => {
     setSelectedCharacter(character);
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+    const y = selectRef.current?.getBoundingClientRect().y;
+    window.scrollTo({ top: y, behavior: "smooth" });
   }, []);
 
   const onCharacterExit = useCallback(() => {
@@ -86,7 +88,12 @@ const Characters = () => {
         selected={!!selectedCharacter}
       />
       {selectedCharacter && (
-        <CharacterView character={selectedCharacter} onExit={onCharacterExit} />
+        <div ref={selectRef}>
+          <CharacterView
+            character={selectedCharacter}
+            onExit={onCharacterExit}
+          />
+        </div>
       )}
     </div>
   );

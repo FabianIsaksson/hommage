@@ -93,7 +93,7 @@ const CharacterSelect = ({
           }}
           onClick={() => {
             const newPaneHeights = Array(characters.length).fill(0);
-            newPaneHeights[index] = window.innerHeight;
+            newPaneHeights[index] = window.screen.availHeight;
             setPaneHeights(newPaneHeights);
             setHasClicked(true);
 

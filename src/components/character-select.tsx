@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./character-select.scss";
 
 const getOverlayBkgStr = (val: number) => `rgba(0, 0, 0, ${val})`;
@@ -16,9 +16,11 @@ export type Characters = Character[];
 const CharacterSelect = ({
   onSelect,
   characters,
+  selected,
 }: {
   onSelect: (c: Character) => void;
   characters: Characters;
+  selected: boolean;
 }) => {
   // const halfHeight = window.innerHeight / 2;
   const [hasClicked, setHasClicked] = useState(false);
@@ -28,6 +30,15 @@ const CharacterSelect = ({
   const [paneHeights, setPaneHeights] = useState(
     Array(characters.length).fill(window.innerHeight / characters.length),
   );
+
+  useEffect(() => {
+    setHasClicked(selected);
+    if (!selected) {
+      setPaneHeights(
+        Array(characters.length).fill(window.innerHeight / characters.length),
+      );
+    }
+  }, [selected]);
 
   // Idle animation
   // useEffect(() => {

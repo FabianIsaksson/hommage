@@ -1,4 +1,4 @@
-import CharacterSelect, { Character } from "../components/character-select";
+import { Character } from "../components/character-select";
 import testBlue from "../static/images/test_blue.jpg";
 import testWhite from "../static/images/test_white.jpg";
 import testLeopard from "../static/images/test_leopard.jpg";
@@ -6,7 +6,7 @@ import montana from "../static/images/brand-logos/montana.png";
 import lundin from "../static/images/brand-logos/lundin.png";
 import sightsen from "../static/images/brand-logos/sightsen.png";
 import CharacterView from "../components/character-view";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { useDisableUserScroll } from "../hooks/useDisableUserScroll";
 
 const characters = [
@@ -62,11 +62,11 @@ const characters = [
 
 const CharacterViewPage = () => {
   useDisableUserScroll();
-  const [selectedCharacter, setSelectedCharacter] = useState<Character>(
-    characters[2],
-  );
+  const [selectedCharacter] = useState<Character | null>(characters[2]);
 
-  return <CharacterView character={selectedCharacter} />;
+  return selectedCharacter ? (
+    <CharacterView character={selectedCharacter} onExit={() => {}} />
+  ) : null;
 };
 
 export default CharacterViewPage;

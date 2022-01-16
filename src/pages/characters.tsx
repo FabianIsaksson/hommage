@@ -62,17 +62,32 @@ const characters = [
 
 const Characters = () => {
   useDisableUserScroll();
-  const [selectedCharacter, setSelectedCharacter] = useState<Character>();
+  const [selectedCharacter, setSelectedCharacter] =
+    useState<Character | null>();
 
   const onCharacterSelect = useCallback((character: Character) => {
     setSelectedCharacter(character);
     window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
   }, []);
 
+  const onCharacterExit = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    setTimeout(() => {
+      setSelectedCharacter(null);
+    }, 500);
+  }, []);
+
   return (
     <div>
-      <CharacterSelect characters={characters} onSelect={onCharacterSelect} />
-      {selectedCharacter && <CharacterView character={selectedCharacter} />}
+      <CharacterSelect
+        characters={characters}
+        onSelect={onCharacterSelect}
+        selected={!!selectedCharacter}
+      />
+      {selectedCharacter && (
+        <CharacterView character={selectedCharacter} onExit={onCharacterExit} />
+      )}
     </div>
   );
 };

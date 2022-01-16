@@ -2,10 +2,16 @@ import ArrowButton from "./arrow-button";
 import { Character } from "./character-select";
 import "./character-view.scss";
 
-const CharacterView = ({ character }: { character: Character }) => {
+const CharacterView = ({
+  character,
+  onExit,
+}: {
+  character: Character;
+  onExit: () => void;
+}) => {
   return (
     <div className="character-view">
-      <ArrowButton direction="up" text="REVEAL CHARACTERS" />
+      <ArrowButton direction="up" text="REVEAL CHARACTERS" onClick={onExit} />
       <div className="character-view-content">
         <img
           className="character-view-logo"

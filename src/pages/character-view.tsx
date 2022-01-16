@@ -32,7 +32,7 @@ const characters = [
     names: ["ASLI CÖMERT", "THOMAS WIESER"],
     image: testBlue,
     description:
-      "Biba was a brand and fashion store of the 1960s and 1970s, known as ”the theatre for fashion”. It was established by Barbara Hulanicki with help of her husband Stephen Fitz-Simon and together they attracted up to a million customers weekly, making it one of the most visited tourist attractions in London. Her store was a place for ‘groovy’ individuals, with loud music and lavishing decadent.",
+      "Biba was a brand and fashion store of the 1960s and 1970s, known as ”the theatre for fashion”. It was established by Barbara Hulanicki with help of her husband Stephen Fitz-Simon and together they attracted up to a million customers weekly, making it one of the most visited tourist attractions in London. Her store was a place for ‘groovy’ individuals, with loud music and lavishing decadent.Biba was a brand and fashion store of the 1960s and 1970s, known as ”the theatre for fashion”. It was established by Barbara Hulanicki with help of her husband Stephen Fitz-Simon and together they attracted up to a million customers weekly, making it one of the most visited tourist attractions in London. Her store was a place for ‘groovy’ individuals, with loud music and lavishing decadent.",
   },
   {
     characterId: 3,
@@ -60,21 +60,13 @@ const characters = [
   },
 ];
 
-const Characters = () => {
+const CharacterViewPage = () => {
   useDisableUserScroll();
-  const [selectedCharacter, setSelectedCharacter] = useState<Character>();
-
-  const onCharacterSelect = useCallback((character: Character) => {
-    setSelectedCharacter(character);
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-  }, []);
-
-  return (
-    <div>
-      <CharacterSelect characters={characters} onSelect={onCharacterSelect} />
-      {selectedCharacter && <CharacterView character={selectedCharacter} />}
-    </div>
+  const [selectedCharacter, setSelectedCharacter] = useState<Character>(
+    characters[2],
   );
+
+  return <CharacterView character={selectedCharacter} />;
 };
 
-export default Characters;
+export default CharacterViewPage;

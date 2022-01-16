@@ -1,0 +1,14 @@
+.arrow-button {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+}
+
+.arrow-button-text {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}

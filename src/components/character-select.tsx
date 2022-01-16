@@ -8,6 +8,7 @@ export type Character = {
   brandLogo: string;
   names: string[];
   image: string;
+  description: string;
 };
 
 export type Characters = Character[];

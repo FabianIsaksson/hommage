@@ -6,7 +6,8 @@ import montana from "../static/images/brand-logos/montana.png";
 import lundin from "../static/images/brand-logos/lundin.png";
 import sightsen from "../static/images/brand-logos/sightsen.png";
 import CharacterView from "../components/character-view";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
+import { useDisableUserScroll } from "../hooks/useDisableUserScroll";
 
 const characters = [
   {
@@ -48,14 +49,18 @@ const characters = [
 ];
 
 const Characters = () => {
-  const onCharacterSelect = useCallback((data: Character) => {
-    console.log(data);
+  useDisableUserScroll();
+  const [selectedCharacter, setSelectedCharacter] = useState<Character>();
+
+  const onCharacterSelect = useCallback((character: Character) => {
+    setSelectedCharacter(character);
+    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
   }, []);
 
   return (
     <div>
       <CharacterSelect characters={characters} onSelect={onCharacterSelect} />
-      <CharacterView />
+      {selectedCharacter && <CharacterView />}
     </div>
   );
 };

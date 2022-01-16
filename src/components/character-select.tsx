@@ -83,10 +83,12 @@ const CharacterSelect = ({
             const newPaneHeights = Array(characters.length).fill(0);
             newPaneHeights[index] = window.innerHeight;
             setPaneHeights(newPaneHeights);
-
-            onSelect(characters[index]);
-
             setHasClicked(true);
+
+            // Set selected character after animation is finished: 1 second
+            setTimeout(() => {
+              onSelect(characters[index]);
+            }, 1000);
           }}
         >
           <img

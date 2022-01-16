@@ -1,6 +1,6 @@
 import "./character-view.scss";
 
-const CharacterView = ({}: {}) => {
+const CharacterView = () => {
   return <div className="character-view">Hello World!</div>;
 };
 

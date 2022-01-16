@@ -10,6 +10,9 @@ const Home = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
+          <Link to="/characters">Characters</Link>
+        </li>
+        <li>
           <Link to="/swipe-test">Swipe test - splitscreen</Link>
         </li>
         <li>

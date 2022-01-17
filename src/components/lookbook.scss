@@ -3,6 +3,18 @@
   position: relative;
 }
 
+.lookbook-button-up {
+  position: absolute;
+  top: 24px;
+  width: 100%;
+}
+
+.lookbook-button-down {
+  position: absolute;
+  bottom: 24px;
+  width: 100%;
+}
+
 .lookbook-info {
   text-transform: uppercase;
   color: white;
@@ -58,9 +70,10 @@
   &-copy {
     color: white;
     position: absolute;
-    top: 75%;
+    top: 70%;
     height: 15%;
     overflow: scroll;
+    margin-top: 36px;
     margin-left: 36px;
     margin-right: 36px;
     margin-bottom: 20px;

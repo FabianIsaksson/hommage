@@ -1,3 +1,5 @@
+import { MutableRefObject, useCallback } from "react";
+import ArrowButton from "./arrow-button";
 import "./lookbook.scss";
 
 export type Lookbook = {
@@ -15,7 +17,19 @@ export type Lookbook = {
   }[];
 };
 
-const LookbookView = ({ lookbook }: { lookbook: Lookbook }) => {
+const LookbookView = ({
+  lookbook,
+  nextLookbook,
+  prevLookbook,
+  onArrowUp,
+  onArrowDown,
+}: {
+  lookbook: Lookbook;
+  nextLookbook?: Lookbook;
+  prevLookbook?: Lookbook;
+  onArrowUp: () => void;
+  onArrowDown: () => void;
+}) => {
   return (
     <div className="lookbook">
       <div className="lookbook-slides">
@@ -55,6 +69,22 @@ const LookbookView = ({ lookbook }: { lookbook: Lookbook }) => {
               </div>
             );
           })}
+        <div className="lookbook-button-up">
+          <ArrowButton
+            direction="up"
+            text={prevLookbook ? prevLookbook.designerName : "GO BACK"}
+            onClick={() => onArrowUp()}
+          />
+        </div>
+        {nextLookbook && (
+          <div className="lookbook-button-down">
+            <ArrowButton
+              direction="down"
+              text={nextLookbook.designerName}
+              onClick={onArrowDown}
+            />
+          </div>
+        )}
       </div>
       <p className="lookbook-designer-name">{lookbook.designerName}</p>
     </div>

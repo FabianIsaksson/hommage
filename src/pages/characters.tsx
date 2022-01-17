@@ -1,4 +1,12 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  MutableRefObject,
+  RefObject,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import CharacterSelect, { Character } from "../components/character-select";
 import CharacterView from "../components/character-view";
 import LookbookView, { Lookbook } from "../components/lookbook";
@@ -151,6 +159,34 @@ const Characters = () => {
     setListenScroll(false);
   }, [pageRef]);
 
+  const onArrowUp = useCallback(() => {
+    pageRef.current?.classList.remove("scroll-snap-y");
+
+    pageRef.current?.scrollBy({
+      top: -window.innerHeight,
+      left: 0,
+      behavior: "smooth",
+    });
+
+    setTimeout(() => {
+      pageRef.current?.classList.add("scroll-snap-y");
+    }, 500);
+  }, [pageRef]);
+
+  const onArrowDown = useCallback(() => {
+    pageRef.current?.classList.remove("scroll-snap-y");
+
+    pageRef.current?.scrollBy({
+      top: window.innerHeight,
+      left: 0,
+      behavior: "smooth",
+    });
+
+    setTimeout(() => {
+      pageRef.current?.classList.add("scroll-snap-y");
+    }, 500);
+  }, [pageRef]);
+
   const selectedLookbooks = useMemo(() => {
     const matches = lookbooks.filter((book) =>
       selectedCharacter?.names.includes(book.designerName),
@@ -177,8 +213,14 @@ const Characters = () => {
               onExit={onCharacterExit}
             />
           </div>
-          {selectedLookbooks?.map((book) => (
-            <LookbookView lookbook={book} />
+          {selectedLookbooks?.map((book, idx) => (
+            <LookbookView
+              lookbook={book}
+              nextLookbook={selectedLookbooks[idx + 1]}
+              prevLookbook={selectedLookbooks[idx - 1]}
+              onArrowUp={onArrowUp}
+              onArrowDown={onArrowDown}
+            />
           ))}
         </>
       )}

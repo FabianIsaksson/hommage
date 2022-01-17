@@ -1,0 +1,13 @@
+.scroll-snap-y {
+  scroll-snap-type: y mandatory;
+}
+
+.characters-page {
+  height: 100vh;
+  overflow-y: scroll;
+
+  div {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+}

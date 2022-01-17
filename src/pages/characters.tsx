@@ -6,8 +6,9 @@ import montana from "../static/images/brand-logos/montana.png";
 import lundin from "../static/images/brand-logos/lundin.png";
 import sightsen from "../static/images/brand-logos/sightsen.png";
 import CharacterView from "../components/character-view";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useDisableUserScroll } from "../hooks/useDisableUserScroll";
+import "./characters.scss";
 
 const characters = [
   {
@@ -63,25 +64,54 @@ const characters = [
 const Characters = () => {
   useDisableUserScroll();
   const selectRef = useRef<HTMLDivElement>(null);
+  const pageRef = useRef<HTMLDivElement>(null);
   const [selectedCharacter, setSelectedCharacter] =
     useState<Character | null>();
 
-  const onCharacterSelect = useCallback((character: Character) => {
-    setSelectedCharacter(character);
-    const y = selectRef.current?.getBoundingClientRect().y;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  }, []);
+  const [listenScroll, setListenScroll] = useState(false);
+
+  useEffect(() => {
+    const exit = () => {
+      if (pageRef.current && listenScroll && pageRef.current.scrollTop < 10) {
+        onCharacterExit();
+      }
+    };
+
+    pageRef.current?.addEventListener("scroll", exit);
+    return () => {
+      pageRef.current?.removeEventListener("scroll", exit);
+    };
+  }, [listenScroll]);
+
+  const onCharacterSelect = useCallback(
+    (character: Character) => {
+      setSelectedCharacter(character);
+      const y = selectRef.current?.getBoundingClientRect().y;
+      pageRef.current?.scrollTo({
+        top: y,
+        left: 0,
+        behavior: "smooth",
+      });
+      setTimeout(() => {
+        pageRef.current?.classList.add("scroll-snap-y");
+        setListenScroll(true);
+      }, 500);
+    },
+    [pageRef],
+  );
 
   const onCharacterExit = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    pageRef.current?.classList.remove("scroll-snap-y");
+    pageRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+    setListenScroll(false);
 
     setTimeout(() => {
       setSelectedCharacter(null);
     }, 500);
-  }, []);
+  }, [pageRef]);
 
   return (
-    <div>
+    <div ref={pageRef} className="characters-page">
       <CharacterSelect
         characters={characters}
         onSelect={onCharacterSelect}

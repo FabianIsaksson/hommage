@@ -1,12 +1,4 @@
-import {
-  MutableRefObject,
-  RefObject,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import CharacterSelect, { Character } from "../components/character-select";
 import CharacterView from "../components/character-view";
 import LookbookView, { Lookbook } from "../components/lookbook";

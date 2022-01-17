@@ -1,4 +1,4 @@
-import { MutableRefObject, useCallback } from "react";
+import { useCallback } from "react";
 import LookbookView from "../components/lookbook";
 import lookbook from "../static/images/lookbooktest-mobil.jpg";
 

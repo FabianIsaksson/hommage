@@ -1,4 +1,3 @@
-import { MutableRefObject, useCallback } from "react";
 import ArrowButton from "./arrow-button";
 import "./lookbook.scss";
 
@@ -54,7 +53,11 @@ const LookbookView = ({
                         CONTACT:
                         {lookbook.socials.map((link, si) => (
                           <>
-                            <a href={link.link} target="_blank">
+                            <a
+                              href={link.link}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
                               {link.name}
                             </a>
                             {si < (lookbook.socials?.length ?? 0) - 1 && ", "}

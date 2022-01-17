@@ -1,14 +1,51 @@
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import CharacterSelect, { Character } from "../components/character-select";
-import testBlue from "../static/images/test_blue.jpg";
-import testWhite from "../static/images/test_white.jpg";
-import testLeopard from "../static/images/test_leopard.jpg";
-import montana from "../static/images/brand-logos/montana.png";
-import lundin from "../static/images/brand-logos/lundin.png";
-import sightsen from "../static/images/brand-logos/sightsen.png";
 import CharacterView from "../components/character-view";
-import { useCallback, useEffect, useRef, useState } from "react";
+import LookbookView, { Lookbook } from "../components/lookbook";
 import { useDisableUserScroll } from "../hooks/useDisableUserScroll";
+import lundin from "../static/images/brand-logos/lundin.png";
+import montana from "../static/images/brand-logos/montana.png";
+import sightsen from "../static/images/brand-logos/sightsen.png";
+import lookbook from "../static/images/lookbooktest-mobil.jpg";
+import testBlue from "../static/images/test_blue.jpg";
+import testLeopard from "../static/images/test_leopard.jpg";
+import testWhite from "../static/images/test_white.jpg";
 import "./characters.scss";
+
+const lookbooks: Lookbook[] = [
+  {
+    designerName: "ASLI CÖMERT",
+    brandName: "CLAUDE MONTANA",
+    image: lookbook,
+    slides: 4,
+    copy: [
+      {
+        slide: 1,
+        text: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
+      },
+      {
+        slide: 2,
+        text: "But also the seductive way of using animal prints.",
+      },
+    ],
+  },
+  {
+    designerName: "THOMAS WIESER",
+    brandName: "CLAUDE MONTANA",
+    slides: 4,
+    image: lookbook,
+    copy: [
+      {
+        slide: 1,
+        text: "Testing",
+      },
+      {
+        slide: 2,
+        text: "Hello World!",
+      },
+    ],
+  },
+];
 
 const characters = [
   {
@@ -114,6 +151,17 @@ const Characters = () => {
     setListenScroll(false);
   }, [pageRef]);
 
+  const selectedLookbooks = useMemo(() => {
+    const matches = lookbooks.filter((book) =>
+      selectedCharacter?.names.includes(book.designerName),
+    );
+
+    if (matches.length === 0) {
+      return [lookbooks[0]];
+    }
+    return matches;
+  }, [selectedCharacter, lookbooks]);
+
   return (
     <div ref={pageRef} className="characters-page">
       <CharacterSelect
@@ -122,12 +170,17 @@ const Characters = () => {
         selected={!!selectedCharacter}
       />
       {selectedCharacter && (
-        <div ref={selectRef}>
-          <CharacterView
-            character={selectedCharacter}
-            onExit={onCharacterExit}
-          />
-        </div>
+        <>
+          <div ref={selectRef}>
+            <CharacterView
+              character={selectedCharacter}
+              onExit={onCharacterExit}
+            />
+          </div>
+          {selectedLookbooks?.map((book) => (
+            <LookbookView lookbook={book} />
+          ))}
+        </>
       )}
     </div>
   );

@@ -6,7 +6,7 @@
   height: 100vh;
   overflow-y: scroll;
 
-  div {
+  > div {
     scroll-snap-align: start;
     scroll-snap-stop: normal;
   }

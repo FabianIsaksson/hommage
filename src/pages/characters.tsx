@@ -28,6 +28,16 @@ const lookbooks: Lookbook[] = [
         text: "But also the seductive way of using animal prints.",
       },
     ],
+    socials: [
+      {
+        link: "https://www.google.com",
+        name: "google",
+      },
+      {
+        link: "https://www.instagram.com/",
+        name: "instagram",
+      },
+    ],
   },
   {
     designerName: "THOMAS WIESER",
@@ -42,6 +52,16 @@ const lookbooks: Lookbook[] = [
       {
         slide: 2,
         text: "Hello World!",
+      },
+    ],
+    socials: [
+      {
+        link: "https://www.google.com",
+        name: "google",
+      },
+      {
+        link: "https://www.instagram.com/",
+        name: "instagram",
       },
     ],
   },

@@ -17,7 +17,9 @@ const ArrowButton = ({
   show?: boolean;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }) => {
-  const [display, setDisplay] = useState(show);
+  const [display, setDisplay] = useState(
+    typeof show === "boolean" ? show : true,
+  );
 
   useEffect(() => {
     if (!display && show) {

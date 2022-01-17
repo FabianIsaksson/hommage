@@ -5,6 +5,8 @@
   align-items: center;
   padding: 8px;
   transition: opacity 500ms ease;
+
+  animation: enter 500ms ease;
 }
 
 .arrow-button-text {

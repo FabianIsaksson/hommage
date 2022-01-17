@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { useEffect, useState } from "react";
 import ArrowButton from "./arrow-button";
 import "./character-select.scss";
+import ExitButton from "./exit-button";
 
 const getOverlayBkgStr = (val: number) => `rgba(0, 0, 0, ${val})`;
 
@@ -175,6 +176,11 @@ const CharacterSelect = ({
         absolute
         show={menuOverlay}
         // onClick={onArrowDown}
+      />
+
+      <ExitButton
+        show={!hasClicked && !menuOverlay}
+        onClick={showMenuOverlay}
       />
 
       <p

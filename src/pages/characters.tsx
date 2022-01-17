@@ -72,7 +72,7 @@ const Characters = () => {
 
   useEffect(() => {
     const exit = () => {
-      if (pageRef.current && listenScroll && pageRef.current.scrollTop < 10) {
+      if (pageRef.current && listenScroll && pageRef.current.scrollTop === 0) {
         onCharacterExit();
       }
     };

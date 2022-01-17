@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   padding: 8px;
+  transition: opacity 500ms ease;
 }
 
 .arrow-button-text {
@@ -11,4 +12,16 @@
   margin-bottom: 16px;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.absolute-up {
+  position: absolute;
+  top: 24px;
+  width: 100%;
+}
+
+.absolute-down {
+  position: absolute;
+  bottom: 24px;
+  width: 100%;
 }

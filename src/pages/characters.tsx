@@ -122,6 +122,9 @@ const Characters = () => {
   useDisableUserScroll();
   const selectRef = useRef<HTMLDivElement>(null);
   const pageRef = useRef<HTMLDivElement>(null);
+
+  const [menuOverlay, setMenuOverlay] = useState(true);
+
   const [selectedCharacter, setSelectedCharacter] =
     useState<Character | null>();
 
@@ -216,6 +219,9 @@ const Characters = () => {
         characters={characters}
         onSelect={onCharacterSelect}
         selected={!!selectedCharacter}
+        menuOverlay={menuOverlay}
+        showMenuOverlay={() => setMenuOverlay(true)}
+        hideMenuOverlay={() => setMenuOverlay(false)}
       />
       {selectedCharacter && (
         <>

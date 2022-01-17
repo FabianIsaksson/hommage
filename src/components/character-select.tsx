@@ -1,4 +1,6 @@
+import classNames from "classnames";
 import { useEffect, useState } from "react";
+import ArrowButton from "./arrow-button";
 import "./character-select.scss";
 
 const getOverlayBkgStr = (val: number) => `rgba(0, 0, 0, ${val})`;
@@ -17,10 +19,16 @@ const CharacterSelect = ({
   onSelect,
   characters,
   selected,
+  menuOverlay,
+  showMenuOverlay,
+  hideMenuOverlay,
 }: {
   onSelect: (c: Character) => void;
   characters: Characters;
   selected: boolean;
+  menuOverlay: boolean;
+  showMenuOverlay: () => void;
+  hideMenuOverlay: () => void;
 }) => {
   // const halfHeight = window.innerHeight / 2;
   const [hasClicked, setHasClicked] = useState(false);
@@ -82,6 +90,14 @@ const CharacterSelect = ({
   //   };
   // }, [height, halfHeight, setHeight, hasClicked]);
 
+  const [displayRevealText, setDisplayRevealText] = useState(menuOverlay);
+
+  useEffect(() => {
+    if (!displayRevealText && menuOverlay) {
+      setDisplayRevealText(menuOverlay);
+    }
+  }, [menuOverlay]);
+
   return (
     <div className="character-select">
       {characters.map(({ characterId, brandLogo, names, image }, index) => (
@@ -92,6 +108,10 @@ const CharacterSelect = ({
             height: paneHeights[index],
           }}
           onClick={() => {
+            if (menuOverlay) {
+              return;
+            }
+
             const newPaneHeights = Array(characters.length).fill(0);
             newPaneHeights[index] = window.screen.availHeight;
             setPaneHeights(newPaneHeights);
@@ -110,14 +130,16 @@ const CharacterSelect = ({
           ></img>
           <div
             style={{
-              background: getOverlayBkgStr(hasClicked ? 0 : 0.3),
+              background: getOverlayBkgStr(
+                menuOverlay ? 0.5 : hasClicked ? 0 : 0.3,
+              ),
               transition: "all 1s ease",
             }}
             className="overlay"
           ></div>
           <div
             style={{
-              opacity: hasClicked ? 0 : 1,
+              opacity: hasClicked || menuOverlay ? 0 : 1,
             }}
             className="character-select-copy"
           >
@@ -138,6 +160,33 @@ const CharacterSelect = ({
           </div>
         </div>
       ))}
+
+      <ArrowButton
+        direction="up"
+        text={"PLAY FILM"}
+        absolute
+        show={menuOverlay}
+        // onClick={() => onArrowUp()}
+      />
+
+      <ArrowButton
+        direction="down"
+        text={"INFO"}
+        absolute
+        show={menuOverlay}
+        // onClick={onArrowDown}
+      />
+
+      <p
+        style={{ opacity: menuOverlay ? 1 : 0 }}
+        className={classNames("character-select-reveal", {
+          hide: !displayRevealText,
+        })}
+        onClick={hideMenuOverlay}
+        onTransitionEnd={() => !menuOverlay && setDisplayRevealText(false)}
+      >
+        REVEAL CHARACTERS
+      </p>
     </div>
   );
 };

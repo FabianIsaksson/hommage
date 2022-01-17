@@ -23,3 +23,7 @@ code {
 .disable-touch-scroll {
   touch-action: none;
 }
+
+.hide {
+  display: none !important;
+}

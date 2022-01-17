@@ -72,21 +72,19 @@ const LookbookView = ({
               </div>
             );
           })}
-        <div className="lookbook-button-up">
-          <ArrowButton
-            direction="up"
-            text={prevLookbook ? prevLookbook.designerName : "GO BACK"}
-            onClick={() => onArrowUp()}
-          />
-        </div>
+        <ArrowButton
+          direction="up"
+          absolute
+          text={prevLookbook ? prevLookbook.designerName : "GO BACK"}
+          onClick={() => onArrowUp()}
+        />
         {nextLookbook && (
-          <div className="lookbook-button-down">
-            <ArrowButton
-              direction="down"
-              text={nextLookbook.designerName}
-              onClick={onArrowDown}
-            />
-          </div>
+          <ArrowButton
+            absolute
+            direction="down"
+            text={nextLookbook.designerName}
+            onClick={onArrowDown}
+          />
         )}
       </div>
       <p className="lookbook-designer-name">{lookbook.designerName}</p>

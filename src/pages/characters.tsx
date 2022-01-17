@@ -101,13 +101,13 @@ const Characters = () => {
   );
 
   const onCharacterExit = useCallback(() => {
+    pageRef.current?.classList.remove("scroll-snap-y");
     if (pageRef.current?.scrollTop !== 0) {
-      pageRef.current?.classList.remove("scroll-snap-y");
       pageRef.current?.scrollTo({ top: 0, behavior: "smooth" });
 
       setTimeout(() => {
         setSelectedCharacter(null);
-      }, 468);
+      }, 500);
     } else {
       setSelectedCharacter(null);
     }

@@ -16,6 +16,16 @@ const book = {
       text: "But also the seductive way of using animal prints.",
     },
   ],
+  socials: [
+    {
+      link: "https://www.google.com",
+      name: "google",
+    },
+    {
+      link: "https://www.instagram.com/",
+      name: "instagram",
+    },
+  ],
 };
 
 const LookbookPage = () => {

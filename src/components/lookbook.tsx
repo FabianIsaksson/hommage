@@ -32,11 +32,31 @@ const LookbookView = ({ lookbook }: { lookbook: Lookbook }) => {
                 }}
                 className="lookbook-slides-pane"
               >
-                <p className="lookbook-slides-pane-copy">{copy?.text}</p>
+                {i === 0 ? (
+                  <div className="lookbook-info">
+                    <p>BRAND: {lookbook.brandName}</p>
+                    {!!lookbook.socials?.length && (
+                      <p>
+                        CONTACT:
+                        {lookbook.socials.map((link, si) => (
+                          <>
+                            <a href={link.link} target="_blank">
+                              {link.name}
+                            </a>
+                            {si < (lookbook.socials?.length ?? 0) - 1 && ", "}
+                          </>
+                        ))}
+                      </p>
+                    )}
+                  </div>
+                ) : (
+                  <p className="lookbook-slides-pane-copy">{copy?.text}</p>
+                )}
               </div>
             );
           })}
       </div>
+      <p className="lookbook-designer-name">{lookbook.designerName}</p>
     </div>
   );
 };

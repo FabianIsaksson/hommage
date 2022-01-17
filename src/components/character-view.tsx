@@ -5,9 +5,11 @@ import "./character-view.scss";
 const CharacterView = ({
   character,
   onExit,
+  onArrowDown,
 }: {
   character: Character;
   onExit: () => void;
+  onArrowDown: () => void;
 }) => {
   return (
     <div className="character-view">
@@ -30,7 +32,11 @@ const CharacterView = ({
             </p>
           ))}
         </div>
-        <ArrowButton direction="down" text="VIEW COLLECTIONS" />
+        <ArrowButton
+          direction="down"
+          text="VIEW COLLECTIONS"
+          onClick={onArrowDown}
+        />
       </div>
     </div>
   );

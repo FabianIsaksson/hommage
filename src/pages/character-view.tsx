@@ -65,7 +65,11 @@ const CharacterViewPage = () => {
   const [selectedCharacter] = useState<Character | null>(characters[2]);
 
   return selectedCharacter ? (
-    <CharacterView character={selectedCharacter} onExit={() => {}} />
+    <CharacterView
+      character={selectedCharacter}
+      onExit={() => {}}
+      onArrowDown={() => {}}
+    />
   ) : null;
 };
 

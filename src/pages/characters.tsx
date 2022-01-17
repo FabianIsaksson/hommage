@@ -203,6 +203,7 @@ const Characters = () => {
             <CharacterView
               character={selectedCharacter}
               onExit={onCharacterExit}
+              onArrowDown={onArrowDown}
             />
           </div>
           {selectedLookbooks?.map((book, idx) => (

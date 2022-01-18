@@ -1,0 +1,18 @@
+.colophon {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+
+  background: #495b68;
+  color: white;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  > p {
+    font-size: 24px;
+    font-weight: 700;
+  }
+}

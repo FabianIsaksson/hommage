@@ -23,6 +23,7 @@ const CharacterSelect = ({
   menuOverlay,
   showMenuOverlay,
   hideMenuOverlay,
+  onArrowDown,
 }: {
   onSelect: (c: Character) => void;
   characters: Characters;
@@ -30,6 +31,7 @@ const CharacterSelect = ({
   menuOverlay: boolean;
   showMenuOverlay: () => void;
   hideMenuOverlay: () => void;
+  onArrowDown: () => void;
 }) => {
   // const halfHeight = window.innerHeight / 2;
   const [hasClicked, setHasClicked] = useState(false);
@@ -175,7 +177,7 @@ const CharacterSelect = ({
         text={"INFO"}
         absolute
         show={menuOverlay}
-        // onClick={onArrowDown}
+        onClick={onArrowDown}
       />
 
       <ExitButton

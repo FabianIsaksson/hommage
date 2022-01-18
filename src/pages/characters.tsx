@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import CharacterSelect, { Character } from "../components/character-select";
 import CharacterView from "../components/character-view";
+import Colophon from "../components/colophon";
 import LoadingScreen from "../components/loading-screen";
 import LookbookView, { Lookbook } from "../components/lookbook";
 import lundin from "../static/images/brand-logos/lundin.png";
@@ -124,6 +125,7 @@ const Characters = () => {
   const characterSelect = useRef<HTMLDivElement>(null);
 
   const [menuOverlay, setMenuOverlay] = useState(true);
+  const [hideColophon, setHideColophe] = useState(true);
 
   const [selectedCharacter, setSelectedCharacter] =
     useState<Character | null>();
@@ -146,6 +148,7 @@ const Characters = () => {
         pageRef.current?.scrollTop === characterSelect.current?.offsetTop
       ) {
         setShowLoading(false);
+        setHideColophe(false);
       }
     };
 
@@ -241,6 +244,7 @@ const Characters = () => {
             onArrowDown();
             setTimeout(() => {
               setShowLoading(false);
+              setHideColophe(false);
             }, 500);
           }}
         />
@@ -253,8 +257,10 @@ const Characters = () => {
           menuOverlay={menuOverlay}
           showMenuOverlay={() => setMenuOverlay(true)}
           hideMenuOverlay={() => setMenuOverlay(false)}
+          onArrowDown={onArrowDown}
         />
       </div>
+      {!hideColophon && menuOverlay && <Colophon onArrowUp={onArrowUp} />}
       {selectedCharacter && (
         <>
           <CharacterView

@@ -120,6 +120,7 @@ const characters = [
 
 const Characters = () => {
   const pageRef = useRef<HTMLDivElement>(null);
+  const [showLoading, setShowLoading] = useState(true);
   const characterSelect = useRef<HTMLDivElement>(null);
 
   const [menuOverlay, setMenuOverlay] = useState(true);
@@ -138,6 +139,13 @@ const Characters = () => {
       ) {
         setSelectedCharacter(null);
         setListenScroll(false);
+      }
+
+      if (
+        showLoading &&
+        pageRef.current?.scrollTop === characterSelect.current?.offsetTop
+      ) {
+        setShowLoading(false);
       }
     };
 
@@ -227,11 +235,16 @@ const Characters = () => {
 
   return (
     <div ref={pageRef} className="characters-page">
-      <LoadingScreen
-        onArrowDown={() => {
-          onArrowDown();
-        }}
-      />
+      {showLoading && (
+        <LoadingScreen
+          onArrowDown={() => {
+            onArrowDown();
+            setTimeout(() => {
+              setShowLoading(false);
+            }, 500);
+          }}
+        />
+      )}
       <div ref={characterSelect}>
         <CharacterSelect
           characters={characters}

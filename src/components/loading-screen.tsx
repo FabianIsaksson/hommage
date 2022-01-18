@@ -13,9 +13,9 @@ const LoadingScreen = ({ onArrowDown }: { onArrowDown: () => void }) => {
 
       <ArrowButton
         direction="down"
-        text={"INFO"}
+        text={"VIEW COLLECTION"}
         absolute
-        // onClick={onArrowDown}
+        onClick={onArrowDown}
       />
     </div>
   );

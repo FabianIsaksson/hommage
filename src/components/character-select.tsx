@@ -191,7 +191,8 @@ const CharacterSelect = ({
         onClick={hideMenuOverlay}
         onTransitionEnd={() => !menuOverlay && setDisplayRevealText(false)}
       >
-        REVEAL CHARACTERS{" >"}
+        REVEAL CHARACTERS
+        {/* {" >"} */}
       </p>
     </div>
   );

@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import ArrowButton from "./arrow-button";
 import "./lookbook.scss";
 
@@ -39,6 +40,7 @@ const LookbookView = ({
 
             return (
               <div
+                key={i}
                 style={{
                   backgroundPosition: `-${i * 100}%`,
                   backgroundSize: `${lookbook.slides * 100}vw`,
@@ -52,7 +54,7 @@ const LookbookView = ({
                       <p>
                         CONTACT:
                         {lookbook.socials.map((link, si) => (
-                          <>
+                          <Fragment key={si}>
                             <a
                               href={link.link}
                               target="_blank"
@@ -61,7 +63,7 @@ const LookbookView = ({
                               {link.name}
                             </a>
                             {si < (lookbook.socials?.length ?? 0) - 1 && ", "}
-                          </>
+                          </Fragment>
                         ))}
                       </p>
                     )}

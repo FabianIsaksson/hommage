@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import CharacterSelect, { Character } from "../components/character-select";
 import CharacterView from "../components/character-view";
+import LoadingScreen from "../components/loading-screen";
 import LookbookView, { Lookbook } from "../components/lookbook";
-import { useDisableUserScroll } from "../hooks/useDisableUserScroll";
 import lundin from "../static/images/brand-logos/lundin.png";
 import montana from "../static/images/brand-logos/montana.png";
 import sightsen from "../static/images/brand-logos/sightsen.png";
@@ -119,9 +119,8 @@ const characters = [
 ];
 
 const Characters = () => {
-  useDisableUserScroll();
-  const selectRef = useRef<HTMLDivElement>(null);
   const pageRef = useRef<HTMLDivElement>(null);
+  const characterSelect = useRef<HTMLDivElement>(null);
 
   const [menuOverlay, setMenuOverlay] = useState(true);
 
@@ -132,8 +131,13 @@ const Characters = () => {
 
   useEffect(() => {
     const exit = () => {
-      if (pageRef.current && listenScroll && pageRef.current.scrollTop === 0) {
-        onCharacterExit();
+      if (
+        pageRef.current &&
+        listenScroll &&
+        pageRef.current.scrollTop === characterSelect.current?.offsetTop
+      ) {
+        setSelectedCharacter(null);
+        setListenScroll(false);
       }
     };
 
@@ -145,10 +149,12 @@ const Characters = () => {
 
   const onCharacterSelect = useCallback(
     (character: Character) => {
+      pageRef.current?.classList.remove("scroll-snap-y");
+
       setSelectedCharacter(character);
-      const y = selectRef.current?.getBoundingClientRect().y;
-      pageRef.current?.scrollTo({
-        top: y,
+
+      pageRef.current?.scrollBy({
+        top: window.innerHeight,
         left: 0,
         behavior: "smooth",
       });
@@ -162,15 +168,17 @@ const Characters = () => {
 
   const onCharacterExit = useCallback(() => {
     pageRef.current?.classList.remove("scroll-snap-y");
-    if (pageRef.current?.scrollTop !== 0) {
-      pageRef.current?.scrollTo({ top: 0, behavior: "smooth" });
 
-      setTimeout(() => {
-        setSelectedCharacter(null);
-      }, 500);
-    } else {
+    pageRef.current?.scrollBy({
+      top: -window.innerHeight,
+      behavior: "smooth",
+    });
+
+    setTimeout(() => {
       setSelectedCharacter(null);
-    }
+      pageRef.current?.classList.add("scroll-snap-y");
+    }, 500);
+
     setListenScroll(false);
   }, [pageRef]);
 
@@ -213,27 +221,38 @@ const Characters = () => {
     return matches;
   }, [selectedCharacter, lookbooks]);
 
+  useEffect(() => {
+    pageRef.current?.classList.add("scroll-snap-y");
+  }, []);
+
   return (
     <div ref={pageRef} className="characters-page">
-      <CharacterSelect
-        characters={characters}
-        onSelect={onCharacterSelect}
-        selected={!!selectedCharacter}
-        menuOverlay={menuOverlay}
-        showMenuOverlay={() => setMenuOverlay(true)}
-        hideMenuOverlay={() => setMenuOverlay(false)}
+      <LoadingScreen
+        onArrowDown={() => {
+          onArrowDown();
+        }}
       />
+      <div ref={characterSelect}>
+        <CharacterSelect
+          characters={characters}
+          onSelect={onCharacterSelect}
+          selected={!!selectedCharacter}
+          menuOverlay={menuOverlay}
+          showMenuOverlay={() => setMenuOverlay(true)}
+          hideMenuOverlay={() => setMenuOverlay(false)}
+        />
+      </div>
       {selectedCharacter && (
         <>
-          <div ref={selectRef}>
-            <CharacterView
-              character={selectedCharacter}
-              onExit={onCharacterExit}
-              onArrowDown={onArrowDown}
-            />
-          </div>
+          <CharacterView
+            character={selectedCharacter}
+            onExit={onCharacterExit}
+            onArrowDown={onArrowDown}
+          />
+
           {selectedLookbooks?.map((book, idx) => (
             <LookbookView
+              key={book.designerName}
               lookbook={book}
               nextLookbook={selectedLookbooks[idx + 1]}
               prevLookbook={selectedLookbooks[idx - 1]}

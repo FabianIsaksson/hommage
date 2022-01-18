@@ -148,9 +148,11 @@ const Characters = () => {
         pageRef.current?.scrollTop === characterSelect.current?.offsetTop
       ) {
         setShowLoading(false);
-        setTimeout(() => {
-          setHideColophe(false);
-        }, 50);
+        if (pageRef.current?.scrollTop) {
+          pageRef.current.scrollTop = 0;
+        }
+
+        setHideColophe(false);
       }
     };
 
@@ -247,9 +249,6 @@ const Characters = () => {
             setTimeout(() => {
               setShowLoading(false);
             }, 500);
-            setTimeout(() => {
-              setHideColophe(false);
-            }, 550);
           }}
         />
       )}

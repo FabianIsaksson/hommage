@@ -4,6 +4,7 @@ import CharacterViewPage from "./pages/character-view";
 import Characters from "./pages/characters";
 import Home from "./pages/home";
 import LookbookPage from "./pages/lookbook-page";
+import PlayerPage from "./components/player";
 import SwipeTest from "./pages/swipe-test";
 import TouchTest from "./pages/touch-test";
 import TripleTouchTest from "./pages/triple-touch-test";
@@ -14,6 +15,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/characters" element={<Characters />}></Route>
+        <Route
+          path="/player"
+          element={<PlayerPage onArrowDown={() => {}} onReady={(_) => {}} />}
+        ></Route>
         <Route path="/lookbook-test" element={<LookbookPage />}></Route>
         <Route
           path="/character-view-page"

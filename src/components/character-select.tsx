@@ -23,6 +23,7 @@ const CharacterSelect = ({
   menuOverlay,
   showMenuOverlay,
   hideMenuOverlay,
+  onArrowUp,
   onArrowDown,
 }: {
   onSelect: (c: Character) => void;
@@ -31,6 +32,7 @@ const CharacterSelect = ({
   menuOverlay: boolean;
   showMenuOverlay: () => void;
   hideMenuOverlay: () => void;
+  onArrowUp: () => void;
   onArrowDown: () => void;
 }) => {
   // const halfHeight = window.innerHeight / 2;
@@ -169,7 +171,7 @@ const CharacterSelect = ({
         text={"PLAY FILM"}
         absolute
         show={menuOverlay}
-        // onClick={() => onArrowUp()}
+        onClick={() => onArrowUp()}
       />
 
       <ArrowButton

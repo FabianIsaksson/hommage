@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { VideoJsPlayer } from "video.js";
 import CharacterSelect, { Character } from "../components/character-select";
 import CharacterView from "../components/character-view";
 import Colophon from "../components/colophon";
 import LoadingScreen from "../components/loading-screen";
 import LookbookView, { Lookbook } from "../components/lookbook";
+import PlayerPage from "../components/player";
 import lundin from "../static/images/brand-logos/lundin.png";
 import montana from "../static/images/brand-logos/montana.png";
 import sightsen from "../static/images/brand-logos/sightsen.png";
@@ -151,10 +153,10 @@ const Characters = () => {
       ) {
         setShowLoading(false);
         if (pageRef.current?.scrollTop) {
-          pageRef.current.scrollTop = 0;
+          pageRef.current.scrollTop = window.innerHeight;
         }
-
         setHideColophe(false);
+        setListenScroll(false);
       }
     };
 
@@ -239,13 +241,38 @@ const Characters = () => {
   }, [selectedCharacter, lookbooks]);
 
   useEffect(() => {
-    pageRef.current?.classList.add("scroll-snap-y");
+    if (pageRef.current) {
+      pageRef.current.classList.add("scroll-snap-y");
+      pageRef.current.scrollTo({ top: window.innerHeight });
+    }
   }, []);
+
+  const playerRef = useRef<VideoJsPlayer | null>(null);
+
+  const handlePlayerReady = (player: VideoJsPlayer) => {
+    playerRef.current = player;
+
+    // you can handle player events here
+    // player.on("waiting", () => {
+    //   console.log("player is waiting");
+    // });
+
+    // player.on("dispose", () => {
+    //   console.log("player will dispose");
+    // });
+  };
 
   return (
     <div ref={pageRef} className="characters-page">
+      {menuOverlay && (
+        <PlayerPage onReady={handlePlayerReady} onArrowDown={onArrowDown} />
+      )}
       {showLoading && (
         <LoadingScreen
+          onArrowUp={() => {
+            onArrowUp();
+            playerRef.current?.requestFullscreen();
+          }}
           onArrowDown={() => {
             onArrowDown();
             setListenLoadingScroll(false);
@@ -265,6 +292,10 @@ const Characters = () => {
           showMenuOverlay={() => setMenuOverlay(true)}
           hideMenuOverlay={() => setMenuOverlay(false)}
           onArrowDown={onArrowDown}
+          onArrowUp={() => {
+            onArrowUp();
+            playerRef.current?.requestFullscreen();
+          }}
         />
       </div>
       {!hideColophon && menuOverlay && <Colophon onArrowUp={onArrowUp} />}

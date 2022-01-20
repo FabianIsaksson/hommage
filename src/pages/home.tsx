@@ -13,6 +13,9 @@ const Home = () => {
           <Link to="/characters">Characters</Link>
         </li>
         <li>
+          <Link to="/player">Player</Link>
+        </li>
+        <li>
           <Link to="/lookbook-test">Lookbook page (TEST PAGE)</Link>
         </li>
         <li>

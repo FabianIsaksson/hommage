@@ -131,6 +131,7 @@ const Characters = () => {
     useState<Character | null>();
 
   const [listenScroll, setListenScroll] = useState(false);
+  const [listenLoadingScroll, setListenLoadingScroll] = useState(true);
 
   useEffect(() => {
     const exit = () => {
@@ -145,6 +146,7 @@ const Characters = () => {
 
       if (
         showLoading &&
+        listenLoadingScroll &&
         pageRef.current?.scrollTop === characterSelect.current?.offsetTop
       ) {
         setShowLoading(false);
@@ -160,7 +162,7 @@ const Characters = () => {
     return () => {
       pageRef.current?.removeEventListener("scroll", exit);
     };
-  }, [listenScroll]);
+  }, [listenScroll, listenLoadingScroll]);
 
   const onCharacterSelect = useCallback(
     (character: Character) => {
@@ -246,8 +248,10 @@ const Characters = () => {
         <LoadingScreen
           onArrowDown={() => {
             onArrowDown();
+            setListenLoadingScroll(false);
             setTimeout(() => {
               setShowLoading(false);
+              setHideColophe(false);
             }, 500);
           }}
         />

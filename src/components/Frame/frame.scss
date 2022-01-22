@@ -1,0 +1,32 @@
+.frame {
+  min-height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100vw;
+
+  display: flex;
+  // background-size: cover;
+  // background: black;
+  // flex-direction: column;
+  position: relative;
+  overflow-x: scroll;
+
+  // scroll-snap-type: x mandatory;
+
+  > p {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    color: green;
+  }
+
+  > div {
+    scroll-snap-align: start;
+    flex-basis: 100vw;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+}
+
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+}

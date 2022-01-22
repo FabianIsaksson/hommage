@@ -1,0 +1,19 @@
+.frame-lookbook {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100vw;
+
+  background-size: cover;
+  // background: black;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  color: white;
+
+  > pre {
+    width: 100%;
+    white-space: pre-wrap;
+    padding: 24px;
+  }
+}

@@ -1,5 +1,6 @@
 import "./frame.scss";
 import testBlue from "../../static/images/test_blue.jpg";
+import testWhite from "../../static/images/test_white.jpg";
 import testLeopard from "../../static/images/test_leopard.jpg";
 import { FrameLookbook } from "./types";
 import Menu from "./Views/menu";
@@ -27,6 +28,38 @@ const lookbooks: FrameLookbook[] = [
     designerName: "THOMAS WIESER",
     brandName: "CLAUDE MONTANA",
     image: testBlue,
+    copy: "test",
+    socials: [
+      {
+        link: "https://www.google.com",
+        name: "google",
+      },
+      {
+        link: "https://www.instagram.com/",
+        name: "instagram",
+      },
+    ],
+  },
+  {
+    designerName: "HILDA LANDSTRÖM FERM",
+    brandName: "CLAUDE MONTANA",
+    image: testBlue,
+    copy: "test",
+    socials: [
+      {
+        link: "https://www.google.com",
+        name: "google",
+      },
+      {
+        link: "https://www.instagram.com/",
+        name: "instagram",
+      },
+    ],
+  },
+  {
+    designerName: "SAMUEL WESTERBERG",
+    brandName: "CLAUDE MONTANA",
+    image: testWhite,
     copy: "test",
     socials: [
       {
@@ -100,7 +133,7 @@ const Frame = () => {
           setSelectedLookbook(book);
           setTimeout(() => {
             scrollRight();
-          }, 10);
+          }, 10); // delay so the new page can render before scroll
         }}
       />
       {selectedLookbook && <Lookbook lookbook={selectedLookbook}></Lookbook>}

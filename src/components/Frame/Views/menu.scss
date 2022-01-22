@@ -8,4 +8,24 @@
 
   background: black;
   color: white;
+  background-size: cover;
+  background-position: center;
+  transition: background 500ms ease;
+
+  & > ul {
+    position: relative;
+    margin-top: 200px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: opacity 500ms ease;
+  }
+
+  &-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
 }

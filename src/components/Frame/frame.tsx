@@ -100,7 +100,7 @@ const Frame = () => {
           setSelectedLookbook(book);
           setTimeout(() => {
             scrollRight();
-          }, 1);
+          }, 10);
         }}
       />
       {selectedLookbook && <Lookbook lookbook={selectedLookbook}></Lookbook>}

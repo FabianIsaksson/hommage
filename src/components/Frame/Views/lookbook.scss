@@ -11,6 +11,34 @@
 
   color: white;
 
+  &-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 75px;
+    margin-bottom: 3rem;
+
+    &-socials {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      width: 100%;
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+
+      a {
+        color: white;
+        text-transform: uppercase;
+        text-decoration: underline;
+      }
+
+      span {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+    }
+  }
+
   > pre {
     position: relative;
     width: 100%;
@@ -18,5 +46,25 @@
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 24px;
+  }
+}
+
+.frame-lookbook-slider {
+  height: calc(100vw * 1.2);
+  width: 100%;
+  display: flex;
+
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+
+  img {
+    object-fit: contain;
+    transform: rotate(-2deg);
+    scroll-snap-align: start;
+    flex-basis: 50vw;
+    flex-shrink: 0;
+    min-width: 0;
+    flex-grow: 0;
+    margin: 80px;
   }
 }

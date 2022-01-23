@@ -1,5 +1,4 @@
 import { RefObject, useEffect, useState } from "react";
-import BackButton from "../../back-button";
 import { FrameLookbook } from "../types";
 import "./menu.scss";
 
@@ -68,7 +67,12 @@ const Menu = ({
   return (
     <div ref={menuRef} className="frame-menu">
       <div className="frame-menu-overlay" />
-      <BackButton />
+      <div
+        className="frame-menu-desktop-image"
+        style={{
+          backgroundImage: `url(${highlightedLookbook.image})`,
+        }}
+      ></div>
       <ul>
         {lookbooks.map((book) => (
           <li

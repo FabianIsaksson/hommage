@@ -27,10 +27,15 @@ import montana2 from "../../static/images/characters/montana2.jpg";
 import ponten1 from "../../static/images/characters/ponten1.jpg";
 import sighsten1 from "../../static/images/characters/sighsten1.jpg";
 import sighsten2 from "../../static/images/characters/sighsten2.jpg";
+
+import gif from "../../static/images/desktop-gif.gif";
+
 import { FrameLookbook } from "./types";
 import Menu from "./Views/menu";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Lookbook from "./Views/lookbook";
+import BackButton from "../back-button";
+import { useWindowWidth } from "../../hooks/useWindowWidth";
 
 const lookbooks: FrameLookbook[] = [
   {
@@ -38,7 +43,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "CLAUDE MONTANA",
     image: ponten1,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
-    pages: [looken, looken, looken, looken],
+    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -55,7 +60,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "BIBA",
     image: biba1,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
-    pages: [looken, looken, looken, looken],
+    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -72,7 +77,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "BIBA",
     image: biba2,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
-    pages: [looken, looken, looken, looken],
+    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -89,7 +94,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "BACK",
     image: back1,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
-    pages: [looken, looken, looken, looken],
+    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -106,7 +111,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "BACK",
     image: back2,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
-    pages: [looken, looken, looken, looken],
+    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -124,7 +129,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "CLAUDE MONTANA",
     image: montana1,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
-    pages: [looken, looken, looken, looken],
+    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -141,7 +146,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "CLAUDE MONTANA",
     image: montana2,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
-    pages: [looken, looken, looken, looken],
+    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -158,7 +163,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "SIGHSTEN HERRGÅRD",
     image: sighsten1,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
-    pages: [looken, looken, looken, looken],
+    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -175,7 +180,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "SIGHSTEN HERRGÅRD",
     image: sighsten2,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
-    pages: [looken, looken, looken, looken],
+    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -192,7 +197,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "AUGUSTA LUNDIN",
     image: augusta1,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
-    pages: [looken, looken, looken, looken],
+    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -209,7 +214,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "AUGUSTA LUNDIN",
     image: augusta2,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
-    pages: [looken, looken, looken, looken],
+    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -226,7 +231,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "AUGUSTA LUNDIN",
     image: augusta3,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
-    pages: [looken, looken, looken, looken],
+    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -241,6 +246,7 @@ const lookbooks: FrameLookbook[] = [
 ];
 
 const Frame = () => {
+  const windowSize = useWindowWidth();
   const frameRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -249,7 +255,8 @@ const Frame = () => {
     useState<FrameLookbook | null>(null);
   const [selectedLookbook, setSelectedLookbook] =
     useState<FrameLookbook | null>(
-      lookbooks[Math.floor(Math.random() * lookbooks.length)],
+      // lookbooks[Math.floor(Math.random() * lookbooks.length)],
+      null,
     );
 
   const scrollLeft = useCallback(
@@ -297,9 +304,9 @@ const Frame = () => {
 
   useEffect(() => {
     if (frameRef.current) {
-      // TEMP
-      frameRef.current.scrollLeft = window.innerWidth;
       frameRef.current.classList.add("scroll-snap-x");
+      // // TEMP
+      // frameRef.current.scrollLeft = window.innerWidth;
     }
   }, []);
 
@@ -326,11 +333,21 @@ const Frame = () => {
       ref={frameRef}
       className="frame"
       style={{
-        backgroundImage: highlightedLookbook
-          ? `url(${highlightedLookbook.image})`
-          : "",
+        backgroundImage:
+          highlightedLookbook && windowSize.isMobile
+            ? `url(${highlightedLookbook.image})`
+            : `url(${gif})`,
       }}
     >
+      <BackButton
+        onClick={() => {
+          scrollLeft(() => {
+            if (selectedLookbook) {
+              setSelectedLookbook(null);
+            }
+          });
+        }}
+      />
       <div
         className="animated-overlay"
         style={{
@@ -352,14 +369,7 @@ const Frame = () => {
           }, 10); // delay so the new page can render before scroll
         }}
       />
-      {selectedLookbook && (
-        <Lookbook
-          onBack={() => {
-            scrollLeft(() => setSelectedLookbook(null));
-          }}
-          lookbook={selectedLookbook}
-        ></Lookbook>
-      )}
+      {selectedLookbook && <Lookbook lookbook={selectedLookbook}></Lookbook>}
     </div>
   );
 };

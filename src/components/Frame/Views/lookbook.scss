@@ -4,16 +4,19 @@
   width: 100vw;
 
   background-size: cover;
-  // background: black;
-  display: flex;
-  flex-direction: column;
+  background-position: center;
+
   position: relative;
+  overflow: scroll;
 
   color: white;
 
   > pre {
+    position: relative;
     width: 100%;
     white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     padding: 24px;
   }
 }

@@ -6,22 +6,26 @@
   flex-direction: column;
   position: relative;
 
-  background: black;
   color: white;
-  background-size: cover;
-  background-position: center;
-  transition: background 500ms ease;
 
   & > ul {
     position: relative;
-    margin-top: 200px;
-    font-size: 1.5rem;
+    margin-top: 5em;
+    font-size: 1.3rem;
     font-weight: 700;
     transition: opacity 500ms ease;
+
+    & > li {
+      padding-right: 24px;
+      margin-top: 0.3rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
   }
 
   &-overlay {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     top: 0;

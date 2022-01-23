@@ -1,25 +1,33 @@
-import { useEffect, useState } from "react";
+import { RefObject, useEffect, useState } from "react";
+import BackButton from "../../back-button";
 import { FrameLookbook } from "../types";
 import "./menu.scss";
 
 const Menu = ({
+  menuRef,
   lookbooks,
+  selectedLookbook,
   onSelectBook,
+  onHighlightChange,
 }: {
+  menuRef: RefObject<HTMLDivElement>;
   lookbooks: FrameLookbook[];
+  selectedLookbook: FrameLookbook | null;
   onSelectBook: (book: FrameLookbook) => void;
+  onHighlightChange: (book: FrameLookbook) => void;
 }) => {
-  const [idleAnimation, setIdleAnimation] = useState(true);
-  const initialBook = lookbooks[Math.floor(Math.random() * lookbooks.length)];
+  const [idleAnimation, setIdleAnimation] = useState(!selectedLookbook);
 
+  const initialBook = lookbooks[Math.floor(Math.random() * lookbooks.length)];
   const [highlightedLookbook, setHighlightedLookbook] =
     useState<FrameLookbook>(initialBook);
 
+  useEffect(() => {
+    onHighlightChange(highlightedLookbook);
+  }, [highlightedLookbook]);
+
   // Idle animation
   useEffect(() => {
-    // let pane = 0;
-    // let increment = 1;
-
     let prev = highlightedLookbook;
 
     const idle = setInterval(() => {
@@ -40,25 +48,27 @@ const Menu = ({
 
       const randomLookbook = getRandomLookbook();
       setHighlightedLookbook(randomLookbook);
-    }, 3000);
 
-    // if (hasClicked) {
-    //   clearInterval(idle);
-    // }
+      // onHighlightChange(randomLookbook);
+    }, 3000);
 
     return () => {
       clearInterval(idle);
     };
   }, [highlightedLookbook, idleAnimation]);
 
+  useEffect(() => {
+    if (!selectedLookbook) {
+      setIdleAnimation(true);
+    } else {
+      setIdleAnimation(false);
+    }
+  }, [selectedLookbook]);
+
   return (
-    <div
-      className="frame-menu"
-      style={{
-        backgroundImage: `url(${highlightedLookbook.image})`,
-      }}
-    >
+    <div ref={menuRef} className="frame-menu">
       <div className="frame-menu-overlay" />
+      <BackButton />
       <ul>
         {lookbooks.map((book) => (
           <li
@@ -74,7 +84,6 @@ const Menu = ({
                 setHighlightedLookbook(book);
                 setTimeout(() => {
                   onSelectBook(book);
-                  setIdleAnimation(false);
                 }, 500);
               } else {
                 onSelectBook(book);

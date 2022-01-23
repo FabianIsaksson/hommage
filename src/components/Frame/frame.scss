@@ -4,26 +4,41 @@
   width: 100vw;
 
   display: flex;
-  // background-size: cover;
-  // background: black;
-  // flex-direction: column;
   position: relative;
   overflow-x: scroll;
 
-  // scroll-snap-type: x mandatory;
-
-  > p {
-    position: fixed;
-    bottom: 0;
-    z-index: 1;
-    color: green;
-  }
+  background-size: cover;
+  background-position: center;
+  transition: background 500ms ease;
+  will-change: background;
 
   > div {
     scroll-snap-align: start;
     flex-basis: 100vw;
     flex-shrink: 0;
     flex-grow: 0;
+  }
+}
+
+.animated-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  background-image: linear-gradient(to top, black, transparent);
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: bottom right, left, right;
+  transition: opacity 1s ease;
+  // animation: pull-up 1s ease;
+}
+@keyframes pull-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

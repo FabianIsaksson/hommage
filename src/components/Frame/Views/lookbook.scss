@@ -54,11 +54,14 @@
 
 .frame-lookbook-card-stack {
   position: relative;
-  height: 600px;
+  min-height: 50vw;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  padding-top: 200px;
+  padding-bottom: 200px;
 
   img {
     height: 80%;
@@ -66,6 +69,22 @@
     will-change: transform;
     transition: transform 600ms ease-in-out;
     filter: drop-shadow(-2px 0px 0.2rem rgba(0, 0, 0, 0.5));
+  }
+
+  &-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    @media screen and (min-width: 800px) {
+      width: 50%;
+    }
+  }
+
+  &-info {
+    @media screen and (min-width: 800px) {
+    }
   }
 }
 
@@ -87,4 +106,10 @@
     flex-grow: 0;
     margin: 80px;
   }
+}
+
+.limiter {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }

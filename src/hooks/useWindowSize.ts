@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 const getIsMobile = (w: number) => w < 800;
 
-export const useWindowWidth = () => {
+export const useWindowSize = () => {
   const size = useRef({
     width: window.innerWidth,
     height: window.innerHeight,

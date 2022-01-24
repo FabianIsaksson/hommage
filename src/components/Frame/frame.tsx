@@ -1,6 +1,8 @@
 import "./frame.scss";
-// Lookbook
 import looken from "../../static/images/lookbook/looken.png";
+import infoPage from "../../static/images/info-image.png";
+
+// Lookbook
 // import alice from "../../static/images/lookbook/alice.png";
 // import asli from "../../static/images/lookbook/asli.png";
 // import desiree from "../../static/images/lookbook/desiree.png";
@@ -35,7 +37,7 @@ import Menu from "./Views/menu";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Lookbook from "./Views/lookbook";
 import BackButton from "../back-button";
-import { useWindowWidth } from "../../hooks/useWindowWidth";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 const lookbooks: FrameLookbook[] = [
   {
@@ -43,6 +45,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "CLAUDE MONTANA",
     image: ponten1,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
+    infoPage,
     pages: [looken, looken, looken, looken, looken],
     socials: [
       {
@@ -60,6 +63,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "BIBA",
     image: biba1,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
+    infoPage,
     pages: [looken, looken, looken, looken, looken],
     socials: [
       {
@@ -77,6 +81,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "BIBA",
     image: biba2,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
+    infoPage,
     pages: [looken, looken, looken, looken, looken],
     socials: [
       {
@@ -94,6 +99,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "BACK",
     image: back1,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
+    infoPage,
     pages: [looken, looken, looken, looken, looken],
     socials: [
       {
@@ -111,6 +117,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "BACK",
     image: back2,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
+    infoPage,
     pages: [looken, looken, looken, looken, looken],
     socials: [
       {
@@ -129,6 +136,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "CLAUDE MONTANA",
     image: montana1,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
+    infoPage,
     pages: [looken, looken, looken, looken, looken],
     socials: [
       {
@@ -146,6 +154,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "CLAUDE MONTANA",
     image: montana2,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
+    infoPage,
     pages: [looken, looken, looken, looken, looken],
     socials: [
       {
@@ -163,6 +172,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "SIGHSTEN HERRGÅRD",
     image: sighsten1,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
+    infoPage,
     pages: [looken, looken, looken, looken, looken],
     socials: [
       {
@@ -180,6 +190,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "SIGHSTEN HERRGÅRD",
     image: sighsten2,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
+    infoPage,
     pages: [looken, looken, looken, looken, looken],
     socials: [
       {
@@ -197,6 +208,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "AUGUSTA LUNDIN",
     image: augusta1,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
+    infoPage,
     pages: [looken, looken, looken, looken, looken],
     socials: [
       {
@@ -214,6 +226,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "AUGUSTA LUNDIN",
     image: augusta2,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
+    infoPage,
     pages: [looken, looken, looken, looken, looken],
     socials: [
       {
@@ -231,6 +244,7 @@ const lookbooks: FrameLookbook[] = [
     brandName: "AUGUSTA LUNDIN",
     image: augusta3,
     copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl. The silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the fashion of art deco art nouveau era.",
+    infoPage,
     pages: [looken, looken, looken, looken, looken],
     socials: [
       {
@@ -246,7 +260,7 @@ const lookbooks: FrameLookbook[] = [
 ];
 
 const Frame = () => {
-  const windowSize = useWindowWidth();
+  const windowSize = useWindowSize();
   const frameRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 

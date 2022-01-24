@@ -3,6 +3,7 @@ export type FrameLookbook = {
   brandName: string;
   image: string;
   copy: string;
+  infoPage: string;
   pages: string[];
   socials?: {
     name: string;

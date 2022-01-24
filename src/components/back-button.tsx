@@ -1,7 +1,5 @@
 import "./back-button.scss";
 import { ReactComponent as ArrowLeft } from "../static/svg/arrow-left.svg";
-import classNames from "classnames";
-import { useEffect, useState } from "react";
 
 const BackButton = ({
   onClick,

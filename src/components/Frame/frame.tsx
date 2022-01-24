@@ -255,8 +255,8 @@ const Frame = () => {
     useState<FrameLookbook | null>(null);
   const [selectedLookbook, setSelectedLookbook] =
     useState<FrameLookbook | null>(
-      // lookbooks[Math.floor(Math.random() * lookbooks.length)],
-      null,
+      lookbooks[Math.floor(Math.random() * lookbooks.length)],
+      // null,
     );
 
   const scrollLeft = useCallback(
@@ -306,7 +306,7 @@ const Frame = () => {
     if (frameRef.current) {
       frameRef.current.classList.add("scroll-snap-x");
       // // TEMP
-      // frameRef.current.scrollLeft = window.innerWidth;
+      frameRef.current.scrollLeft = window.innerWidth;
     }
   }, []);
 

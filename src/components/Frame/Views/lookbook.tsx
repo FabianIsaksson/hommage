@@ -36,12 +36,12 @@ const Lookbook = ({ lookbook }: { lookbook: FrameLookbook }) => {
                     `rotate(${cardRotations[i]}deg) ` +
                     (windowSize.isMobile
                       ? currentCard < i //Mobile
-                        ? "translateX(120vw) translatey(-50vw) scale(2)"
-                        : `translate3d(${cardXPos[i]}px, ${cardYPos[i]}px, 0) translatey(0) scale(1)`
+                        ? "translateX(120vw) "
+                        : `translate3d(${cardXPos[i]}px, ${cardYPos[i]}px, 0) `
                       : //Desktop
                       currentCard < i
-                      ? "translateX(0vw) translatey(-150vh) scale(1.2)"
-                      : `translate3d(${cardXPos[i]}px, ${cardYPos[i]}px, 0) translatey(0) scale(1)`),
+                      ? "translatey(-150vh) "
+                      : `translate3d(${cardXPos[i]}px, ${cardYPos[i]}px, 0) `),
                 }}
                 key={lookbook.designerName + "image" + i}
                 alt={lookbook.designerName + "image" + i}

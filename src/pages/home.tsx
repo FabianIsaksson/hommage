@@ -7,7 +7,10 @@ const Home = () => {
       <h1>Hommage – under construction 🏗 </h1>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/dev">Dev</Link>
+        </li>
+        <li>
+          <Link to="/main">Main</Link>
         </li>
         <li>
           <Link to="/frame">Frame</Link>

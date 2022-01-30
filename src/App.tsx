@@ -8,14 +8,15 @@ import PlayerPage from "./components/player";
 import SwipeTest from "./pages/swipe-test";
 import TouchTest from "./pages/touch-test";
 import TripleTouchTest from "./pages/triple-touch-test";
-import Frame from "./components/Frame/frame";
+import MainPage from "./pages/main-page";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/frame" element={<Frame />}></Route>
+        <Route path="/" element={<MainPage />}></Route>
+        <Route path="/dev" element={<Home />}></Route>
+        <Route path="/main" element={<MainPage />}></Route>
         <Route path="/characters" element={<Characters />}></Route>
         <Route
           path="/player"

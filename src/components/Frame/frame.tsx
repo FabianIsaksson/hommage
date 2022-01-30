@@ -46,14 +46,21 @@ import savejaFullscreen from "../../static/images/menu-fullscreen/saveja_fullscr
 import teoFullscreen from "../../static/images/menu-fullscreen/teo_fullscreen.jpg";
 import thomasFullscreen from "../../static/images/menu-fullscreen/thomas_fullscreen.jpg";
 
-// import gif from "../../static/images/desktop-gif.gif";
-
 import { FrameLookbook } from "./types";
 import Menu from "./Views/menu";
-import { RefObject, useCallback, useEffect, useRef, useState } from "react";
+import {
+  Dispatch,
+  RefObject,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import Lookbook from "./Views/lookbook";
 import BackButton from "../back-button";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import classNames from "classnames";
 
 const lookbooks: FrameLookbook[] = [
   {
@@ -311,7 +318,13 @@ const lookbooks: FrameLookbook[] = [
   },
 ];
 
-const Frame = () => {
+const Frame = ({
+  show,
+  setShow,
+}: {
+  show: boolean;
+  setShow: Dispatch<SetStateAction<boolean>>;
+}) => {
   const windowSize = useWindowSize();
   const frameRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -419,58 +432,86 @@ const Frame = () => {
     };
   }, [selectedLookbook]);
 
+  const [animateOut, setAnimateOut] = useState(false);
+  const [animateIn, setAnimateIn] = useState(false);
+
+  const triggerAnimateOut = () => {
+    setAnimateIn(false);
+    setAnimateOut(true);
+    setTimeout(() => {
+      setShow(false);
+      setAnimateOut(false);
+    }, 500);
+  };
+
+  useEffect(() => {
+    if (show && !animateIn) {
+      setAnimateIn(true);
+    }
+  }, [show]);
+
   return (
     <div
-      ref={frameRef}
-      className="frame"
-      style={{
-        backgroundImage:
-          highlightedLookbook && windowSize.isMobile
-            ? `url(${highlightedLookbook.mobileImage})`
-            : selectedLookbook
-            ? `url(${selectedLookbook.fullscreenImage})`
-            : "none",
-      }}
+      className={classNames("frame-container", {
+        "frame-container-animate-out": animateOut,
+        "frame-container-animate-in": animateIn,
+        "frame-container-hide": !show,
+      })}
     >
-      <BackButton
-        style={{ opacity: fadeTop }}
-        onClick={() => {
-          scrollLeft(() => {
-            if (selectedLookbook) {
-              setSelectedLookbook(null);
-            }
-          });
-        }}
-      />
-
       <div
-        className="animated-overlay"
+        ref={frameRef}
+        className={"frame"}
         style={{
-          opacity: selectedLookbook ? 1 : 0,
-          animation: selectedLookbook ? "pull-up 1s ease" : "",
+          backgroundImage:
+            highlightedLookbook && windowSize.isMobile
+              ? `url(${highlightedLookbook.mobileImage})`
+              : selectedLookbook
+              ? `url(${selectedLookbook.fullscreenImage})`
+              : "none",
         }}
-      />
-      <Menu
-        onHighlightChange={(book: FrameLookbook) => {
-          setHighlightedLookbook(book);
-        }}
-        menuRef={menuRef}
-        lookbooks={lookbooks}
-        selectedLookbook={selectedLookbook}
-        onSelectBook={(book: FrameLookbook) => {
-          setSelectedLookbook(book);
-          setTimeout(() => {
-            scrollRight();
-          }, 10); // delay so the new page can render before scroll
-        }}
-      />
-      {selectedLookbook && (
-        <Lookbook
-          lookbookRef={lookbookRef}
-          lookbook={selectedLookbook}
-        ></Lookbook>
-      )}
-      <Logo style={{ opacity: fadeTop, zIndex: 1000 }} className="logo" />
+      >
+        <BackButton
+          style={{ opacity: fadeTop }}
+          onClick={() => {
+            if (selectedLookbook) {
+              scrollLeft(() => {
+                setSelectedLookbook(null);
+              });
+            } else {
+              triggerAnimateOut();
+            }
+          }}
+        />
+
+        <div
+          className="animated-overlay"
+          style={{
+            opacity: selectedLookbook ? 1 : 0,
+            animation: selectedLookbook ? "pull-up 1s ease" : "",
+          }}
+        />
+        <Menu
+          onHighlightChange={(book: FrameLookbook) => {
+            setHighlightedLookbook(book);
+          }}
+          menuRef={menuRef}
+          lookbooks={lookbooks}
+          selectedLookbook={selectedLookbook}
+          onSelectBook={(book: FrameLookbook) => {
+            setSelectedLookbook(book);
+            setTimeout(() => {
+              scrollRight();
+            }, 10); // delay so the new page can render before scroll
+          }}
+        />
+        {selectedLookbook && (
+          <Lookbook
+            lookbookRef={lookbookRef}
+            lookbook={selectedLookbook}
+          ></Lookbook>
+        )}
+        <Logo style={{ opacity: fadeTop, zIndex: 1000 }} className="logo" />
+      </div>
     </div>
   );
 };

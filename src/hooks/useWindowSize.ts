@@ -1,9 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 const getIsMobile = (w: number) => w < 800;
 
 export const useWindowSize = () => {
-  const size = useRef({
+  const [size, setSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
     isMobile: getIsMobile(window.innerWidth),
@@ -11,9 +11,11 @@ export const useWindowSize = () => {
 
   useEffect(() => {
     const monitor = () => {
-      size.current.width = window.innerWidth;
-      size.current.height = window.innerHeight;
-      size.current.isMobile = getIsMobile(window.innerWidth);
+      setSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+        isMobile: getIsMobile(window.innerWidth),
+      });
     };
 
     window.addEventListener("resize", monitor);
@@ -23,5 +25,5 @@ export const useWindowSize = () => {
     };
   }, []);
 
-  return size.current;
+  return size;
 };

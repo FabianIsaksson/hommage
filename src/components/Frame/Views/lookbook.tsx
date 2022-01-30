@@ -21,7 +21,10 @@ const Lookbook = ({ lookbook }: { lookbook: FrameLookbook }) => {
           className="frame-lookbook-card-stack"
           onClick={() => setCurrentCard(currentCard + 1)}
         >
-          <div className="frame-lookbook-card-stack-page">
+          <div
+            className="frame-lookbook-card-stack-page"
+            style={{ position: windowSize.isMobile ? "absolute" : "relative" }}
+          >
             <img
               className="frame-lookbook-card-stack-info"
               alt={lookbook.designerName + "info"}

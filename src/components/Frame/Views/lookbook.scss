@@ -54,15 +54,23 @@
 
 .frame-lookbook-card-stack {
   position: relative;
-  min-height: 50vw;
-  height: 50vh;
+  height: 120vw;
+  max-height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  margin-top: 120px;
+
+  @media screen and (min-width: 800px) {
+    margin-top: 0px;
+    padding-top: 5vw;
+    max-height: 800px;
+    height: 80vw;
+  }
 
   img {
-    height: 80%;
+    width: 75%;
     position: absolute;
 
     will-change: transform;
@@ -71,6 +79,13 @@
   }
 
   &-page {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    @media screen and (min-width: 800px) {
+      max-width: 600px;
+    }
+
     display: flex;
     justify-content: center;
     align-items: center;

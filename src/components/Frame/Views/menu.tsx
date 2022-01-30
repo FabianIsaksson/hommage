@@ -76,6 +76,7 @@ const Menu = ({
       <ul>
         {lookbooks.map((book) => (
           <li
+            onMouseOver={() => setHighlightedLookbook(book)}
             style={{
               opacity:
                 highlightedLookbook?.designerName === book.designerName

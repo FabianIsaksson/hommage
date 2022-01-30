@@ -41,7 +41,7 @@ const Lookbook = ({
     }
   }, [windowSize]);
 
-  const copy = lookbook.copy.split("\n").map((str) => <p>{str}</p>);
+  const copy = lookbook.copy.split("\n").map((str, i) => <p key={i}>{str}</p>);
 
   return (
     <div className="frame-lookbook" ref={lookbookRef}>
@@ -107,7 +107,7 @@ const Lookbook = ({
           </div>
         </div>
         <div className="frame-lookbook-content">
-          <h1>"{"Voy_ex"}"</h1>
+          <h1>"{lookbook.title}"</h1>
           <div className="frame-lookbook-content-paragraphs">
             {copy}
             {lookbook.socials && (

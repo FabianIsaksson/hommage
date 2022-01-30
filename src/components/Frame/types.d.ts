@@ -1,5 +1,6 @@
 export type FrameLookbook = {
   designerName: string;
+  title: string;
   brandName: string;
   image: string;
   copy: string;

@@ -1,11 +1,17 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, RefObject, useEffect, useState } from "react";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import { ReactComponent as ArrowLeft } from "../../../static/svg/arrow-left.svg";
 import { ReactComponent as ArrowRight } from "../../../static/svg/arrow-right.svg";
 import { FrameLookbook } from "../types";
 import "./lookbook.scss";
 
-const Lookbook = ({ lookbook }: { lookbook: FrameLookbook }) => {
+const Lookbook = ({
+  lookbook,
+  lookbookRef,
+}: {
+  lookbook: FrameLookbook;
+  lookbookRef: RefObject<HTMLDivElement>;
+}) => {
   const windowSize = useWindowSize();
   const minimum = windowSize.isMobile ? -1 : 0;
   const maximum = lookbook.pages.length - 1;
@@ -38,7 +44,7 @@ const Lookbook = ({ lookbook }: { lookbook: FrameLookbook }) => {
   const copy = lookbook.copy.split("\n").map((str) => <p>{str}</p>);
 
   return (
-    <div className="frame-lookbook">
+    <div className="frame-lookbook" ref={lookbookRef}>
       <div className="frame-lookbook-overlay" />
       <div className="limiter">
         <div className="frame-lookbook-card-stack">
@@ -92,7 +98,9 @@ const Lookbook = ({ lookbook }: { lookbook: FrameLookbook }) => {
                 }
                 onClick={onIncrease}
               >
-                <span>Next</span>
+                <span>
+                  {currentCard > minimum ? "Next" : "View Collection"}
+                </span>
                 <ArrowRight />
               </div>
             </div>
@@ -100,19 +108,21 @@ const Lookbook = ({ lookbook }: { lookbook: FrameLookbook }) => {
         </div>
         <div className="frame-lookbook-content">
           <h1>"{"Voy_ex"}"</h1>
-          {copy}
-          {lookbook.socials && (
-            <div className="frame-lookbook-content-socials">
-              {lookbook.socials?.map((link, si) => (
-                <Fragment key={si}>
-                  <a href={link.link} target="_blank" rel="noreferrer">
-                    {link.name}
-                  </a>
-                  {si < (lookbook.socials?.length ?? 0) - 1 && <span>/</span>}
-                </Fragment>
-              ))}
-            </div>
-          )}
+          <div className="frame-lookbook-content-paragraphs">
+            {copy}
+            {lookbook.socials && (
+              <div className="frame-lookbook-content-socials">
+                {lookbook.socials?.map((link, si) => (
+                  <Fragment key={si}>
+                    <a href={link.link} target="_blank" rel="noreferrer">
+                      {link.name}
+                    </a>
+                    {si < (lookbook.socials?.length ?? 0) - 1 && <span>/</span>}
+                  </Fragment>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

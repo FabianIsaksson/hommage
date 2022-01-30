@@ -1,13 +1,15 @@
 import "./back-button.scss";
 import { ReactComponent as ArrowLeft } from "../static/svg/arrow-left.svg";
+import { HTMLAttributes } from "react";
 
 const BackButton = ({
   onClick,
+  style,
 }: // text,
 // direction,
 // absolute,
 // show,
-{
+HTMLAttributes<HTMLDivElement> & {
   // text: string;
   // direction: "up" | "down";
   // absolute?: boolean;
@@ -26,6 +28,7 @@ const BackButton = ({
 
   return (
     <div
+      style={style}
       className="back-button"
       // className={classNames("arrow-button", {
       //   "absolute-up": direction === "up" && absolute,

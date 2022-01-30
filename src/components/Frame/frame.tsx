@@ -36,7 +36,7 @@ import gif from "../../static/images/desktop-gif.gif";
 
 import { FrameLookbook } from "./types";
 import Menu from "./Views/menu";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { RefObject, useCallback, useEffect, useRef, useState } from "react";
 import Lookbook from "./Views/lookbook";
 import BackButton from "../back-button";
 import { useWindowSize } from "../../hooks/useWindowSize";
@@ -265,6 +265,8 @@ const Frame = () => {
   const windowSize = useWindowSize();
   const frameRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const lookbookRef = useRef<HTMLDivElement>(null);
+  const [fadeTop, setFadeTop] = useState(1);
 
   const [listenScroll] = useState<boolean>(true);
   const [highlightedLookbook, setHighlightedLookbook] =
@@ -288,6 +290,7 @@ const Frame = () => {
 
       setTimeout(() => {
         frameRef.current?.classList.add("scroll-snap-x");
+        setFadeTop(1);
         if (onComplete) {
           onComplete();
         }
@@ -309,6 +312,12 @@ const Frame = () => {
 
       setTimeout(() => {
         frameRef.current?.classList.add("scroll-snap-x");
+
+        setFadeTop(1);
+        if (menuRef.current) {
+          menuRef.current.scrollTop = 0;
+        }
+
         if (onComplete) {
           onComplete();
         }
@@ -335,6 +344,7 @@ const Frame = () => {
         frameRef.current.scrollLeft === menuRef.current.offsetLeft
       ) {
         setSelectedLookbook(null);
+        setFadeTop(1);
       }
     };
 
@@ -344,19 +354,20 @@ const Frame = () => {
     };
   }, [listenScroll]);
 
-  const [fadeTop, setFadeTop] = useState(1);
-  console.log("🚀 ~ file: frame.tsx ~ line 348 ~ Frame ~ fadeTop", fadeTop);
-
   useEffect(() => {
-    const fade = () => {
-      setFadeTop(1 - (frameRef.current?.scrollTop ?? 1 ^ 2));
+    const fade = (ref: RefObject<HTMLDivElement>) => {
+      setFadeTop(1 - (ref.current?.scrollTop ?? 1 ^ 2) / 100);
     };
 
-    frameRef.current?.addEventListener("scroll", fade);
+    lookbookRef.current?.addEventListener("scroll", () => fade(lookbookRef));
+    menuRef.current?.addEventListener("scroll", () => fade(menuRef));
     return () => {
-      frameRef.current?.removeEventListener("scroll", fade);
+      lookbookRef.current?.removeEventListener("scroll", () =>
+        fade(lookbookRef),
+      );
+      menuRef.current?.removeEventListener("scroll", () => fade(frameRef));
     };
-  }, []);
+  }, [selectedLookbook]);
 
   return (
     <div
@@ -370,6 +381,7 @@ const Frame = () => {
       }}
     >
       <BackButton
+        style={{ opacity: fadeTop }}
         onClick={() => {
           scrollLeft(() => {
             if (selectedLookbook) {
@@ -378,6 +390,7 @@ const Frame = () => {
           });
         }}
       />
+
       <div
         className="animated-overlay"
         style={{
@@ -399,8 +412,13 @@ const Frame = () => {
           }, 10); // delay so the new page can render before scroll
         }}
       />
-      {selectedLookbook && <Lookbook lookbook={selectedLookbook}></Lookbook>}
-      <Logo className="logo" />
+      {selectedLookbook && (
+        <Lookbook
+          lookbookRef={lookbookRef}
+          lookbook={selectedLookbook}
+        ></Lookbook>
+      )}
+      <Logo style={{ opacity: fadeTop }} className="logo" />
     </div>
   );
 };

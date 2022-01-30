@@ -6,6 +6,14 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow-y: scroll;
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
   @media screen and (min-width: 800px) {
     flex-direction: row;
@@ -20,6 +28,7 @@
     padding-bottom: 48px;
 
     & > li {
+      cursor: pointer;
       padding-right: 24px;
       padding-top: 0.4rem;
       text-overflow: ellipsis;

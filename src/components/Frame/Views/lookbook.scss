@@ -16,22 +16,25 @@
     padding-right: 2rem;
     margin-bottom: 3rem;
 
-    column-count: 1;
-    column-gap: 24px;
+    &-paragraphs {
+      font-family: acumin-pro, sans-serif;
+      column-count: 1;
+      column-gap: 24px;
 
-    & p:first-child {
-      margin-top: 0;
-    }
+      & p:first-child {
+        margin-top: 0;
+      }
 
-    @media screen and (min-width: 600px) {
-      column-count: 2;
-    }
-    @media screen and (min-width: 800px) {
-      column-count: 3;
-    }
+      @media screen and (min-width: 600px) {
+        column-count: 2;
+      }
+      @media screen and (min-width: 800px) {
+        column-count: 3;
+      }
 
-    @media screen and (min-width: 1024px) {
-      column-count: 4;
+      @media screen and (min-width: 1024px) {
+        column-count: 4;
+      }
     }
 
     & > h1 {
@@ -41,11 +44,8 @@
       text-transform: uppercase;
     }
 
-    & > p {
-      font-family: acumin-pro, sans-serif;
-    }
-
     &-socials {
+      font-family: acumin-pro-extra-condensed, sans-serif;
       margin-top: 3rem;
       margin-bottom: 3rem;
       width: 100%;
@@ -138,6 +138,7 @@
     justify-content: space-between;
 
     & div {
+      cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;

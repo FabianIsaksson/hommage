@@ -35,6 +35,8 @@ const Lookbook = ({ lookbook }: { lookbook: FrameLookbook }) => {
     }
   }, [windowSize]);
 
+  const copy = lookbook.copy.split("\n").map((str) => <p>{str}</p>);
+
   return (
     <div className="frame-lookbook">
       <div className="frame-lookbook-overlay" />
@@ -71,42 +73,34 @@ const Lookbook = ({ lookbook }: { lookbook: FrameLookbook }) => {
               ></img>
             ))}
             <div className="frame-lookbook-card-stack-arrow-controls">
-              <ArrowLeft
-                onClick={onDecrease}
+              <div
                 className={
                   currentCard > minimum
                     ? ""
                     : "frame-lookbook-card-stack-arrow-controls-hide"
                 }
-              />
-              <ArrowRight
-                onClick={onIncrease}
+                onClick={onDecrease}
+              >
+                <ArrowLeft />
+                <span>Previous</span>
+              </div>
+              <div
                 className={
                   currentCard < maximum
                     ? ""
                     : "frame-lookbook-card-stack-arrow-controls-hide"
                 }
-              />
+                onClick={onIncrease}
+              >
+                <span>Next</span>
+                <ArrowRight />
+              </div>
             </div>
           </div>
         </div>
-
-        {/* <div className="frame-lookbook-slider">
-          {lookbook.pages.map((page, i) => (
-            <img
-              key={lookbook.designerName + "image" + i}
-              alt={lookbook.designerName + "image" + i}
-              src={page}
-            ></img>
-          ))}
-        </div> */}
         <div className="frame-lookbook-content">
-          <p>{lookbook.copy}</p>
-          <p>{lookbook.copy}</p>
-          <p>{lookbook.copy}</p>
-          <p>{lookbook.copy}</p>
-          <p>{lookbook.copy}</p>
-          <p>{lookbook.copy}</p>
+          <h1>"{"Voy_ex"}"</h1>
+          {copy}
           {lookbook.socials && (
             <div className="frame-lookbook-content-socials">
               {lookbook.socials?.map((link, si) => (
@@ -120,7 +114,6 @@ const Lookbook = ({ lookbook }: { lookbook: FrameLookbook }) => {
             </div>
           )}
         </div>
-        {/* <BackButton onClick={onBack} /> */}
       </div>
     </div>
   );

@@ -48,3 +48,10 @@
 .scroll-snap-x {
   scroll-snap-type: x mandatory;
 }
+
+.logo {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}

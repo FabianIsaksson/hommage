@@ -1,11 +1,16 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useWindowSize } from "../../../hooks/useWindowSize";
+import { ReactComponent as ArrowLeft } from "../../../static/svg/arrow-left.svg";
+import { ReactComponent as ArrowRight } from "../../../static/svg/arrow-right.svg";
 import { FrameLookbook } from "../types";
 import "./lookbook.scss";
 
 const Lookbook = ({ lookbook }: { lookbook: FrameLookbook }) => {
   const windowSize = useWindowSize();
-  const [currentCard, setCurrentCard] = useState(0);
+  const minimum = windowSize.isMobile ? -1 : 0;
+  const maximum = lookbook.pages.length - 1;
+
+  const [currentCard, setCurrentCard] = useState(minimum);
 
   const cardRotations = [0, -3, 3, -2, 1, 0, 0, 0, 0, 0]; // make it nice
 
@@ -13,14 +18,28 @@ const Lookbook = ({ lookbook }: { lookbook: FrameLookbook }) => {
 
   const cardYPos = [-10, -25, -10, -20, 0, 0, 0, 0, 0];
 
+  const onDecrease = () => {
+    if (currentCard - 1 >= minimum) {
+      setCurrentCard(currentCard - 1);
+    }
+  };
+  const onIncrease = () => {
+    if (currentCard + 1 < lookbook.pages.length) {
+      setCurrentCard(currentCard + 1);
+    }
+  };
+
+  useEffect(() => {
+    if (currentCard === -1 && !windowSize.isMobile) {
+      setCurrentCard(0);
+    }
+  }, [windowSize]);
+
   return (
     <div className="frame-lookbook">
       <div className="frame-lookbook-overlay" />
       <div className="limiter">
-        <div
-          className="frame-lookbook-card-stack"
-          onClick={() => setCurrentCard(currentCard + 1)}
-        >
+        <div className="frame-lookbook-card-stack">
           <div
             className="frame-lookbook-card-stack-page"
             style={{ position: windowSize.isMobile ? "absolute" : "relative" }}
@@ -31,7 +50,7 @@ const Lookbook = ({ lookbook }: { lookbook: FrameLookbook }) => {
               src={lookbook.infoPage}
             ></img>
           </div>
-          <div className="frame-lookbook-card-stack-page">
+          <div className="frame-lookbook-card-stack-page arrow-cards">
             {lookbook.pages.map((page, i) => (
               <img
                 style={{
@@ -51,15 +70,27 @@ const Lookbook = ({ lookbook }: { lookbook: FrameLookbook }) => {
                 src={page}
               ></img>
             ))}
+            <div className="frame-lookbook-card-stack-arrow-controls">
+              <ArrowLeft
+                onClick={onDecrease}
+                className={
+                  currentCard > minimum
+                    ? ""
+                    : "frame-lookbook-card-stack-arrow-controls-hide"
+                }
+              />
+              <ArrowRight
+                onClick={onIncrease}
+                className={
+                  currentCard < maximum
+                    ? ""
+                    : "frame-lookbook-card-stack-arrow-controls-hide"
+                }
+              />
+            </div>
           </div>
         </div>
-        <button
-          onClick={() => {
-            setCurrentCard(currentCard - 1);
-          }}
-        >
-          CHANGE negative
-        </button>
+
         {/* <div className="frame-lookbook-slider">
           {lookbook.pages.map((page, i) => (
             <img

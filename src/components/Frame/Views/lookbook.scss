@@ -54,8 +54,8 @@
 
 .frame-lookbook-card-stack {
   position: relative;
-  height: 120vw;
-  max-height: 600px;
+  height: 132vw;
+  max-height: 632px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,7 +83,7 @@
     width: 100%;
     max-width: 500px;
     @media screen and (min-width: 800px) {
-      max-width: 600px;
+      max-width: 582px;
     }
 
     display: flex;
@@ -98,6 +98,25 @@
 
   &-info {
     @media screen and (min-width: 800px) {
+    }
+  }
+
+  &-arrow-controls {
+    width: 75%;
+    z-index: 100;
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    justify-content: space-between;
+
+    & svg {
+      transition: all 500ms ease;
+    }
+
+    &-hide {
+      opacity: 0;
+      touch-action: none;
+      pointer-events: none;
     }
   }
 }

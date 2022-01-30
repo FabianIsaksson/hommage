@@ -25,6 +25,19 @@ const Menu = ({
     onHighlightChange(highlightedLookbook);
   }, [highlightedLookbook]);
 
+  // Preload images
+  useEffect(() => {
+    lookbooks.forEach((book) => {
+      const mobile = new Image();
+      mobile.src = book.mobileImage;
+
+      const desktop = new Image();
+      desktop.src = book.desktopImage;
+      const fullscreen = new Image();
+      fullscreen.src = book.fullscreenImage;
+    });
+  }, [lookbooks]);
+
   // Idle animation
   useEffect(() => {
     let prev = highlightedLookbook;
@@ -70,7 +83,7 @@ const Menu = ({
       <div
         className="frame-menu-desktop-image"
         style={{
-          backgroundImage: `url(${highlightedLookbook.image})`,
+          backgroundImage: `url(${highlightedLookbook.desktopImage})`,
         }}
       ></div>
       <ul>

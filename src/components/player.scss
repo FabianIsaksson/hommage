@@ -1,15 +1,6 @@
 .player {
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
-  background: black;
-  // background: url("../static/images/blue-background.png");
-
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
+  position: absolute;
+  transform: translateY(-100vh);
 }
 
 .player-logo {

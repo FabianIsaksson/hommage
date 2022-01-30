@@ -510,7 +510,16 @@ const Frame = ({
             lookbook={selectedLookbook}
           ></Lookbook>
         )}
-        <Logo style={{ opacity: fadeTop, zIndex: 1000 }} className="logo" />
+        <Logo
+          onClick={() => {
+            triggerAnimateOut();
+            setTimeout(() => {
+              setSelectedLookbook(null);
+            }, 500);
+          }}
+          style={{ opacity: fadeTop, zIndex: 1000 }}
+          className="logo"
+        />
       </div>
     </div>
   );

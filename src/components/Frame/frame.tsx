@@ -418,7 +418,7 @@ const Frame = () => {
           lookbook={selectedLookbook}
         ></Lookbook>
       )}
-      <Logo style={{ opacity: fadeTop }} className="logo" />
+      <Logo style={{ opacity: fadeTop, zIndex: 1000 }} className="logo" />
     </div>
   );
 };

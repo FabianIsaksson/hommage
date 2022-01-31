@@ -5,6 +5,8 @@ import { ReactComponent as Logo } from "../../static/svg/logo.svg";
 import viewCollections from "../../static/images/view-collections.png";
 import { VideoJsPlayer, VideoJsPlayerOptions } from "video.js";
 import { Player } from "../player";
+import LetterLoadingScreen from "../letter-loading-screen";
+import classNames from "classnames";
 
 const Main = () => {
   const [showFrame, setShowFrame] = useState(false);
@@ -43,72 +45,95 @@ const Main = () => {
     };
   }, []);
 
+  const [loading, setLoading] = useState(true);
+  const [contained, setContained] = useState(true);
+
   return (
-    <div className="main" ref={mainRef}>
-      <div className="player">
-        <Player options={videoJsOptions} onReady={handlePlayerReady} />
-      </div>
-
-      <div className="main-content" style={{ opacity: showFrame ? 0 : 1 }}>
-        <Logo className="main-logo" style={{ opacity: logoFade }} />
-        <p
-          onClick={() => {
-            playerRef.current?.requestFullscreen();
-            playerRef.current?.play();
+    <div className={classNames("main-container", { contained })}>
+      {loading && (
+        <LetterLoadingScreen
+          onArrowDown={() => {
+            setContained(false);
+            setTimeout(() => {
+              window.scrollBy({
+                top: window.innerHeight,
+                left: 0,
+                behavior: "smooth",
+              });
+              setTimeout(() => {
+                setLoading(false);
+              }, 500);
+            }, 50);
           }}
-          className="main-film-play-mobile"
-        >
-          PLAY FILM
-        </p>
+          onArrowUp={() => {}}
+        />
+      )}
+      <div className="main" ref={mainRef}>
+        <div className="player">
+          <Player options={videoJsOptions} onReady={handlePlayerReady} />
+        </div>
 
-        <div className="main-content-split">
-          <div
-            className="main-content-view-collections"
+        <div className="main-content" style={{ opacity: showFrame ? 0 : 1 }}>
+          <Logo className="main-logo" style={{ opacity: logoFade }} />
+          <p
             onClick={() => {
-              setShowFrame(true);
+              playerRef.current?.requestFullscreen();
+              playerRef.current?.play();
             }}
+            className="main-film-play-mobile"
           >
-            <img alt="view collections" src={viewCollections}></img>
-            <p>Show Collections</p>
-          </div>
-          <div className="main-content-info">
-            <h1>BECKMANS COLLEGE OF DESIGN AT STOCKHOLM FASHION WEEK AW22</h1>
-            <div>
-              <p className="line">
-                The BA fashion students at Beckmans College of Design have
-                interpreted six fashion icons.
-              </p>
-              <p className="line">
-                To move forward you have to look back. In the project "Beckmans
-                Homage", the students have drawn inspiration from fashion
-                history and brought it into the future.
-              </p>
-              <p className="line">
-                The twelve students have each created highly personal
-                collections based on one of the well-known fashion brands.
-                Curiosity and creativity can be seen as a common denominator
-                along with sharp silhouettes and contrasting material choices.
-              </p>
-              <p className="line">
-                The legendary fashion desginers interpreted are Augusta Lundin,
-                Barbara Hulanicki/Biba and Claude Montana along with the
-                Beckmans’ alumni Gunilla Pontén, Sighsten Herrgård and Ann-Sofie
-                Back.
-              </p>
-              <p
-                onClick={() => {
-                  playerRef.current?.requestFullscreen();
-                  playerRef.current?.play();
-                }}
-                className="main-film-play-desktop"
-              >
-                PLAY FILM
-              </p>
+            PLAY FILM
+          </p>
+
+          <div className="main-content-split">
+            <div
+              className="main-content-view-collections"
+              onClick={() => {
+                setShowFrame(true);
+              }}
+            >
+              <img alt="view collections" src={viewCollections}></img>
+              <p>Show Collections</p>
+            </div>
+            <div className="main-content-info">
+              <h1>BECKMANS COLLEGE OF DESIGN AT STOCKHOLM FASHION WEEK AW22</h1>
+              <div>
+                <p className="line">
+                  The BA fashion students at Beckmans College of Design have
+                  interpreted six fashion icons.
+                </p>
+                <p className="line">
+                  To move forward you have to look back. In the project
+                  "Beckmans Homage", the students have drawn inspiration from
+                  fashion history and brought it into the future.
+                </p>
+                <p className="line">
+                  The twelve students have each created highly personal
+                  collections based on one of the well-known fashion brands.
+                  Curiosity and creativity can be seen as a common denominator
+                  along with sharp silhouettes and contrasting material choices.
+                </p>
+                <p className="line">
+                  The legendary fashion desginers interpreted are Augusta
+                  Lundin, Barbara Hulanicki/Biba and Claude Montana along with
+                  the Beckmans’ alumni Gunilla Pontén, Sighsten Herrgård and
+                  Ann-Sofie Back.
+                </p>
+                <p
+                  onClick={() => {
+                    playerRef.current?.requestFullscreen();
+                    playerRef.current?.play();
+                  }}
+                  className="main-film-play-desktop"
+                >
+                  PLAY FILM
+                </p>
+              </div>
             </div>
           </div>
         </div>
+        <Frame show={showFrame} setShow={setShowFrame} />
       </div>
-      <Frame show={showFrame} setShow={setShowFrame} />
     </div>
   );
 };

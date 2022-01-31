@@ -1,51 +1,6 @@
 import "./frame.scss";
 import { ReactComponent as Logo } from "../../static/svg/logo.svg";
 
-import looken from "../../static/images/lookbook/looken.png";
-import infoPage from "../../static/images/info-image.png";
-
-// Mobile menu
-import desireeMobile from "../../static/images/menu-mobile/desiree_mobile.jpg";
-import aliceMobile from "../../static/images/menu-mobile/alice_mobile.jpg";
-import asliMobile from "../../static/images/menu-mobile/asli_mobile.jpg";
-import gabriellaMobile from "../../static/images/menu-mobile/gabriella_mobile.jpg";
-import hildaMobile from "../../static/images/menu-mobile/hilda_mobile.jpg";
-import isabelleMobile from "../../static/images/menu-mobile/isabelle_mobile.jpg";
-import kevinMobile from "../../static/images/menu-mobile/kevin_mobile.jpg";
-import mayaMobile from "../../static/images/menu-mobile/maya_mobile.jpg";
-import samuelMobile from "../../static/images/menu-mobile/samuel_mobile.jpg";
-import savejaMobile from "../../static/images/menu-mobile/saveja_mobile.jpg";
-import teoMobile from "../../static/images/menu-mobile/teo_mobile.jpg";
-import thomasMobile from "../../static/images/menu-mobile/thomas_mobile.jpg";
-
-// Desktop
-import desireeDesktop from "../../static/images/menu-desktop/desiree_desktop.jpg";
-import aliceDesktop from "../../static/images/menu-desktop/alice_desktop.jpg";
-import asliDesktop from "../../static/images/menu-desktop/asli_desktop.jpg";
-import gabriellaDesktop from "../../static/images/menu-desktop/gabriella_desktop.jpg";
-import hildaDesktop from "../../static/images/menu-desktop/hilda_desktop.jpg";
-import isabelleDesktop from "../../static/images/menu-desktop/isabelle_desktop.jpg";
-import kevinDesktop from "../../static/images/menu-desktop/kevin_desktop.jpg";
-import mayaDesktop from "../../static/images/menu-desktop/maya_desktop.jpg";
-import samuelDesktop from "../../static/images/menu-desktop/samuel_desktop.jpg";
-import savejaDesktop from "../../static/images/menu-desktop/saveja_desktop.jpg";
-import teoDesktop from "../../static/images/menu-desktop/teo_desktop.jpg";
-import thomasDesktop from "../../static/images/menu-desktop/thomas_desktop.jpg";
-
-// Fullscreen
-import desireeFullscreen from "../../static/images/menu-fullscreen/desiree_fullscreen.jpg";
-import aliceFullscreen from "../../static/images/menu-fullscreen/alice_fullscreen.jpg";
-import asliFullscreen from "../../static/images/menu-fullscreen/asli_fullscreen.jpg";
-import gabriellaFullscreen from "../../static/images/menu-fullscreen/gabriella_fullscreen.jpg";
-import hildaFullscreen from "../../static/images/menu-fullscreen/hilda_fullscreen.jpg";
-import isabelleFullscreen from "../../static/images/menu-fullscreen/isabelle_fullscreen.jpg";
-import kevinFullscreen from "../../static/images/menu-fullscreen/kevin_fullscreen.jpg";
-import mayaFullscreen from "../../static/images/menu-fullscreen/maya_fullscreen.jpg";
-import samuelFullscreen from "../../static/images/menu-fullscreen/samuel_fullscreen.jpg";
-import savejaFullscreen from "../../static/images/menu-fullscreen/saveja_fullscreen.jpg";
-import teoFullscreen from "../../static/images/menu-fullscreen/teo_fullscreen.jpg";
-import thomasFullscreen from "../../static/images/menu-fullscreen/thomas_fullscreen.jpg";
-
 import { FrameLookbook } from "./types";
 import Menu from "./Views/menu";
 import {
@@ -61,18 +16,15 @@ import Lookbook from "./Views/lookbook";
 import BackButton from "../back-button";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import classNames from "classnames";
+import { lookbookImages } from "./lookbook-images";
 
 const lookbooks: FrameLookbook[] = [
   {
     designerName: "SAVEJA AIWUZHALI",
     title: "test",
     brandName: "CLAUDE MONTANA",
-    mobileImage: savejaMobile,
-    desktopImage: savejaDesktop,
-    fullscreenImage: savejaFullscreen,
+    ...lookbookImages.saveja,
     copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
-    infoPage,
-    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -88,12 +40,8 @@ const lookbooks: FrameLookbook[] = [
     designerName: "ASLI CÖMERT",
     title: "test",
     brandName: "BIBA",
-    mobileImage: asliMobile,
-    desktopImage: asliDesktop,
-    fullscreenImage: asliFullscreen,
+    ...lookbookImages.asli,
     copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
-    infoPage,
-    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -109,12 +57,8 @@ const lookbooks: FrameLookbook[] = [
     designerName: "DESIRÉE BJURINDER FRITZON",
     title: "test",
     brandName: "BIBA",
-    mobileImage: desireeMobile,
-    desktopImage: desireeDesktop,
-    fullscreenImage: desireeFullscreen,
+    ...lookbookImages.desiree,
     copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
-    infoPage,
-    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -130,12 +74,8 @@ const lookbooks: FrameLookbook[] = [
     designerName: "SAMUEL WESTERBERG",
     title: "test",
     brandName: "BACK",
-    mobileImage: samuelMobile,
-    desktopImage: samuelDesktop,
-    fullscreenImage: samuelFullscreen,
+    ...lookbookImages.samuel,
     copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
-    infoPage,
-    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -151,12 +91,8 @@ const lookbooks: FrameLookbook[] = [
     designerName: "TEODOR WARPE",
     title: "test",
     brandName: "BACK",
-    mobileImage: teoMobile,
-    desktopImage: teoDesktop,
-    fullscreenImage: teoFullscreen,
+    ...lookbookImages.teo,
     copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
-    infoPage,
-    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -173,12 +109,8 @@ const lookbooks: FrameLookbook[] = [
     designerName: "HILDA LANDSTRÖM FERM",
     title: "test",
     brandName: "CLAUDE MONTANA",
-    mobileImage: hildaMobile,
-    desktopImage: hildaDesktop,
-    fullscreenImage: hildaFullscreen,
+    ...lookbookImages.hilda,
     copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
-    infoPage,
-    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -194,12 +126,8 @@ const lookbooks: FrameLookbook[] = [
     designerName: "MAYA SUNDHOLM",
     title: "test",
     brandName: "CLAUDE MONTANA",
-    mobileImage: mayaMobile,
-    desktopImage: mayaDesktop,
-    fullscreenImage: mayaFullscreen,
+    ...lookbookImages.maya,
     copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
-    infoPage,
-    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -215,12 +143,8 @@ const lookbooks: FrameLookbook[] = [
     designerName: "ISABELLE SJÖMAN",
     title: "test",
     brandName: "SIGHSTEN HERRGÅRD",
-    mobileImage: isabelleMobile,
-    desktopImage: isabelleDesktop,
-    fullscreenImage: isabelleFullscreen,
+    ...lookbookImages.isabelle,
     copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
-    infoPage,
-    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -236,12 +160,8 @@ const lookbooks: FrameLookbook[] = [
     designerName: "KEVIN NILSSON",
     title: "test",
     brandName: "SIGHSTEN HERRGÅRD",
-    mobileImage: kevinMobile,
-    desktopImage: kevinDesktop,
-    fullscreenImage: kevinFullscreen,
+    ...lookbookImages.kevin,
     copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
-    infoPage,
-    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -257,12 +177,8 @@ const lookbooks: FrameLookbook[] = [
     designerName: "ALICE SVENSSON BROSTEDT",
     title: "test",
     brandName: "AUGUSTA LUNDIN",
-    mobileImage: aliceMobile,
-    desktopImage: aliceDesktop,
-    fullscreenImage: aliceFullscreen,
+    ...lookbookImages.alice,
     copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
-    infoPage,
-    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -278,12 +194,8 @@ const lookbooks: FrameLookbook[] = [
     designerName: "GABRIELLA DANERLÖV",
     title: "test",
     brandName: "AUGUSTA LUNDIN",
-    mobileImage: gabriellaMobile,
-    desktopImage: gabriellaDesktop,
-    fullscreenImage: gabriellaFullscreen,
+    ...lookbookImages.gabriella,
     copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
-    infoPage,
-    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",
@@ -299,12 +211,8 @@ const lookbooks: FrameLookbook[] = [
     designerName: "THOMAS WIESER",
     title: "test",
     brandName: "AUGUSTA LUNDIN",
-    mobileImage: thomasMobile,
-    desktopImage: thomasDesktop,
-    fullscreenImage: thomasFullscreen,
+    ...lookbookImages.thomas,
     copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
-    infoPage,
-    pages: [looken, looken, looken, looken, looken],
     socials: [
       {
         link: "https://www.google.com",

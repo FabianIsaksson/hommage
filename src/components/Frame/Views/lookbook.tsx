@@ -55,7 +55,11 @@ const Lookbook = ({
             <img
               className="frame-lookbook-card-stack-info"
               alt={lookbook.designerName + "info"}
-              src={lookbook.infoPageMobile}
+              src={
+                windowSize.isMobile
+                  ? lookbook.infoPageMobile
+                  : lookbook.infoPageDesktop
+              }
             ></img>
           </div>
           <div className="frame-lookbook-card-stack-page arrow-cards">

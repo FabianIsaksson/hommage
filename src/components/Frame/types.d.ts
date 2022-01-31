@@ -7,7 +7,7 @@ export type FrameLookbook = {
   fullscreenImage: string;
   copy: string;
   infoPageMobile: string;
-  infoPageDesktop?: string;
+  infoPageDesktop: string;
   pages: string[];
   socials?: {
     name: string;

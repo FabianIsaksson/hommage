@@ -66,6 +66,7 @@ const Lookbook = ({
             {lookbook.pages.map((page, i) => (
               <img
                 style={{
+                  cursor: "pointer",
                   transform:
                     `rotate(${cardRotations[i]}deg) ` +
                     (windowSize.isMobile
@@ -80,14 +81,15 @@ const Lookbook = ({
                 key={lookbook.designerName + "image" + i}
                 alt={lookbook.designerName + "image" + i}
                 src={page}
+                onClick={onIncrease}
               ></img>
             ))}
             <div className="frame-lookbook-card-stack-arrow-controls">
               <div
                 className={
                   currentCard > minimum
-                    ? ""
-                    : "frame-lookbook-card-stack-arrow-controls-hide"
+                    ? "clickable"
+                    : "clickable frame-lookbook-card-stack-arrow-controls-hide"
                 }
                 onClick={onDecrease}
               >
@@ -97,8 +99,8 @@ const Lookbook = ({
               <div
                 className={
                   currentCard < maximum
-                    ? ""
-                    : "frame-lookbook-card-stack-arrow-controls-hide"
+                    ? "clickable"
+                    : "clickable frame-lookbook-card-stack-arrow-controls-hide"
                 }
                 onClick={onIncrease}
               >

@@ -124,6 +124,45 @@ import thomas2 from "../../static/images/lookbook/thomas-2.jpg";
 import thomas3 from "../../static/images/lookbook/thomas-3.jpg";
 import thomas4 from "../../static/images/lookbook/thomas-4.jpg";
 
+export const collectionHighlights = [
+  alice1,
+  alice2,
+  alice3,
+  asli1,
+  asli2,
+  asli3,
+  desiree1,
+  desiree2,
+  desiree3,
+  gabriella1,
+  gabriella2,
+  gabriella3,
+  hilda1,
+  hilda2,
+  hilda3,
+  isabelle1,
+  isabelle2,
+  isabelle3,
+  kevin1,
+  kevin2,
+  kevin3,
+  maya1,
+  maya2,
+  maya3,
+  samuel1,
+  samuel2,
+  samuel3,
+  saveja1,
+  saveja2,
+  saveja3,
+  teo1,
+  teo2,
+  teo3,
+  thomas1,
+  thomas2,
+  thomas3,
+];
+
 export const lookbookImages = {
   alice: {
     mobileImage: aliceMobile,

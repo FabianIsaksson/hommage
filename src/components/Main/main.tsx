@@ -2,12 +2,14 @@ import "./main.scss";
 import Frame from "../Frame/frame";
 import { useEffect, useRef, useState } from "react";
 import { ReactComponent as Logo } from "../../static/svg/logo.svg";
-import viewCollections from "../../static/images/view-collections.png";
+import backgroundClipMp4 from "../../static/background-clip.mp4";
+import backgroundClipWebm from "../../static/background-clip.webm";
 import { VideoJsPlayer, VideoJsPlayerOptions } from "video.js";
 import { Player } from "../player";
 import LetterLoadingScreen from "../letter-loading-screen";
 import classNames from "classnames";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import Collection from "./collection";
 
 const Main = () => {
   const windowSize = useWindowSize();
@@ -17,10 +19,14 @@ const Main = () => {
     controls: true,
     responsive: true,
     fluid: true,
-    src: "//commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    src: backgroundClipMp4,
     sources: [
       {
-        src: "//commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        src: backgroundClipWebm,
+        type: "video/webm",
+      },
+      {
+        src: backgroundClipMp4,
         type: "video/mp4",
       },
     ],
@@ -61,10 +67,8 @@ const Main = () => {
           playsInline
           loop
         >
-          <source
-            src="https://roomservice.beckmans.college/static/media/video.70c30c05.mp4"
-            type="video/mp4"
-          />
+          <source src={backgroundClipWebm} type="video/webm" />
+          <source src={backgroundClipMp4} type="video/mp4" />
         </video>
       )}
       {loading && (
@@ -97,7 +101,7 @@ const Main = () => {
               playerRef.current?.requestFullscreen();
               playerRef.current?.play();
             }}
-            className="main-film-play-mobile"
+            className="main-film-play-mobile clickable"
           >
             PLAY FILM
           </p>
@@ -109,8 +113,8 @@ const Main = () => {
                 setShowFrame(true);
               }}
             >
-              <img alt="view collections" src={viewCollections}></img>
-              <p>Show Collections</p>
+              <Collection />
+              <p className="clickable">Show Collections</p>
             </div>
             <div className="main-content-info">
               <h1>BECKMANS COLLEGE OF DESIGN AT STOCKHOLM FASHION WEEK AW22</h1>
@@ -141,7 +145,7 @@ const Main = () => {
                     playerRef.current?.requestFullscreen();
                     playerRef.current?.play();
                   }}
-                  className="main-film-play-desktop"
+                  className="main-film-play-desktop clickable"
                 >
                   PLAY FILM
                 </p>

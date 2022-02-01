@@ -89,6 +89,7 @@ const Menu = ({
       <ul>
         {lookbooks.map((book) => (
           <li
+            className="clickable"
             onMouseOver={() => setHighlightedLookbook(book)}
             style={{
               opacity:

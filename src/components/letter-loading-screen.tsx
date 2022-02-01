@@ -53,6 +53,7 @@ const LetterLoadingScreen = ({
         ></img>
 
         <p
+          className="clickable"
           style={{
             opacity: clickCounter === 1 ? 1 : 0,
             pointerEvents: clickCounter === 1 ? "all" : "none",

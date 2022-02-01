@@ -29,7 +29,7 @@ HTMLAttributes<HTMLDivElement> & {
   return (
     <div
       style={style}
-      className="back-button"
+      className="back-button clickable "
       // className={classNames("arrow-button", {
       //   "absolute-up": direction === "up" && absolute,
       //   "absolute-down": direction === "down" && absolute,

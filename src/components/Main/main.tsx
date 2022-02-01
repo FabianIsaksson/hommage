@@ -73,7 +73,7 @@ const Main = () => {
           <Player options={videoJsOptions} onReady={handlePlayerReady} />
         </div>
 
-        <div className="main-content">
+        <div className="main-content" style={{ opacity: showFrame ? 0 : 1 }}>
           <Logo className="main-logo" style={{ opacity: logoFade }} />
           <p
             onClick={() => {

@@ -1,5 +1,9 @@
 .frame-container {
   background: black;
+  @media screen and (min-width: 800px) {
+    background: none;
+  }
+
   position: absolute;
   top: 0;
   left: 0;
@@ -44,9 +48,6 @@
     flex-shrink: 0;
     flex-grow: 0;
   }
-  @media screen and (min-width: 800px) {
-    // background: green;
-  }
 }
 
 .animated-overlay {
@@ -76,6 +77,7 @@
 }
 
 .logo {
+  cursor: pointer;
   width: 66px;
   position: fixed;
   top: 16px;

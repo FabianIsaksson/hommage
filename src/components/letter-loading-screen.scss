@@ -4,7 +4,7 @@
 
   background: url("../static/images/loading-mobile.gif");
   @media screen and (min-width: 800px) {
-    background: url("../static/images/desktop-gif.gif");
+    background: none;
   }
   background-size: cover;
 
@@ -21,6 +21,7 @@
     background: rgba(0, 0, 0, 0.8);
 
     > img {
+      cursor: pointer;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -29,6 +30,7 @@
       transition: all 500ms ease;
     }
     > p {
+      cursor: pointer;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);

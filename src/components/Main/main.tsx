@@ -36,7 +36,7 @@ const Main = () => {
 
   useEffect(() => {
     const fade = () => {
-      setLogoFade(1 - (mainRef.current?.scrollTop ?? 1 ^ 2) / 100);
+      setLogoFade(1 - (mainRef.current?.scrollTop ?? 1 ^ 2.5) / 100);
     };
 
     mainRef.current?.addEventListener("scroll", fade);

@@ -1,4 +1,5 @@
 .frame-container {
+  background: black;
   position: absolute;
   top: 0;
   left: 0;
@@ -75,6 +76,7 @@
 }
 
 .logo {
+  width: 66px;
   position: fixed;
   top: 16px;
   left: 50%;

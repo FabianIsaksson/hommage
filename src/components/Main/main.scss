@@ -8,12 +8,14 @@
 
 .contained {
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
 }
 
 .main {
   width: 100%;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   overflow: scroll;
 
   color: white;
@@ -104,6 +106,7 @@
   }
 
   &-logo {
+    width: 66px;
     position: fixed;
     top: 16px;
     left: 50%;

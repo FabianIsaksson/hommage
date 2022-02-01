@@ -176,6 +176,7 @@
 
   img {
     object-fit: contain;
+    will-change: transform;
     transform: rotate(-2deg);
     scroll-snap-align: start;
     flex-basis: 50vw;

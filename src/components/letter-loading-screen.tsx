@@ -1,11 +1,11 @@
 // import ArrowButton from "./arrow-button";
 import letterFront from "../static/images/letter/letter-front.png";
-import openLetter from "../static/images/letter/letter-open.png";
-import contentLetterMobile from "../static/images/letter/letter-content-mobile.png";
-import contentLetteDesktop from "../static/images/letter/letter-content-desktop.png";
+import openLetterMobile from "../static/images/letter/letter-open-mobile.png";
+import openLetterDesktop from "../static/images/letter/letter-open-desktop.png";
 import "./letter-loading-screen.scss";
 import { useEffect, useState } from "react";
 import { useWindowSize } from "../hooks/useWindowSize";
+import classNames from "classnames";
 
 const LetterLoadingScreen = ({
   onArrowDown,
@@ -18,7 +18,7 @@ const LetterLoadingScreen = ({
   const [clickCounter, setClickCounter] = useState(0);
 
   useEffect(() => {
-    if (clickCounter >= 3) {
+    if (clickCounter >= 2) {
       setTimeout(() => {
         onArrowDown();
       }, 500);
@@ -26,8 +26,8 @@ const LetterLoadingScreen = ({
   }, [clickCounter]);
 
   const letterContentImage = windowSize.isMobile
-    ? contentLetterMobile
-    : contentLetteDesktop;
+    ? openLetterMobile
+    : openLetterDesktop;
 
   return (
     <div className="letter-loading-screen">
@@ -35,21 +35,12 @@ const LetterLoadingScreen = ({
         <img
           alt="letter front"
           src={letterFront}
-          className="letter-loading-screen-letter-background"
+          className={classNames("letter-loading-screen-letter-background", {
+            "letter-animate": clickCounter === 0,
+          })}
           style={{
-            opacity: clickCounter !== 2 ? 1 : 0,
-            transform:
-              clickCounter === 0
-                ? "rotate(-5deg) translate3d(-50%, -50%, 0)"
-                : "translate3d(-50%, -50%, 0)",
+            opacity: clickCounter !== 1 ? 1 : 0,
           }}
-          onClick={() => setClickCounter(clickCounter + 1)}
-        ></img>
-        <img
-          alt="letter front"
-          className="letter-loading-screen-letter-background"
-          src={openLetter}
-          style={{ opacity: clickCounter === 2 ? 1 : 0 }}
           onClick={() => setClickCounter(clickCounter + 1)}
         ></img>
 
@@ -57,14 +48,14 @@ const LetterLoadingScreen = ({
           alt="letter content"
           src={letterContentImage}
           className="letter-loading-screen-letter-content"
-          style={{ opacity: clickCounter === 2 ? 1 : 0 }}
+          style={{ opacity: clickCounter === 1 ? 1 : 0 }}
           onClick={() => setClickCounter(clickCounter + 1)}
         ></img>
 
         <p
           style={{
-            opacity: clickCounter === 2 ? 1 : 0,
-            pointerEvents: clickCounter === 2 ? "all" : "none",
+            opacity: clickCounter === 1 ? 1 : 0,
+            pointerEvents: clickCounter === 1 ? "all" : "none",
           }}
           onClick={() => setClickCounter(clickCounter + 1)}
         >

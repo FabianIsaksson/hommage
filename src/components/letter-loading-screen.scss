@@ -24,6 +24,8 @@
       position: absolute;
       top: 50%;
       left: 50%;
+      will-change: transform;
+      transform: translate3d(-50%, -50%, 0);
       transition: all 500ms ease;
     }
     > p {
@@ -59,5 +61,34 @@
         transform: translate3d(-50%, -50%, 0);
       }
     }
+  }
+}
+
+.letter-animate {
+  animation-name: letter-rotate;
+
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+
+  animation-timing-function: ease-in-out;
+
+  transform-origin: left;
+}
+
+@keyframes letter-rotate {
+  0% {
+    transform: rotate(0deg) translate3d(-50%, -50%, 0);
+  }
+  25% {
+    transform: rotate(-2deg) translate3d(-50%, -49%, 0);
+  }
+  50% {
+    transform: rotate(2deg) translate3d(-50%, -51%, 0);
+  }
+  75% {
+    transform: rotate(-1deg) translate3d(-50%, -49%, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(-50%, -50%, 0);
   }
 }

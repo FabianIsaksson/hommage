@@ -25,6 +25,7 @@
     font-size: 24px;
     @media screen and (min-width: 800px) {
       font-size: 28px;
+      width: 50%;
     }
 
     @media screen and (min-width: 1400px) {
@@ -37,11 +38,13 @@
 
     & > li {
       cursor: pointer;
+      text-transform: uppercase;
       padding-right: 24px;
       padding-top: 6px;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
+      transform-origin: left center;
     }
   }
 

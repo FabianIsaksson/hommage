@@ -7,8 +7,10 @@ import { VideoJsPlayer, VideoJsPlayerOptions } from "video.js";
 import { Player } from "../player";
 import LetterLoadingScreen from "../letter-loading-screen";
 import classNames from "classnames";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 const Main = () => {
+  const windowSize = useWindowSize();
   const [showFrame, setShowFrame] = useState(false);
 
   const videoJsOptions: VideoJsPlayerOptions = {
@@ -50,6 +52,21 @@ const Main = () => {
 
   return (
     <div className={classNames("main-container", { contained })}>
+      {!windowSize.isMobile && (
+        <video
+          className={"main-video-desktop"}
+          controls={false}
+          muted
+          autoPlay
+          playsInline
+          loop
+        >
+          <source
+            src="https://roomservice.beckmans.college/static/media/video.70c30c05.mp4"
+            type="video/mp4"
+          />
+        </video>
+      )}
       {loading && (
         <LetterLoadingScreen
           onArrowDown={() => {

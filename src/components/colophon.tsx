@@ -3,7 +3,7 @@ import "./colophon.scss";
 
 const Colophon = ({ onArrowUp }: { onArrowUp: () => void }) => {
   return (
-    <div className="colophon">
+    <div className="colophoneee">
       <ArrowButton
         direction="up"
         absolute

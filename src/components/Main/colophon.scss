@@ -1,0 +1,16 @@
+.colophon {
+  width: 80%;
+  max-width: 1200px;
+  column-gap: 48px;
+  column-count: minmax(200px, 1fr);
+  column-width: 180px;
+
+  & > h2,
+  & > h3 {
+    text-transform: uppercase;
+    font-family: acumin-pro-extra-condensed;
+  }
+  & > p {
+    font-family: acumin-pro;
+  }
+}

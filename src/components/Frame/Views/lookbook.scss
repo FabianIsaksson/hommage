@@ -20,6 +20,11 @@
 
     @media screen and (min-width: 800px) {
       transform: translateY(-58px);
+      max-width: 980px;
+    }
+
+    @media screen and (min-width: 1400px) {
+      max-width: 1120px;
     }
 
     &-paragraphs {
@@ -100,8 +105,12 @@
   @media screen and (min-width: 800px) {
     margin-top: 0px;
     padding-top: 5vw;
-    max-height: 800px;
+    max-height: 700px;
     height: 80vw;
+  }
+
+  @media screen and (min-width: 1400px) {
+    max-height: 800px;
   }
 
   img {
@@ -117,7 +126,7 @@
     position: relative;
     width: 100%;
     max-width: 500px;
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 1400px) {
       max-width: 582px;
     }
 

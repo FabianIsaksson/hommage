@@ -22,7 +22,7 @@
   & > ul {
     position: relative;
     margin-top: 5em;
-    font-size: 2rem;
+    font-size: 32px;
     font-weight: 700;
     transition: opacity 500ms ease;
     padding-bottom: 48px;
@@ -30,7 +30,7 @@
     & > li {
       cursor: pointer;
       padding-right: 24px;
-      padding-top: 0.4rem;
+      padding-top: 6px;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;

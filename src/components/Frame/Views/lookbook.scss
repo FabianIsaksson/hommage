@@ -12,9 +12,15 @@
   color: white;
 
   &-content {
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin-bottom: 3rem;
+    padding-left: 48px;
+    padding-right: 48px;
+    margin-bottom: 48px;
+    max-width: 1120px;
+    margin: auto;
+
+    @media screen and (min-width: 800px) {
+      transform: translateY(-58px);
+    }
 
     &-paragraphs {
       font-family: acumin-pro, sans-serif;
@@ -39,17 +45,18 @@
 
     & > h1 {
       margin-left: 0;
-      font-size: 2rem;
+      margin-bottom: 16px;
+      font-size: 32px;
       font-family: acumin-pro-extra-condensed, sans-serif;
       text-transform: uppercase;
     }
 
     &-socials {
       font-family: acumin-pro-extra-condensed, sans-serif;
-      margin-top: 3rem;
-      margin-bottom: 3rem;
+      margin-top: 48px;
+      margin-bottom: 48px;
       width: 100%;
-      font-size: 1.8rem;
+      font-size: 24px;
       font-weight: 700;
       display: flex;
       justify-content: center;
@@ -103,7 +110,7 @@
 
     will-change: transform;
     transition: transform 600ms ease-in-out;
-    filter: drop-shadow(-2px 0px 0.2rem rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(-2px 0px 3.2px rgba(0, 0, 0, 0.5));
   }
 
   &-page {

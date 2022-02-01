@@ -21,10 +21,10 @@ import { lookbookImages } from "./lookbook-images";
 const lookbooks: FrameLookbook[] = [
   {
     designerName: "SAVEJA AIWUZHALI",
-    title: "test",
-    brandName: "CLAUDE MONTANA",
+    title: "She said it herself!",
+    brandName: "Gunilla Pontén",
     ...lookbookImages.saveja,
-    copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
+    copy: "When Gunilla Pontén wrote - “You are no real human without humour in the bottom of your heart” in her blogg, she described her design aesthetic in one simple sentence.\n\nMemorable, nonchalant yet pulled together and unpredictable is a Gunilla Pontén kind of girl. That is exactly the sort of attitude and energy my collection portraits, but in a contemporary way.",
     socials: [
       {
         link: "https://www.google.com",
@@ -38,10 +38,10 @@ const lookbooks: FrameLookbook[] = [
   },
   {
     designerName: "ASLI CÖMERT",
-    title: "test",
+    title: "From A to BIBA",
     brandName: "BIBA",
     ...lookbookImages.asli,
-    copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
+    copy: "This collection is an homage for those young girls in London who looked up to their older sisters dressed in all BIBA and wanted to be like that, a BIBA girl.\n\nThe silhuettes are inspired by the swinging sixties as well as Barbara Hulanicki’s love for the art deco era. Prints and textiles are influenced by her alluring way of using animal prints and a nod to her first garment she sold, the pink gingham dress.",
     socials: [
       {
         link: "https://www.google.com",
@@ -55,10 +55,10 @@ const lookbooks: FrameLookbook[] = [
   },
   {
     designerName: "DESIRÉE BJURINDER FRITZON",
-    title: "test",
+    title: "NOT SO LITTLE ANYMORE",
     brandName: "BIBA",
     ...lookbookImages.desiree,
-    copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
+    copy: "Biba represented something cool and desirable - A conceptual brand with a whole world for young women to discover themselves in.\n\nThe collection, NOT SO LITTLE ANYMORE, reflects liberation and transition; progress from girl to woman with space to explore oneself on one's own terms.\nThe expression alludes to sensuality and self-distance with a strong attitude: a contemporary modern and playful interpretation of adulthood.\n\nIn my work, I have interpreted Biba's straight silhouettes, marked shoulders and round cuts that refer to the wrestler's back. Recurring in the collection is Art Nouveau's winding design language. The sober and classic color scheme reflects the modern woman. The collection consists of timeless materials for a consumer who values quality; natural materials such as vegetable-tanned leather combined with wool constitute a sustainability perspective.",
     socials: [
       {
         link: "https://www.google.com",
@@ -72,10 +72,10 @@ const lookbooks: FrameLookbook[] = [
   },
   {
     designerName: "SAMUEL WESTERBERG",
-    title: "test",
+    title: "“voy_ex”",
     brandName: "BACK",
     ...lookbookImages.samuel,
-    copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
+    copy: "In an urban society there is constant surveillance, in the metro and the supermarket, even through your personal devices.\n\nHow much of this are we aware of, and who is watching us from the other side of the screen?\n\nIn this collection I have explored the theme of voyeurism in relation to exhibitionism. Through symbolic references, like binocular bags and jockstraps, as well as the concept of peeking through the blinds, I have translated ”the stalker” and ”the camboy”. These contradicting archetypes can be described as a perpetrator and a victim, but through my research I found that one can not live without the other, creating a power play.\n\nIn my interpretation of Ann-Sofie Backs brand I have played with the juxtaposition of pornographic references and classic tailoring to create a cohesive and challenging expression.\n\nThe collection is meant to be gender fluid, not gender neutral.\n\nBack's concept of ”aspirational fabrics” shows throughout the collection, while still developing a personal and challenging point of view of handcraft and material exploration.\n\nThis is realized by working with dead-stock fabrics and up-cycling old garments, as well as creating new materials by hand. All of the garments are constructed and developed in CLO3d to minimize the physical waste in the process of realizing the collection.",
     socials: [
       {
         link: "https://www.google.com",
@@ -89,10 +89,10 @@ const lookbooks: FrameLookbook[] = [
   },
   {
     designerName: "TEODOR WARPE",
-    title: "test",
+    title: "Bizarre Desires",
     brandName: "BACK",
     ...lookbookImages.teo,
-    copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
+    copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment.",
     socials: [
       {
         link: "https://www.google.com",
@@ -107,10 +107,10 @@ const lookbooks: FrameLookbook[] = [
 
   {
     designerName: "HILDA LANDSTRÖM FERM",
-    title: "test",
+    title: "Figura",
     brandName: "CLAUDE MONTANA",
     ...lookbookImages.hilda,
-    copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
+    copy: "A collection where material has been formed around the body with the aim of investigating how to turn the wearer herself into a living sculpture. The collection interprets the woman that Montana fantasized about. Independent, free and in control, but also playful and with a desire to stand out.\n\nLeather crafts and cuts, significant Montana details such as collars and zips, carefully selected materials and sculptural shapes; all with an uncompromising focus on female elegance and strength. A redefined representation of the woman, with accentuated body parts but proportions displaced. From sharp shoulders to rounded elbows, from past to present.\n\nThe Montana woman has been transformed into a contemporary, modern and independent woman, as a consumer is selective in her choices and cares about the longevity of the garment.",
     socials: [
       {
         link: "https://www.google.com",
@@ -124,10 +124,10 @@ const lookbooks: FrameLookbook[] = [
   },
   {
     designerName: "MAYA SUNDHOLM",
-    title: "test",
+    title: "PERIODICULT",
     brandName: "CLAUDE MONTANA",
     ...lookbookImages.maya,
-    copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
+    copy: "Being inspired by the attitude and personality in a Claude Montana design, I wanted my collection to portray power in the sense of a dress form that allows the customer to access and achieve confidence whenever the garments are worn.\n\nWith inspirations from authoritarian dress styles such as martial wear and business wear and the influences of 80s power dressing, I am using heavy tailored garments in combination with athletic silhouettes and fabrics for a mixing of textures, yet also keeping that same attitude displayed in a Claude Montana design.\n\nIn honor of the brand I have worked with selected colours and cuts, balancing a depth and futuristic tone throughout the collection.",
     socials: [
       {
         link: "https://www.google.com",
@@ -141,10 +141,10 @@ const lookbooks: FrameLookbook[] = [
   },
   {
     designerName: "ISABELLE SJÖMAN",
-    title: "test",
+    title: "Fullmånenätter",
     brandName: "SIGHSTEN HERRGÅRD",
     ...lookbookImages.isabelle,
-    copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
+    copy: "",
     socials: [
       {
         link: "https://www.google.com",
@@ -158,10 +158,10 @@ const lookbooks: FrameLookbook[] = [
   },
   {
     designerName: "KEVIN NILSSON",
-    title: "test",
+    title: "The Jetsets",
     brandName: "SIGHSTEN HERRGÅRD",
     ...lookbookImages.kevin,
-    copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
+    copy: "",
     socials: [
       {
         link: "https://www.google.com",
@@ -175,10 +175,10 @@ const lookbooks: FrameLookbook[] = [
   },
   {
     designerName: "ALICE SVENSSON BROSTEDT",
-    title: "test",
+    title: "(YOU HAVE BEEN A) GOOD GIRL",
     brandName: "AUGUSTA LUNDIN",
     ...lookbookImages.alice,
-    copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
+    copy: "",
     socials: [
       {
         link: "https://www.google.com",
@@ -192,10 +192,10 @@ const lookbooks: FrameLookbook[] = [
   },
   {
     designerName: "GABRIELLA DANERLÖV",
-    title: "test",
+    title: "Luck be a Lady",
     brandName: "AUGUSTA LUNDIN",
     ...lookbookImages.gabriella,
-    copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
+    copy: "",
     socials: [
       {
         link: "https://www.google.com",
@@ -209,10 +209,10 @@ const lookbooks: FrameLookbook[] = [
   },
   {
     designerName: "THOMAS WIESER",
-    title: "test",
+    title: "Untitled",
     brandName: "AUGUSTA LUNDIN",
     ...lookbookImages.thomas,
-    copy: "The collection Bizarre Desires draws from Ann-Sofie Back's inspiration of normality and her way of creating polarity in her collections. rubbing opposites against each other By creating a collection that is based on combining normality with extreme sexual themes (fetish). I do this by combining day-to-day garments. such as shirts and tailored coats. with garments and details exposed in the fetish scene. \n\nThe concept is inspired by the ignorance and mysticism of people around you. What lusts. needs and tensions they seek - The mystery of who is \"a freak\", who is deviant. \nThe purpose of the collection is to highlight sex and fetishes in a fashion context. Combine normality and sexuality in a concept as well as in materials. in the strive to manifest what desires can mean. A collection about sex. love and desire. \n\nFrom a sustainability perspective my concept originates in two timeless themes. sex and tailoring. As well as the fabrics used in the collection are deadstock. recycled or reused. \n\nIn the late 90's and early 2000's BACK had a certain feel about it: exclusive. bold and exciting. The costumer group was on the same page. they were looking for something refreshing in women·s fashion. something that made them get that certain feeling of empowerment. lf I were to restore BACK as brand I would like to try to recreate that in modern scene of fashion. for either gender. Aiming for the customer that looks for contemporary exclusiveness. boldness and empowerment. ",
+    copy: "",
     socials: [
       {
         link: "https://www.google.com",

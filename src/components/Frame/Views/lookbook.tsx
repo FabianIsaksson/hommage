@@ -111,7 +111,7 @@ const Lookbook = ({
           </div>
         </div>
         <div className="frame-lookbook-content">
-          <h1>"{lookbook.title}"</h1>
+          <h1>{lookbook.title}</h1>
           <div className="frame-lookbook-content-paragraphs">
             {copy}
             {lookbook.socials && (

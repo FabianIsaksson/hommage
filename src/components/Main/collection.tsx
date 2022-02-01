@@ -1,10 +1,18 @@
 import "./collection.scss";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { collectionHighlights } from "../Frame/lookbook-images";
 import debounce from "lodash.debounce";
 import { useWindowSize } from "../../hooks/useWindowSize";
 
 const Collection = () => {
+  // Preload images
+  useEffect(() => {
+    collectionHighlights.forEach((pic) => {
+      const img = new Image();
+      img.src = pic;
+    });
+  }, [collectionHighlights]);
+
   const windowSize = useWindowSize();
   const selection = useMemo(() => {
     // Shuffle array

@@ -10,7 +10,7 @@ import LetterLoadingScreen from "../letter-loading-screen";
 import classNames from "classnames";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import Collection from "./collection";
-// import Colophon from "./colophon";
+import Colophon from "./colophon";
 
 const Main = () => {
   const windowSize = useWindowSize();
@@ -153,7 +153,9 @@ const Main = () => {
               </div>
             </div>
           </div>
-          {/* <Colophon /> */}
+        </div>
+        <div className="main-content" style={{ opacity: showFrame ? 0 : 1 }}>
+          <Colophon />
         </div>
         <Frame show={showFrame} setShow={setShowFrame} />
       </div>

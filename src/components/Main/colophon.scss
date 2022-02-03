@@ -1,16 +1,65 @@
 .colophon {
-  width: 80%;
+  width: 100%;
   max-width: 1200px;
-  column-gap: 48px;
-  column-count: minmax(200px, 1fr);
-  column-width: 180px;
+  column-gap: 24px;
+  column-count: 1;
+  padding-bottom: 48px;
 
-  & > h2,
-  & > h3 {
+  @media screen and (min-width: 800px) {
+    column-count: 3;
+  }
+
+  @media screen and (min-width: 1000px) {
+    column-count: 4;
+  }
+
+  @media screen and (min-width: 1000px) {
+    column-count: 6;
+  }
+
+  :first-child {
+    margin-top: 0;
+  }
+
+  & ul {
+    padding-left: 0;
+    margin-top: 0;
+  }
+
+  & a {
+    color: white;
+  }
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 0px;
+  }
+  h3 {
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+
+  h2,
+  h3 {
     text-transform: uppercase;
     font-family: acumin-pro-extra-condensed;
+    padding-right: 36px;
   }
-  & > p {
+
+  li {
     font-family: acumin-pro;
+  }
+
+  .section {
+    width: 100%;
+    display: grid;
+    column-gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    @media screen and (min-width: 800px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  .part {
+    margin-top: 16px;
   }
 }

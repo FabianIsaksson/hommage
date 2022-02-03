@@ -51,6 +51,7 @@ ul {
 
 .clickable {
   cursor: pointer;
+  user-select: none;
   transition: transform 100ms ease-in-out;
   will-change: transform;
   @media screen and (min-width: 800px) {

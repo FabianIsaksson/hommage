@@ -6,17 +6,19 @@ import { FrameLookbook } from "../types";
 import "./lookbook.scss";
 
 const Lookbook = ({
-  lookbook,
+  preloadLookbook,
+  selectedLookbook,
   lookbookRef,
 }: {
-  lookbook: FrameLookbook;
+  preloadLookbook: FrameLookbook | null;
+  selectedLookbook: FrameLookbook | null;
   lookbookRef: RefObject<HTMLDivElement>;
 }) => {
+  const lookbook = !!selectedLookbook ? selectedLookbook : preloadLookbook;
+
   const windowSize = useWindowSize();
   const minimum = windowSize.isMobile ? -1 : 0;
-  const maximum = lookbook.pages.length - 1;
-
-  const [currentCard, setCurrentCard] = useState(minimum);
+  const maximum = lookbook ? lookbook.pages.length - 1 : 0;
 
   const cardRotations = [0, -3, 3, -2, 1, 0, 0, 0, 0, 0]; // make it nice
 
@@ -24,16 +26,7 @@ const Lookbook = ({
 
   const cardYPos = [-10, -25, -10, -20, 0, 0, 0, 0, 0];
 
-  const onDecrease = () => {
-    if (currentCard - 1 >= minimum) {
-      setCurrentCard(currentCard - 1);
-    }
-  };
-  const onIncrease = () => {
-    if (currentCard + 1 < lookbook.pages.length) {
-      setCurrentCard(currentCard + 1);
-    }
-  };
+  const [currentCard, setCurrentCard] = useState(minimum);
 
   useEffect(() => {
     if (currentCard === -1 && !windowSize.isMobile) {
@@ -41,10 +34,32 @@ const Lookbook = ({
     }
   }, [windowSize]);
 
-  const copy = lookbook.copy.split("\n").map((str, i) => <p key={i}>{str}</p>);
+  const onDecrease = () => {
+    if (currentCard - 1 >= minimum) {
+      setCurrentCard(currentCard - 1);
+    }
+  };
+
+  const onIncrease = () => {
+    if (currentCard + 1 < maximum) {
+      setCurrentCard(currentCard + 1);
+    }
+  };
+
+  const copy = lookbook
+    ? lookbook.copy.split("\n").map((str, i) => <p key={i}>{str}</p>)
+    : "";
+
+  if (!lookbook) {
+    return null;
+  }
 
   return (
-    <div className="frame-lookbook" ref={lookbookRef}>
+    <div
+      className="frame-lookbook"
+      ref={lookbookRef}
+      // style={{ display: selectedLookbook ? "block" : "none" }}
+    >
       <div className="frame-lookbook-overlay" />
       <div className="limiter">
         <div className="frame-lookbook-card-stack">
@@ -75,7 +90,7 @@ const Lookbook = ({
                         : `translate3d(${cardXPos[i]}px, ${cardYPos[i]}px, 0) `
                       : //Desktop
                       currentCard < i
-                      ? "translatey(-150vh) "
+                      ? "translatey(-100vh) "
                       : `translate3d(${cardXPos[i]}px, ${cardYPos[i]}px, 0) `),
                 }}
                 key={lookbook.designerName + "image" + i}

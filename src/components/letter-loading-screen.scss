@@ -22,6 +22,10 @@
 
     > img {
       cursor: pointer;
+      width: 80%;
+      @media screen and (min-width: 800px) {
+        width: auto;
+      }
       position: absolute;
       top: 50%;
       left: 50%;
@@ -59,7 +63,8 @@
       max-width: 400px;
       @media screen and (min-width: 800px) {
         height: 60%;
-        width: unset;
+        min-height: 400px;
+        width: auto;
         max-width: unset;
         transform: translate3d(-50%, -50%, 0);
       }

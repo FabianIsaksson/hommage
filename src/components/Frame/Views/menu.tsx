@@ -38,6 +38,19 @@ const Menu = ({
     });
   }, [lookbooks]);
 
+  // Preload highlighted
+  useEffect(() => {
+    const mobile = new Image();
+    mobile.src = highlightedLookbook.infoPageMobile;
+    const desktop = new Image();
+    desktop.src = highlightedLookbook.infoPageDesktop;
+
+    highlightedLookbook.pages.forEach((page) => {
+      const img = new Image();
+      img.src = page;
+    });
+  }, [highlightedLookbook]);
+
   // Idle animation
   useEffect(() => {
     let prev = highlightedLookbook;

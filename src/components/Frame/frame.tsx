@@ -412,12 +412,13 @@ const Frame = ({
             }, 10); // delay so the new page can render before scroll
           }}
         />
-        {selectedLookbook && (
-          <Lookbook
-            lookbookRef={lookbookRef}
-            lookbook={selectedLookbook}
-          ></Lookbook>
-        )}
+
+        <Lookbook
+          lookbookRef={lookbookRef}
+          preloadLookbook={highlightedLookbook}
+          selectedLookbook={selectedLookbook}
+        ></Lookbook>
+
         <Logo
           onClick={() => {
             triggerAnimateOut();

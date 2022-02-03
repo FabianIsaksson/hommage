@@ -113,7 +113,7 @@ const Lookbook = ({
               </div>
               <div
                 className={
-                  currentCard < maximum
+                  currentCard + 1 < maximum
                     ? "clickable"
                     : "clickable frame-lookbook-card-stack-arrow-controls-hide"
                 }

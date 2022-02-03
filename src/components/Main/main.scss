@@ -1,6 +1,7 @@
 .main-container {
   background: black;
   background-position: center;
+  overflow: hidden;
   // @media screen and (min-width: 800px) {
   //   background: url(../../static/images/desktop-gif.gif);
   // }
@@ -8,11 +9,15 @@
 
 .main-video-desktop {
   position: fixed;
+  z-index: 0;
+  min-height: 100%;
+  min-width: 100%;
+
+  margin: auto;
   left: 0;
-  bottom: 0;
   right: 0;
   top: 0;
-  z-index: 0;
+  bottom: 0;
 }
 
 .contained {

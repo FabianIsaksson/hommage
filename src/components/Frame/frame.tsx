@@ -413,11 +413,12 @@ const Frame = ({
           }}
         />
 
-        <Lookbook
-          lookbookRef={lookbookRef}
-          preloadLookbook={highlightedLookbook}
-          selectedLookbook={selectedLookbook}
-        ></Lookbook>
+        {selectedLookbook && (
+          <Lookbook
+            lookbookRef={lookbookRef}
+            lookbook={selectedLookbook}
+          ></Lookbook>
+        )}
 
         <Logo
           onClick={() => {

@@ -6,19 +6,15 @@ import { FrameLookbook } from "../types";
 import "./lookbook.scss";
 
 const Lookbook = ({
-  preloadLookbook,
-  selectedLookbook,
+  lookbook,
   lookbookRef,
 }: {
-  preloadLookbook: FrameLookbook | null;
-  selectedLookbook: FrameLookbook | null;
+  lookbook: FrameLookbook;
   lookbookRef: RefObject<HTMLDivElement>;
 }) => {
-  const lookbook = !!selectedLookbook ? selectedLookbook : preloadLookbook;
-
   const windowSize = useWindowSize();
   const minimum = windowSize.isMobile ? -1 : 0;
-  const maximum = lookbook ? lookbook.pages.length - 1 : 0;
+  const maximum = lookbook.pages.length - 1;
 
   const cardRotations = [0, -3, 3, -2, 1, 0, 0, 0, 0, 0]; // make it nice
 
@@ -41,7 +37,7 @@ const Lookbook = ({
   };
 
   const onIncrease = () => {
-    if (currentCard + 1 < maximum) {
+    if (currentCard + 1 <= maximum) {
       setCurrentCard(currentCard + 1);
     }
   };
@@ -69,12 +65,14 @@ const Lookbook = ({
           >
             <img
               className="frame-lookbook-card-stack-info"
+              style={{ zIndex: currentCard === minimum ? 100 : 0 }}
               alt={lookbook.designerName + "info"}
               src={
                 windowSize.isMobile
                   ? lookbook.infoPageMobile
                   : lookbook.infoPageDesktop
               }
+              onClick={onIncrease}
             ></img>
           </div>
           <div className="frame-lookbook-card-stack-page arrow-cards">
@@ -113,7 +111,7 @@ const Lookbook = ({
               </div>
               <div
                 className={
-                  currentCard + 1 < maximum
+                  currentCard + 1 <= maximum
                     ? "clickable"
                     : "clickable frame-lookbook-card-stack-arrow-controls-hide"
                 }

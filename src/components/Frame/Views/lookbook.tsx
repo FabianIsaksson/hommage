@@ -65,7 +65,7 @@ const Lookbook = ({
           >
             <img
               className="frame-lookbook-card-stack-info"
-              style={{ zIndex: currentCard === minimum ? 100 : 0 }}
+              // style={{ zIndex: currentCard === minimum ? 100 : 0 }}
               alt={lookbook.designerName + "info"}
               src={
                 windowSize.isMobile

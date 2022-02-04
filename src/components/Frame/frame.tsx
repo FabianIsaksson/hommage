@@ -381,6 +381,7 @@ const Frame = ({
             <img
               className={"frame-background-mobile"}
               style={{ opacity: imageVersion === 1 ? 1 : 0 }}
+              alt="menu-background"
               src={
                 imageVersion === 1
                   ? highlightedLookbook
@@ -390,6 +391,7 @@ const Frame = ({
               }
             ></img>
             <img
+              alt="menu-background"
               className={"frame-background-mobile"}
               style={{ opacity: imageVersion === 2 ? 1 : 0 }}
               src={

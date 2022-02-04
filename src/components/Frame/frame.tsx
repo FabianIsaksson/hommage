@@ -248,6 +248,15 @@ const Frame = ({
       null,
     );
 
+  const [imageVersion, setImageVersion] = useState(1);
+
+  const prevHighlight = useRef(highlightedLookbook);
+
+  useEffect(() => {
+    // assign the ref's current value to the count Hook
+    prevHighlight.current = highlightedLookbook;
+  }, [highlightedLookbook]); //run this code when the value of count changes
+
   const scrollLeft = useCallback(
     (onComplete?: () => void) => {
       // setListenScroll(false);
@@ -366,18 +375,34 @@ const Frame = ({
         "frame-container-hide": !show,
       })}
     >
-      <div
-        ref={frameRef}
-        className={"frame"}
-        style={{
-          backgroundImage:
-            highlightedLookbook && windowSize.isMobile
-              ? `url(${highlightedLookbook.mobileImage})`
-              : selectedLookbook
-              ? `url(${selectedLookbook.fullscreenImage})`
-              : "none",
-        }}
-      >
+      <div ref={frameRef} className={"frame"}>
+        {windowSize.isMobile && (
+          <>
+            <img
+              className={"frame-background-mobile"}
+              style={{ opacity: imageVersion === 1 ? 1 : 0 }}
+              src={
+                imageVersion === 1
+                  ? highlightedLookbook
+                    ? highlightedLookbook.mobileImage
+                    : ""
+                  : prevHighlight.current?.mobileImage
+              }
+            ></img>
+            <img
+              className={"frame-background-mobile"}
+              style={{ opacity: imageVersion === 2 ? 1 : 0 }}
+              src={
+                imageVersion === 2
+                  ? highlightedLookbook
+                    ? highlightedLookbook.mobileImage
+                    : ""
+                  : prevHighlight.current?.mobileImage
+              }
+            ></img>
+          </>
+        )}
+
         <BackButton
           style={{ opacity: fadeTop }}
           onClick={() => {
@@ -401,6 +426,11 @@ const Frame = ({
         <Menu
           onHighlightChange={(book: FrameLookbook) => {
             setHighlightedLookbook(book);
+            if (imageVersion === 1) {
+              setImageVersion(2);
+            } else {
+              setImageVersion(1);
+            }
           }}
           menuRef={menuRef}
           lookbooks={lookbooks}

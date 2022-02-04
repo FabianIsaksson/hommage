@@ -1,4 +1,5 @@
 import { RefObject, useEffect, useState } from "react";
+import { useWindowSize } from "../../../hooks/useWindowSize";
 import { FrameLookbook } from "../types";
 import "./menu.scss";
 
@@ -15,6 +16,7 @@ const Menu = ({
   onSelectBook: (book: FrameLookbook) => void;
   onHighlightChange: (book: FrameLookbook) => void;
 }) => {
+  const windowSize = useWindowSize();
   const [idleAnimation, setIdleAnimation] = useState(!selectedLookbook);
 
   const initialBook = lookbooks[Math.floor(Math.random() * lookbooks.length)];
@@ -103,7 +105,9 @@ const Menu = ({
         {lookbooks.map((book) => (
           <li
             className="clickable"
-            onMouseOver={() => setHighlightedLookbook(book)}
+            onMouseOver={() =>
+              !windowSize.isMobile && setHighlightedLookbook(book)
+            }
             style={{
               opacity:
                 highlightedLookbook?.designerName === book.designerName

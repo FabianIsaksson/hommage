@@ -63,7 +63,7 @@ const Colophon = () => {
           <ul>
             <li>
               <a
-                href="https://www.instagram.com/alvnylander/"
+                href="https://www.instagram.com/alvanylander/"
                 target="_blank"
                 rel="noreferrer"
               >

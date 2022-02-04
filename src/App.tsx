@@ -10,7 +10,6 @@ import TouchTest from "./pages/touch-test";
 import TripleTouchTest from "./pages/triple-touch-test";
 import MainPage from "./pages/main-page";
 
-// Hej clem :)
 const App = () => {
   return (
     <Router>

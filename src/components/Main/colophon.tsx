@@ -34,15 +34,28 @@ const Colophon = () => {
           </ul>
         </div>
       </div>
-      <h2>Fashion departement</h2>
       <div className="section">
         <div className="part">
+        <h3>Program Director</h3>
           <ul>
-            <li>Program Director - Pär Engsheden</li>
-            <li>Head of Course - Manush Mirzakhanian</li>
-            <li>Lecturer - Martin Bergström</li>
-            <li>Lecturer - Lisbeth Stålborg</li>
-            <li>Lecturer - Göran Sundberg </li>
+            <li>Pär Engsheden</li>
+            </ul>
+        </div>
+      </div>
+      <div className="section">
+        <div className="part">
+        <h3>Head of Course</h3>
+          <ul>
+            <li>Manush Mirzakhanian</li></ul>
+        </div>
+      </div>
+      <div className="section">
+        <div className="part">
+        <h3>Lecturer</h3>
+          <ul>
+            <li>Martin Bergström</li>
+            <li>Lisbeth Stålborg</li>
+            <li>Göran Sundberg </li>
           </ul>
         </div>
         <div className="part">
@@ -58,39 +71,89 @@ const Colophon = () => {
             <li>Ulrika Elofsson</li>
           </ul>
         </div>
-        <div className="part">
+      <h2>Visual communication department</h2>
+      <div className="part">
           <h3>Art Direction & concept</h3>
           <ul>
             <li>
               <a
-                href="https://www.instagram.com/alvanylander/"
+                href="https://www.instagram.com/alvnylander/"
                 target="_blank"
                 rel="noreferrer"
               >
                 Alva Nylander
               </a>
             </li>
-            <li>Clémentine Berglund</li>
-            <li>Hedvig Moberg</li>
-            <li>Leonard Ekenberg</li>
-            <li>Linnéa Jacobson</li>
-            <li>Selvi Albayrak</li>
+            <li>
+              <a
+                href="http://clementineberglund.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Clémentine Berglund
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/hedvigmoberg/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Hedvig Moberg
+              </a>
+            </li>
+            <li>
+              <a
+                href="http://leonardekenberg.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Leonard Ekenberg
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/linneajac/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Linnea Jacobson
+              </a>
+            </li>            <li>
+              <a
+                href="http://selvialbayrak.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Selvi Albayrak
+              </a>
+            </li>
           </ul>
         </div>
       </div>
-      <h2>Visual communication department</h2>
       <div className="section">
-        <div className="part">
+      <div className="part">
+          <h3>Program director</h3>
           <ul>
-            <li>Sophia Wood</li>
-            <li>Ida Wessel</li>
-            <li>Jonas Banker </li>
-            <li>Anna Romson </li>
-            <li>Amy Auscherman</li>
-            <li>Julia Urbán</li>
-            <li>Martin Löfqvist</li>
-            <li>Lova Nyblom</li>
-            <li>Maina Arvas</li>
+            <li>Samira Bouabana</li>
+          </ul>
+        </div>
+        </div>
+        <div className="section">
+      <div className="part">
+          <h3>Head of course</h3>
+          <ul>
+            <li>Samira Bouabana</li>
+          </ul>
+        </div>
+        </div>
+        <div className="section">
+      <div className="part">
+          <h3>Tutors</h3>
+          <ul>
+            <li>Johan Wilde</li>
+            <li>Sheila Johansson</li>
+            <li>Peter Ström</li>
           </ul>
         </div>
         <div className="part">
@@ -111,18 +174,57 @@ const Colophon = () => {
       <h2>Production team</h2>
       <div className="section">
         <div className="part">
+          <h3>Director</h3>
           <ul>
-            <li>Photography - Linnea Jacobson</li>
-            <li>Director - Hedvig Moberg</li>
-            <li>First assistant director - Clémentine Berglund</li>
-            <li>Cinematographer - Alva Nylander</li>
-            <li>Gaffer - Olof Jonsson</li>
-            <li>1st AC - Arvid Larsson Bellander</li>
-            <li>Typography - Selvi Albayrak </li>
-            <li>Composer - Leonard Ekenberg</li>
-            <li>Grading - Miles Lembke</li>
-            <li>VFX - Alva Nylander</li>
-            <li>Location - Guldfabriken</li>
+            <li>Hedvig Moberg</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>First ass. Director</h3>
+          <ul>
+          <li>Clémentine Berglund</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>Cinematographer</h3>
+          <ul>
+            <li>Alva Nylander</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>Gaffer</h3>
+          <ul>
+            <li>Olof Jonsson</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>First assistant camera</h3>
+          <ul>
+            <li>Arvid Larsson Bellander</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>Typography</h3>
+          <ul>
+            <li>Selvi Albayrak</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>Composer</h3>
+          <ul>
+            <li>Leonard Ekenberg</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>Grading</h3>
+          <ul>
+            <li>Miles Lembke</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>Photographer</h3>
+          <ul>
+            <li>Linnea Jacobson</li>
           </ul>
         </div>
         <div className="part">
@@ -132,14 +234,43 @@ const Colophon = () => {
           </ul>
         </div>
         <div className="part">
-          <h3>Set Designer Assistant</h3>
+          <h3>Set Designer Assistants</h3>
           <ul>
             <li>Nora Löwenberg </li>
             <li>Julia Hallin</li>
-            <li>Talents fashion film</li>
-            <li>Fiiri Agency </li>
-            <li>Said</li>
-            <li>Patricia</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>VFX</h3>
+          <ul>
+            <li>Alva Nylander</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>Location</h3>
+          <ul>
+            <li>Guldfabriken</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>Hair & makeup</h3>
+          <ul>
+            <li>Dominika Newelska, Beautify</li>
+            <li>Alicia Rickberg</li>
+            <li>Amanda Dahl</li>
+            <li>Daniella Ericsson</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>Web designer</h3>
+          <ul>
+            <li>Clémentine Berglund</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>Web developer</h3>
+          <ul>
+            <li>Fabian Isaksson</li>
           </ul>
         </div>
         <div className="part">
@@ -164,6 +295,36 @@ const Colophon = () => {
             <li>Dog Ebbot (and dog manager Agnes Nelje)</li>
           </ul>
         </div>
+        <h2>Talents fashion film</h2>
+        <div className="part">
+          <h3>Fiiri Agency</h3>
+          <ul>
+            <li>Said</li>
+            <li>Patricia</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>Mikas</h3>
+          <ul>
+            <li>Birga</li>
+            <li>Tilde H</li>
+            <li>Andrea R</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>The Wonders</h3>
+          <ul>
+            <li>Anna-lena</li>
+          </ul>
+        </div>
+        <div className="part">
+          <h3>Street Cast</h3>
+          <ul>
+            <li>Saveja Sevéra Awzel</li>
+            <li>Erik Sunnerstam</li>
+            <li>Dog Ebbot (with dog mom Agnes Nejle)</li>
+          </ul>
+        </div>
         <div className="part">
           <h3>Models</h3>
           <ul>
@@ -173,45 +334,23 @@ const Colophon = () => {
             <li>FYE mgmt.</li>
             <li>Nisch mgmt</li>
             <li>The Wonders</li>
-            <li>Street Cast</li>
           </ul>
         </div>
-        <div className="part">
-          <h3>Hair and Makeup</h3>
-          <ul>
-            <li>Dominika Newelska, Beautify</li>
-            <li>Alicia Rickberg</li>
-            <li>Amanda Dahl</li>
-            <li>Daniella Ericsson</li>
-          </ul>
         </div>
-        <div className="part">
-          <h3>Web designer</h3>
-          <ul>
-            <li>Clémentine Berglund</li>
-          </ul>
-        </div>
-        <div className="part">
-          <h3>Web developer</h3>
-          <ul>
-            <li>Fabian Isaksson</li>
-          </ul>
-        </div>
-      </div>
-      <h2>Fashion Show Production</h2>
+        <h2>Fashion show</h2>
       <div className="section">
         <div className="part">
+          <h3>Fashion Show production</h3>
           <ul>
             <li>Annika Berner</li>
             <li>Linda Nurk</li>
-
             <li>
               <a
                 href="https://stockholmfashionweek.se/"
                 target="_blank"
                 rel="noreferrer"
               >
-                stockholmfashionweek.se
+                stockholmfashionweek
               </a>
             </li>
           </ul>
@@ -229,35 +368,49 @@ const Colophon = () => {
           </ul>
         </div>
         <div className="part">
-          <h3>Runway Film </h3>
+          <h3>Runway Livestream</h3>
           <ul>
-            <li>Studio Bon </li>
+            <li>Studio Bon</li>
+          </ul>
+          </div>
+        </div>
+        <h2>Publishing</h2>
+      <div className="section">
+        <div className="part">
+          <h3>Director of External Relations</h3>
+          <ul>
+              <li>
+              <a
+                href="mailto:annika.berner@beckmans.se"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Annika Berner
+              </a>
+            </li>
           </ul>
         </div>
         <div className="part">
-          <h3>Project, press & communication</h3>
+          <h3>Press</h3>
           <ul>
-            <li>Director of External Relations - Annika Berner</li>
-            <li>
+          <li>
               <a
-                href="mailto:annika.berner@beckmans.se"
+                href="mailto:sofia.hulting@beckmans.se"
                 target="_blank"
                 rel="noreferrer"
               >
-                annika.berner@beckmans.se
+                Sofia Hulting
               </a>
             </li>
-            <li>Press - Sofia Hulting</li>
             <li>
               <a
-                href="mailto:annika.berner@beckmans.se"
+                href="https://www.mynewsdesk.com/se/beckmans_designhogskola"
                 target="_blank"
                 rel="noreferrer"
               >
-                sofia.hulting@beckmans.se
+                (Pressroom)
               </a>
             </li>
-            <li>(Press room)</li>
           </ul>
         </div>
         <div className="part">
@@ -288,15 +441,15 @@ const Colophon = () => {
           <ul>
             <li>
               <a href="https://beckmans.se/" target="_blank" rel="noreferrer">
-                beckmans.se
+                beckmans
               </a>
             </li>
           </ul>
         </div>
         <div className="part">
-          <h3>Publishing</h3>
+          <h3>Publishing & CEO</h3>
           <ul>
-            <li>Publisher & CEO - Karina Ericsson Wärn</li>{" "}
+            <li>Karina Ericsson Wärn</li>{" "}
             <li>© 2022 Beckmans College of Design</li>
             <li>Brahegatan 10</li>
             <li>114 37 Stockholm</li>

@@ -15,6 +15,9 @@ import topBackgroundMobile from "../../static/images/bakgrund_top_mobile.jpg";
 import bottomBackgroundMobile from "../../static/images/bakgrund_bottom_mobile.jpg";
 import { ReactComponent as ArrowDown } from "../../static/svg/arrow-down.svg";
 
+const videoSource =
+  "https://beckmans.college/hommage/HOMMAGE%20-%20H264%20-%20IG.mp4";
+
 const Main = () => {
   const windowSize = useWindowSize();
   const [showFrame, setShowFrame] = useState(false);
@@ -23,14 +26,10 @@ const Main = () => {
     controls: true,
     responsive: true,
     fluid: true,
-    src: backgroundClipMp4,
+    src: videoSource,
     sources: [
       {
-        src: backgroundClipWebm,
-        type: "video/webm",
-      },
-      {
-        src: backgroundClipMp4,
+        src: videoSource,
         type: "video/mp4",
       },
     ],

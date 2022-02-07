@@ -26,7 +26,7 @@ const Lookbook = ({
 
   const cardXPos = [0, -15, 25, -10, 2, 0, 0, 0, 0, 0];
 
-  const cardYPos = [-10, -25, -10, -20, 0, 0, 0, 0, 0];
+  const cardYPos = [0, -25, -10, -20, 0, 0, 0, 0, 0];
 
   const [currentCard, setCurrentCard] = useState(minimum);
 

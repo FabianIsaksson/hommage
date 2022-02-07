@@ -38,6 +38,7 @@
   color: white;
 
   &-content {
+    position: relative;
     min-height: 100vh;
     min-height: calc(var(--vh, 1vh) * 100);
     transition: opacity 500ms ease;
@@ -80,7 +81,7 @@
       @media screen and (min-width: 800px) {
         h1,
         div {
-          max-width: 400px;
+          max-width: 300px;
         }
       }
       .line {
@@ -133,12 +134,17 @@
 
   &-logo {
     cursor: pointer;
-    width: 66px;
-    position: fixed;
+    width: 48px;
+
     top: 16px;
     left: 50%;
     transform: translate(-50%, 0);
     transition: opacity 200ms ease;
+
+    position: absolute;
+    @media screen and (min-width: 800px) {
+      position: fixed;
+    }
   }
 }
 

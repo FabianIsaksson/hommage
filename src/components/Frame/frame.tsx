@@ -377,7 +377,16 @@ const Frame = ({
         "frame-container-hide": !show,
       })}
     >
-      <div ref={frameRef} className={"frame"}>
+      <div
+        ref={frameRef}
+        className={"frame"}
+        style={{
+          backgroundImage:
+            !windowSize.isMobile && selectedLookbook
+              ? `url(${selectedLookbook.fullscreenImage})`
+              : "none",
+        }}
+      >
         {windowSize.isMobile && (
           <>
             <img

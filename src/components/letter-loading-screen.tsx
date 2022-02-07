@@ -2,6 +2,7 @@
 import letterFront from "../static/images/letter/letter-front.png";
 import openLetterMobile from "../static/images/letter/letter-open-mobile.png";
 import openLetterDesktop from "../static/images/letter/letter-open-desktop.png";
+import { ReactComponent as ArrowDown } from "../static/svg/arrow-down.svg";
 import "./letter-loading-screen.scss";
 import { useEffect, useState } from "react";
 import { useWindowSize } from "../hooks/useWindowSize";
@@ -53,7 +54,7 @@ const LetterLoadingScreen = ({
         ></img>
 
         <p
-          className="clickable"
+          className="letter-enter clickable"
           style={{
             opacity: clickCounter === 1 ? 1 : 0,
             pointerEvents: clickCounter === 1 ? "all" : "none",
@@ -61,6 +62,7 @@ const LetterLoadingScreen = ({
           onClick={() => setClickCounter(clickCounter + 1)}
         >
           ENTER HOMAGE
+          <ArrowDown />
         </p>
       </div>
       {/* <img alt="letter content" src={contentLetter}></img>

@@ -45,10 +45,9 @@
       position: absolute;
       width: 100%;
       text-align: center;
-      bottom: 48px;
+      bottom: 16px;
       color: white;
       font-size: 24px;
-      text-decoration: underline;
       text-transform: uppercase;
     }
 
@@ -104,5 +103,14 @@
   }
   100% {
     transform: rotate(0deg) translate3d(-50%, -50%, 0);
+  }
+}
+
+.letter-enter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  svg {
+    margin-top: 8px;
   }
 }

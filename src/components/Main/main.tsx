@@ -13,6 +13,7 @@ import Collection from "./collection";
 import Colophon from "./colophon";
 import topBackgroundMobile from "../../static/images/bakgrund_top_mobile.jpg";
 import bottomBackgroundMobile from "../../static/images/bakgrund_bottom_mobile.jpg";
+import { ReactComponent as ArrowDown } from "../../static/svg/arrow-down.svg";
 
 const Main = () => {
   const windowSize = useWindowSize();
@@ -163,6 +164,19 @@ const Main = () => {
               </div>
             </div>
           </div>
+          <p
+            className="colophon-button-desktop"
+            onClick={() => {
+              mainRef.current?.scrollBy({
+                top: window.innerHeight,
+                left: 0,
+                behavior: "smooth",
+              });
+            }}
+          >
+            Colophon
+            <ArrowDown />
+          </p>
         </div>
         <div className="main-content" style={{ opacity: showFrame ? 0 : 1 }}>
           <Colophon />

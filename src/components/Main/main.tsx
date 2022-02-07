@@ -11,6 +11,8 @@ import classNames from "classnames";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import Collection from "./collection";
 import Colophon from "./colophon";
+import topBackgroundMobile from "../../static/images/bakgrund_top_mobile.jpg";
+import bottomBackgroundMobile from "../../static/images/bakgrund_bottom_mobile.jpg";
 
 const Main = () => {
   const windowSize = useWindowSize();
@@ -91,6 +93,11 @@ const Main = () => {
         />
       )}
       <div className="main" ref={mainRef}>
+        <img
+          className="top-background-mobile"
+          alt="top-background-mobile"
+          src={topBackgroundMobile}
+        />
         <div className="player">
           <Player options={videoJsOptions} onReady={handlePlayerReady} />
         </div>
@@ -159,6 +166,11 @@ const Main = () => {
         </div>
         <div className="main-content" style={{ opacity: showFrame ? 0 : 1 }}>
           <Colophon />
+          <img
+            className="bottom-background-mobile"
+            alt="bottom-background-mobile"
+            src={bottomBackgroundMobile}
+          />
         </div>
         <Frame show={showFrame} setShow={setShowFrame} />
       </div>

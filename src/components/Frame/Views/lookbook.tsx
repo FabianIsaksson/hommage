@@ -1,4 +1,10 @@
-import { Fragment, RefObject, useEffect, useState } from "react";
+import {
+  Fragment,
+  MouseEventHandler,
+  RefObject,
+  useEffect,
+  useState,
+} from "react";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import { ReactComponent as ArrowLeft } from "../../../static/svg/arrow-left.svg";
 import { ReactComponent as ArrowRight } from "../../../static/svg/arrow-right.svg";
@@ -20,7 +26,7 @@ const Lookbook = ({
 
   const cardXPos = [0, -15, 25, -10, 2, 0, 0, 0, 0, 0];
 
-  const cardYPos = [-10, -25, -10, -20, 0, 0, 0, 0, 0];
+  const cardYPos = [0, -25, -10, -20, 0, 0, 0, 0, 0];
 
   const [currentCard, setCurrentCard] = useState(minimum);
 
@@ -30,13 +36,15 @@ const Lookbook = ({
     }
   }, [windowSize]);
 
-  const onDecrease = () => {
+  const onDecrease: MouseEventHandler<HTMLDivElement> = (e) => {
+    e.stopPropagation();
     if (currentCard - 1 >= minimum) {
       setCurrentCard(currentCard - 1);
     }
   };
 
-  const onIncrease = () => {
+  const onIncrease: MouseEventHandler<HTMLDivElement> = (e) => {
+    e.stopPropagation();
     if (currentCard + 1 <= maximum) {
       setCurrentCard(currentCard + 1);
     }
@@ -75,7 +83,10 @@ const Lookbook = ({
               onClick={onIncrease}
             ></img>
           </div>
-          <div className="frame-lookbook-card-stack-page arrow-cards">
+          <div
+            className="frame-lookbook-card-stack-page arrow-cards"
+            onClick={onIncrease}
+          >
             {lookbook.pages.map((page, i) => (
               <img
                 style={{
@@ -94,7 +105,6 @@ const Lookbook = ({
                 key={lookbook.designerName + "image" + i}
                 alt={lookbook.designerName + "image" + i}
                 src={page}
-                onClick={onIncrease}
               ></img>
             ))}
             <div className="frame-lookbook-card-stack-arrow-controls">

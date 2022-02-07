@@ -78,10 +78,27 @@
 
 .logo {
   cursor: pointer;
-  width: 66px;
+  width: 48px;
   position: fixed;
   top: 16px;
   left: 50%;
   transform: translate(-50%, 0);
   transition: opacity 200ms ease;
+}
+
+.frame-background-mobile {
+  z-index: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  transition: opacity 500ms ease;
+
+  // max-width: 100%;
+  object-fit: cover;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }

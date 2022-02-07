@@ -30,7 +30,12 @@ const Collection = () => {
   const hoverPositions = ["-70%, -50%", "-40%, -55%", "-50%, -70%"];
 
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
-  const debouncedSetHover = useMemo(() => debounce(setHoveredItem, 100), []);
+  const debouncedSetHover = useMemo(() => {
+    if (windowSize.isMobile) {
+      return () => {};
+    }
+    return debounce(setHoveredItem, 100);
+  }, []);
 
   const restingPositions = windowSize.isMobile
     ? restingPositionsMobile

@@ -294,7 +294,7 @@ const Frame = ({
         frameRef.current?.classList.add("scroll-snap-x");
 
         setFadeTop(1);
-        if (menuRef.current) {
+        if (menuRef.current && windowSize.isMobile) {
           menuRef.current.scrollTop = 0;
         }
 

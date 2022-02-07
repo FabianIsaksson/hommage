@@ -23,27 +23,27 @@ import { ReactComponent as ArrowUp } from "../../static/svg/arrow-up.svg";
 import { RefObject } from "react";
 import { useWindowSize } from "../../hooks/useWindowSize";
 
-const sponsors = [
-  abbypriest,
-  aplace,
-  breel,
-  eldorado,
-  falsett,
-  forsmanbodenfors,
-  guldfabriken,
-  hawaii,
-  ibm,
-  kamerastockholm,
-  nobishotel,
-  ohmy,
-  oriflame,
-  plick,
-  sfw,
-  vitaminwell,
-  volt,
-  vont,
-  yearwood,
-];
+// const sponsors = [
+//   abbypriest,
+//   aplace,
+//   breel,
+//   eldorado,
+//   falsett,
+//   forsmanbodenfors,
+//   guldfabriken,
+//   hawaii,
+//   ibm,
+//   kamerastockholm,
+//   nobishotel,
+//   ohmy,
+//   oriflame,
+//   plick,
+//   sfw,
+//   vitaminwell,
+//   volt,
+//   vont,
+//   yearwood,
+// ];
 
 const Sponsors = () => {
   return (

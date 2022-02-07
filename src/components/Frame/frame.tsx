@@ -282,7 +282,9 @@ const Frame = ({
   const scrollRight = useCallback(
     (onComplete?: () => void) => {
       // setListenScroll(false);
-      frameRef.current?.classList.remove("scroll-snap-x");
+      if (windowSize.isMobile) {
+        frameRef.current?.classList.remove("scroll-snap-x");
+      }
 
       frameRef.current?.scrollBy({
         top: 0,
@@ -294,7 +296,7 @@ const Frame = ({
         frameRef.current?.classList.add("scroll-snap-x");
 
         setFadeTop(1);
-        if (menuRef.current && windowSize.isMobile) {
+        if (menuRef.current) {
           menuRef.current.scrollTop = 0;
         }
 

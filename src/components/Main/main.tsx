@@ -178,7 +178,7 @@ const Main = () => {
           </p>
         </div>
         <div className="main-content" style={{ opacity: showFrame ? 0 : 1 }}>
-          <Colophon />
+          <Colophon mainRef={mainRef} />
           <img
             className="bottom-background-mobile"
             alt="bottom-background-mobile"
@@ -186,6 +186,7 @@ const Main = () => {
           />
         </div>
         <Frame show={showFrame} setShow={setShowFrame} />
+        <div style={{ scrollSnapAlign: "start" }}></div>
       </div>
     </div>
   );

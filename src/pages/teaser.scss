@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
+
+.teaser {
+  width: 100vw;
+  height: 100vh;
+  background: url(https://cdn.glitch.global/5f1b82f3-765e-4c03-8767-46bf19e51570/Hemsida%20placeholder.jpg?v=1643381153903)
+    no-repeat center center fixed;
+  background-size: cover;
+}
+
+img.center {
+  width: 200px;
+  margin: 0;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+img.center2 {
+  margin: 0;
+  width: 80px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}

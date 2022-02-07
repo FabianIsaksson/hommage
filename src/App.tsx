@@ -9,12 +9,13 @@ import SwipeTest from "./pages/swipe-test";
 import TouchTest from "./pages/touch-test";
 import TripleTouchTest from "./pages/triple-touch-test";
 import MainPage from "./pages/main-page";
+import Teaser from "./pages/teaser";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<MainPage />}></Route>
+        <Route path="/" element={<Teaser />}></Route>
         <Route path="/dev" element={<Home />}></Route>
         <Route path="/main" element={<MainPage />}></Route>
         <Route path="/characters" element={<Characters />}></Route>

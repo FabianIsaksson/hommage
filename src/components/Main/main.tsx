@@ -151,6 +151,16 @@ const Main = () => {
                   the Beckmans’ alumni Gunilla Pontén, Sighsten Herrgård and
                   Ann-Sofie Back.
                 </p>
+
+                <p className="line">
+                  <a
+                    href="https://stockholmfashionweek.se/BECKMAN-S-SCHOOL-OF-FASHION-AW22"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Live-event at Stockholm Fashion Week
+                  </a>
+                </p>
                 <p
                   onClick={() => {
                     playerRef.current?.requestFullscreen();

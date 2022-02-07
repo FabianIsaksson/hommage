@@ -79,6 +79,10 @@
     }
 
     &-info {
+      a {
+        color: white;
+        text-decoration: underline;
+      }
       @media screen and (min-width: 800px) {
         h1,
         div {

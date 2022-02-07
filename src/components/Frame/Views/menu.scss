@@ -69,4 +69,14 @@
   @media screen and (min-width: 800px) {
     display: block;
   }
+
+  &-card {
+    width: 90%;
+    max-width: 500px;
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    filter: drop-shadow(-2px 0px 3.2px rgba(0, 0, 0, 0.5));
+  }
 }

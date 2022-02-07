@@ -8,6 +8,7 @@ export type FrameLookbook = {
   copy: string;
   infoPageMobile: string;
   infoPageDesktop: string;
+  designerCard: string;
   pages: string[];
   socials?: {
     name: string;

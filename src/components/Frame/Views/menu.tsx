@@ -100,7 +100,18 @@ const Menu = ({
         style={{
           backgroundImage: `url(${highlightedLookbook.desktopImage})`,
         }}
-      ></div>
+        onClick={() => {
+          onSelectBook(highlightedLookbook);
+        }}
+      >
+        {!windowSize.isMobile && (
+          <img
+            className={"frame-menu-desktop-image-card"}
+            alt="menu-background"
+            src={highlightedLookbook.designerCard}
+          ></img>
+        )}
+      </div>
       <ul>
         {lookbooks.map((book) => (
           <li

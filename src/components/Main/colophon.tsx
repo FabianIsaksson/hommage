@@ -428,7 +428,15 @@ const Colophon = ({ mainRef }: { mainRef: RefObject<HTMLDivElement> }) => {
             <div className="part">
               <h3>Web developer</h3>
               <ul>
-                <li>Fabian Isaksson</li>
+                <li>
+                  <a
+                    href="https://fabianisaksson.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Fabian Isaksson
+                  </a>
+                </li>
               </ul>
             </div>
             <div className="part">

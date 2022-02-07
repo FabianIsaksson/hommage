@@ -36,6 +36,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
+      transition: opacity 500ms ease-in-out;
       will-change: transform;
       transform: translate3d(-50%, -50%, 0);
       filter: drop-shadow(-2px 0px 3.2px rgb(38, 38, 39));

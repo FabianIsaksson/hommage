@@ -164,7 +164,7 @@ const Main = () => {
             </div>
           </div>
           <p
-            className="colophon-button-desktop"
+            className="clickable colophon-button-desktop"
             onClick={() => {
               mainRef.current?.scrollBy({
                 top: window.innerHeight,

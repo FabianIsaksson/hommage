@@ -36,9 +36,12 @@ const LetterLoadingScreen = ({
         <img
           alt="letter front"
           src={letterFront}
-          className={classNames("letter-loading-screen-letter-background", {
-            "letter-animate": clickCounter === 0,
-          })}
+          className={classNames(
+            "letter-loading-screen-letter-background front",
+            {
+              "letter-animate": clickCounter === 0,
+            },
+          )}
           style={{
             opacity: clickCounter !== 1 ? 1 : 0,
           }}

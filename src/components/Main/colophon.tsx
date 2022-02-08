@@ -167,7 +167,7 @@ const Colophon = ({ mainRef }: { mainRef: RefObject<HTMLDivElement> }) => {
           <h2>FASHION DEPARTMENT</h2>
           <div className="section">
             <div className="part">
-              <h3>Homage to brands</h3>
+              <h3>Hommage to brands</h3>
               <ul>
                 <li>Augusta Lundin</li>
                 <li>Ann-Sofie Back</li>
@@ -645,7 +645,7 @@ const Colophon = ({ mainRef }: { mainRef: RefObject<HTMLDivElement> }) => {
       </div>
       <Sponsors></Sponsors>
       <div className="copyright">
-        <h2>HOMAGE</h2>
+        <h2>HOMMAGE</h2>
         <p>© Beckmans College of Design {new Date().getFullYear()}</p>
       </div>
     </>

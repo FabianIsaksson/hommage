@@ -64,7 +64,7 @@ const LetterLoadingScreen = ({
           }}
           onClick={() => setClickCounter(clickCounter + 1)}
         >
-          ENTER HOMAGE
+          ENTER HOMMAGE
           <ArrowDown />
         </p>
       </div>

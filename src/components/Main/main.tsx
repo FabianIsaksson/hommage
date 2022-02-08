@@ -171,7 +171,7 @@ const Main = () => {
                 </p>
                 <p className="line">
                   To move forward you have to look back. In the project
-                  "Beckmans Homage", the students have drawn inspiration from
+                  "Beckmans Hommage", the students have drawn inspiration from
                   fashion history and brought it into the future.
                 </p>
                 <p className="line">

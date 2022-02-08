@@ -41,6 +41,11 @@
 }
 
 .main {
+  background: black;
+  @media screen and (min-width: 800px) {
+    background: none;
+  }
+
   position: relative;
   z-index: 1;
   width: 100%;

@@ -49,7 +49,7 @@ import classNames from "classnames";
 
 const Sponsors = () => {
   return (
-    <div>
+    <div className="sponsor-section">
       <h2>SPECIAL THANKS TO</h2>
       <div className="sponsors">
         <div className="unit">

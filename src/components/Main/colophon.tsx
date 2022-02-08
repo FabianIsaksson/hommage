@@ -47,13 +47,9 @@ import classNames from "classnames";
 //   yearwood,
 // ];
 
-const Sponsors = ({ inView }: { inView: boolean }) => {
+const Sponsors = () => {
   return (
-    <div
-      className={classNames("sponsor-section fade", {
-        "fade-after": inView,
-      })}
-    >
+    <div>
       <h2>SPECIAL THANKS TO</h2>
       <div className="sponsors">
         <div className="unit">
@@ -647,7 +643,7 @@ const Colophon = ({ mainRef }: { mainRef: RefObject<HTMLDivElement> }) => {
           </div>
         </div>
       </div>
-      <Sponsors inView={inView}></Sponsors>
+      <Sponsors></Sponsors>
       <div className="copyright">
         <h2>HOMAGE</h2>
         <p>© Beckmans College of Design {new Date().getFullYear()}</p>

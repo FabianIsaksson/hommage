@@ -119,6 +119,11 @@
     will-change: transform;
     transition: transform 400ms ease-in-out;
     filter: drop-shadow(-2px 0px 3.2px rgba(0, 0, 0, 0.5));
+    padding: 1px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-background-clip: content-box;
+    background-clip: content-box;
   }
 
   &-page {

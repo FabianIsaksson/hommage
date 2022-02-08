@@ -189,7 +189,7 @@ const Main = () => {
 
                 <p className="line">
                   <a
-                    href="https://stockholmfashionweek.se/BECKMAN-S-SCHOOL-OF-FASHION-AW22"
+                    href="https://stockholmfashionweek.se/BECKMANS-COLLEGE-OF-DESIGN-AW22"
                     target="_blank"
                     rel="noreferrer"
                   >

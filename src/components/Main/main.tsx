@@ -129,10 +129,13 @@ const Main = () => {
 
         <div className="main-content" style={{ opacity: showFrame ? 0 : 1 }}>
           <a href="/">
-            <Logo
-              className="main-logo"
-              style={{ opacity: windowSize.isMobile ? 1 : logoFade }}
-            />
+            {windowSize.isMobile && <Logo className="main-logo" />}
+            {!windowSize.isMobile && (
+              <Logo
+                className="main-logo"
+                style={{ opacity: windowSize.isMobile ? 1 : logoFade }}
+              />
+            )}
           </a>
           <p
             onClick={() => {

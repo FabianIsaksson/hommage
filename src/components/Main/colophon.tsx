@@ -452,7 +452,7 @@ const Colophon = ({ mainRef }: { mainRef: RefObject<HTMLDivElement> }) => {
             <div className="part">
               <h3>Mikas</h3>
               <ul>
-                <li>Burga</li>
+                <li>Bugra</li>
                 <li>Tilde H</li>
                 <li>Andrea R </li>
               </ul>

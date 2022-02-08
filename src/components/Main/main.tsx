@@ -114,10 +114,12 @@ const Main = () => {
         </div>
 
         <div className="main-content" style={{ opacity: showFrame ? 0 : 1 }}>
-          <Logo
-            className="main-logo"
-            style={{ opacity: windowSize.isMobile ? 1 : logoFade }}
-          />
+          <a href="/">
+            <Logo
+              className="main-logo"
+              style={{ opacity: windowSize.isMobile ? 1 : logoFade }}
+            />
+          </a>
           <p
             onClick={() => {
               playerRef.current?.requestFullscreen();

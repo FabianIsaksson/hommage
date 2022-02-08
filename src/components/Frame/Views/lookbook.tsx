@@ -10,6 +10,8 @@ import { ReactComponent as ArrowLeft } from "../../../static/svg/arrow-left.svg"
 import { ReactComponent as ArrowRight } from "../../../static/svg/arrow-right.svg";
 import { FrameLookbook } from "../types";
 import "./lookbook.scss";
+import { useInView } from "react-intersection-observer";
+import classNames from "classnames";
 
 const Lookbook = ({
   lookbook,
@@ -18,6 +20,11 @@ const Lookbook = ({
   lookbook: FrameLookbook;
   lookbookRef: RefObject<HTMLDivElement>;
 }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    delay: 300,
+  });
+
   const windowSize = useWindowSize();
   const minimum = windowSize.isMobile ? -1 : 0;
   const maximum = lookbook.pages.length - 1;
@@ -65,7 +72,12 @@ const Lookbook = ({
       // style={{ display: selectedLookbook ? "block" : "none" }}
     >
       <div className="frame-lookbook-overlay" />
-      <div className="limiter">
+      <div
+        className={classNames("limiter fade", {
+          "fade-after": inView,
+        })}
+        ref={ref}
+      >
         <div className="frame-lookbook-card-stack">
           <div
             className="frame-lookbook-card-stack-page"

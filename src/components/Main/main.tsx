@@ -14,6 +14,7 @@ import Colophon from "./colophon";
 import topBackgroundMobile from "../../static/images/bakgrund_top_mobile.jpg";
 import bottomBackgroundMobile from "../../static/images/bakgrund_bottom_mobile.jpg";
 import { ReactComponent as ArrowDown } from "../../static/svg/arrow-down.svg";
+import { useInView } from "react-intersection-observer";
 
 const videoSource =
   "https://beckmans.college/hommage/HOMMAGE%20-%20H264%20-%20IG.mp4";
@@ -58,6 +59,16 @@ const Main = () => {
 
   const [loading, setLoading] = useState(true);
   const [contained, setContained] = useState(true);
+
+  const { ref: viewCollectionsRef, inView: viewCollectionsRefInView } =
+    useInView({
+      triggerOnce: true,
+      delay: 250,
+    });
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    delay: 300,
+  });
 
   return (
     <div className={classNames("main-container", { contained })}>
@@ -119,7 +130,10 @@ const Main = () => {
 
           <div className="main-content-split">
             <div
-              className="main-content-view-collections"
+              className={classNames("main-content-view-collections fade", {
+                "fade-after": viewCollectionsRefInView,
+              })}
+              ref={viewCollectionsRef}
               onClick={() => {
                 setShowFrame(true);
               }}
@@ -127,7 +141,12 @@ const Main = () => {
               <Collection />
               <p className="clickable">Show Collections</p>
             </div>
-            <div className="main-content-info">
+            <div
+              className={classNames("main-content-info fade", {
+                "fade-after": textInView,
+              })}
+              ref={textRef}
+            >
               <h1>BECKMANS COLLEGE OF DESIGN AT STOCKHOLM FASHION WEEK AW22</h1>
               <div>
                 <p className="line">

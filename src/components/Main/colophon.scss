@@ -72,6 +72,7 @@
 
 .sponsor-section {
   z-index: 1;
+  will-change: transform;
   margin-top: 24px;
   padding-bottom: 40vw;
   @media screen and (min-width: 800px) {

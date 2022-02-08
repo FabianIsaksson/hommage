@@ -22,6 +22,8 @@ import popup from "../../static/images/sponsors/popup.png";
 import { ReactComponent as ArrowUp } from "../../static/svg/arrow-up.svg";
 import { RefObject } from "react";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { useInView } from "react-intersection-observer";
+import classNames from "classnames";
 
 // const sponsors = [
 //   abbypriest,
@@ -45,9 +47,13 @@ import { useWindowSize } from "../../hooks/useWindowSize";
 //   yearwood,
 // ];
 
-const Sponsors = () => {
+const Sponsors = ({ inView }: { inView: boolean }) => {
   return (
-    <div className="sponsor-section">
+    <div
+      className={classNames("sponsor-section fade", {
+        "fade-after": inView,
+      })}
+    >
       <h2>SPECIAL THANKS TO</h2>
       <div className="sponsors">
         <div className="unit">
@@ -135,6 +141,11 @@ const Sponsors = () => {
 
 const Colophon = ({ mainRef }: { mainRef: RefObject<HTMLDivElement> }) => {
   const windowSize = useWindowSize();
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    delay: 250,
+  });
+
   return (
     <>
       {!windowSize.isMobile && (
@@ -152,7 +163,10 @@ const Colophon = ({ mainRef }: { mainRef: RefObject<HTMLDivElement> }) => {
           <ArrowUp />
         </div>
       )}
-      <div className="colophon">
+      <div
+        className={classNames("colophon fade", { "fade-after": inView })}
+        ref={ref}
+      >
         <div className="group">
           <h2>FASHION DEPARTMENT</h2>
           <div className="section">
@@ -633,7 +647,7 @@ const Colophon = ({ mainRef }: { mainRef: RefObject<HTMLDivElement> }) => {
           </div>
         </div>
       </div>
-      <Sponsors></Sponsors>
+      <Sponsors inView={inView}></Sponsors>
       <div className="copyright">
         <h2>HOMAGE</h2>
         <p>© Beckmans College of Design {new Date().getFullYear()}</p>

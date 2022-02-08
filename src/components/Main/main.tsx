@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ReactComponent as Logo } from "../../static/svg/logo.svg";
 import backgroundClipMp4 from "../../static/background-clip.mp4";
 import backgroundClipWebm from "../../static/background-clip.webm";
+import backgroundClipMobile from "../../static/loading-mobile.mp4";
 import { VideoJsPlayer, VideoJsPlayerOptions } from "video.js";
 import { Player } from "../player";
 import LetterLoadingScreen from "../letter-loading-screen";
@@ -83,6 +84,19 @@ const Main = () => {
         >
           <source src={backgroundClipWebm} type="video/webm" />
           <source src={backgroundClipMp4} type="video/mp4" />
+        </video>
+      )}
+      {windowSize.isMobile && (
+        <video
+          className={"main-video-mobile"}
+          controls={false}
+          muted
+          autoPlay
+          playsInline
+          loop
+        >
+          {/* <source src={backgroundClipMobile} type="video/webm" /> */}
+          <source src={backgroundClipMobile} type="video/mp4" />
         </video>
       )}
       {loading && (

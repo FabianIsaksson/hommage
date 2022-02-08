@@ -17,7 +17,7 @@ import { ReactComponent as ArrowDown } from "../../static/svg/arrow-down.svg";
 import { useInView } from "react-intersection-observer";
 
 const videoSource =
-  "https://beckmans.college/hommage/HOMMAGE%20-%20H264%20-%20IG.mp4";
+  "https://beckmans.college/hommage/HOMMAGE%20-%20H264%20-%20IG%2002.mp4";
 
 const Main = () => {
   const windowSize = useWindowSize();
